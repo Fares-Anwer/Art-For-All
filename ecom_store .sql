@@ -287,28 +287,6 @@ INSERT INTO `enquiry_type` (`enquiry_id`, `enquiry_title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `icons`
---
-
-CREATE TABLE `icons` (
-  `icon_id` int(10) NOT NULL,
-  `icon_product` int(10) NOT NULL,
-  `icon_title` varchar(255) NOT NULL,
-  `icon_image` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `icons`
---
-
-INSERT INTO `icons` (`icon_id`, `icon_product`, `icon_title`, `icon_image`) VALUES
-(1, 15, 'Icon 1', 'icon1.png'),
-(2, 14, 'Icon 2', 'icon2.png'),
-(3, 13, 'Icon 3', 'icon3.png'),
-(4, 12, 'Icon 4', 'icon4.png'),
-(5, 1, 'New Icon', '-_SEO_-_Webmarketing_-_Code_-_Developer_-_Web_-_Development-512.png'),
-(7, 13, 'New Icon', '-_SEO_-_Webmarketing_-_Code_-_Developer_-_Web_-_Development-512.png');
-
 -- --------------------------------------------------------
 
 --
