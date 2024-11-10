@@ -225,13 +225,13 @@ if (isset($_POST['submit'])) {
 									</div>
 								</div>
 								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-									<textarea name="product_features" class="form-control summernote" rows="15" id="product_features" placeholder="Enter Product Video" required></textarea>
+									<textarea name="product_features" class="form-control summernote" rows="15" id="product_features" placeholder="Enter Product Features"></textarea>
 									<div class="invalid-feedback">
 										Please provide Product Features.
 									</div>
 								</div>
 								<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-									<textarea name="product_video" class="form-control summernote" rows="15" id="product_video" placeholder="Enter Product Video" required></textarea>
+									<textarea name="product_video" class="form-control summernote" rows="15" id="product_video" placeholder="Enter Product Video"></textarea>
 									<div class="invalid-feedback">
 										Please provide Product Video.
 									</div>
