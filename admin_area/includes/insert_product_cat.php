@@ -7,10 +7,10 @@ if (isset($_POST['add_p_cat'])) {
 	$insert_product_cat = $getFromU->create("product_categories", array("p_cat_title" => $p_cat_title, "Category" => $Category));
 
 	if ($insert_product_cat) {
-		$_SESSION['insert_product_cat_msg'] = "Subcategory has been added Sucessfully";
+		$_SESSION['insert_product_cat_msg'] = "Subategory has been added Sucessfully";
 		header('Location: index.php?view_p_cats');
 	} else {
-		echo '<script>alert("Subcategory has not added")</script>';
+		echo '<script>alert("Subategory has not added")</script>';
 	}
 }
 
@@ -28,7 +28,7 @@ if (isset($_POST['add_p_cat'])) {
 
 
 <div class="card rounded">
-	<div class="card-header bg-light h5"><i class="fas fa-plus-square"></i> Insert Subcategory</div>
+	<div class="card-header bg-light h5"><i class="fas fa-plus-square"></i> Insert Subategory</div>
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
@@ -38,7 +38,7 @@ if (isset($_POST['add_p_cat'])) {
 							<label for="p_cat_title"> Subcategory Title</label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="p_cat_title" class="form-control" id="p_cat_title" placeholder="Subcategory Title" required>
+							<input type="text" name="p_cat_title" class="form-control" id="p_cat_title" placeholder="Subategory Title" required>
 							<div class="invalid-feedback">
 								Please provide a Subcategory Title.
 							</div>
@@ -67,7 +67,7 @@ if (isset($_POST['add_p_cat'])) {
 
 					<div class="row">
 						<div class="col-12 mt-4">
-							<button class="btn btn-info form-control" name="add_p_cat" type="submit"><i class="fas fa-plus-circle"></i> Insert Subcategory</button>
+							<button class="btn btn-info form-control" name="add_p_cat" type="submit"><i class="fas fa-plus-circle"></i> Insert Subategory</button>
 						</div>
 					</div>
 				</form>

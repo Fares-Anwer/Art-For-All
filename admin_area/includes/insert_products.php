@@ -89,27 +89,6 @@ if (isset($_POST['submit'])) {
 						</div>
 					</div>
 
-					<div class="form-row mb-3">
-						<div class="col-3">
-							<label for="product_cat">Subcategories</label>
-						</div>
-						<div class="col-md-9">
-							<select name="product_cat" id="product_cat" class="form-control" required>
-								<option value="">----- Select a Subcategory -----</option>
-								<?php
-								$p_categories = $getFromU->viewAllFromTable("product_categories");
-								foreach ($p_categories as $p_category) {
-									$p_cat_id = $p_category->p_cat_id;
-									$p_cat_title = $p_category->p_cat_title;
-								?>
-									<option value="<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></option>
-								<?php } ?>
-							</select>
-							<div class="invalid-feedback">
-								Please select a Subcategories.
-							</div>
-						</div>
-					</div>
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
@@ -129,6 +108,30 @@ if (isset($_POST['submit'])) {
 							</select>
 							<div class="invalid-feedback">
 								Please select a Categories.
+							</div>
+						</div>
+					</div>
+
+
+					<div class="form-row mb-3">
+						<div class="col-3">
+							<label for="product_cat">Subcategories</label>
+						</div>
+						<div class="col-md-9">
+							<select name="product_cat" id="product_cat" class="form-control" required>
+								<option value="">----- Select a Subategory -----</option>
+								<?php
+								$p_categories = $getFromU->viewAllFromTable("product_categories");
+								foreach ($p_categories as $p_category) {
+
+									$p_cat_id = $p_category->p_cat_id;
+									$p_cat_title = $p_category->p_cat_title;
+								?>
+									<option value="<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></option>
+								<?php } ?>
+							</select>
+							<div class="invalid-feedback">
+								Please select a Subcategories.
 							</div>
 						</div>
 					</div>

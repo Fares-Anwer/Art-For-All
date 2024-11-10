@@ -1,11 +1,11 @@
 <!-- START PAGE CONTENT-->
 <div class="page-heading">
-    <h1 class="page-title">View Subcategory</h1>
+    <h1 class="page-title">View Subategory</h1>
 </div>
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">View Subcategory</li>
+        <li class="breadcrumb-item active" aria-current="page">View Subategory</li>
     </ol>
 </nav>
 
@@ -60,14 +60,14 @@
 <div class="page-content fade-in-up">
     <div class="ibox rounded">
         <div class="ibox-head bg-light">
-            <div class="ibox-title"><i class="fas fa-list-ul"></i>Subcategory List</div>
+            <div class="ibox-title"><i class="fas fa-list-ul"></i>Subategory List</div>
         </div>
         <div class="ibox-body">
             <table class="table table-bordered table-hover table-responsive-lg" id="example-table2" cellspacing="0" width="100%">
                 <thead class="bg-light">
                     <tr>
-                        <th>Subcategory ID</th>
-                        <th>Subcategory Title</th>
+                        <th>Subategory ID</th>
+                        <th>Subategory Title</th>
                         <th>Sold</th>
                         <th>Store</th>
                         <th>Edit</th>

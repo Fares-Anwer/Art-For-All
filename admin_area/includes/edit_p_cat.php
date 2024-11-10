@@ -23,7 +23,7 @@ if (isset($_POST['update_p_cat'])) {
 	$update_p_cat = $getFromU->update_p_cat("product_categories", $p_cat_id, array("p_cat_title" => $p_cat_title, "Category" => $Category));
 
 	if ($update_p_cat) {
-		$_SESSION['product_update_msg'] = "Subcategory has been Updated Sucessfully";
+		$_SESSION['product_update_msg'] = "Subategory has been Updated Sucessfully";
 		header('Location: index.php?view_p_cats');
 	} else {
 		echo '<script>alert("Product has not added")</script>';
@@ -35,14 +35,14 @@ if (isset($_POST['update_p_cat'])) {
 <nav aria-label="breadcrumb" class="my-4">
 	<ol class="breadcrumb">
 		<li class="breadcrumb-item"><a href="index.php?dashboard">Dashboard</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Update Subcategory</li>
+		<li class="breadcrumb-item active" aria-current="page">Update Subategory</li>
 	</ol>
 </nav>
 
 
 
 <div class="card rounded">
-	<div class="card-header bg-light h5"><i class="fas fa-edit"></i> Update Subcategory</div>
+	<div class="card-header bg-light h5"><i class="fas fa-edit"></i> Update Subategory</div>
 	<div class="card-body">
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
@@ -54,31 +54,31 @@ if (isset($_POST['update_p_cat'])) {
 					</div>
 					<div class="form-row mb-3">
 						<div class="col-3">
-							<label for="p_cat_title">Subcategory Title</label>
+							<label for="p_cat_title">Subategory Title</label>
 						</div>
 						<div class="col-md-9">
 							<input type="text" name="p_cat_title" class="form-control" id="p_cat_title" value="<?php echo $p_cat_title; ?>" placeholder="Product Title" required>
 							<div class="invalid-feedback">
-								Please provide a Subcategory Title.
+								Please provide a Subategory Title.
 							</div>
 						</div>
 					</div>
 
 					<div class="form-row mb-3">
 						<div class="col-3">
-							<label for="p_cat_image">Subcategory Image</label>
+							<label for="p_cat_image">Subategory Image</label>
 						</div>
 						<div class="col-md-9">
 							<input type="text" name="Category" value="<?php echo $Category; ?>" id="Category" required>
 							<div class="invalid-feedback">
-								Please provide a Subcategory Image.
+								Please provide a Subategory Image.
 							</div>
 						</div>
 					</div>
 
 					<div class="row">
 						<div class="col-12 mt-4">
-							<button class="btn btn-info form-control" name="update_p_cat" type="submit"><i class="fas fa-edit"></i> Update Subcategory</button>
+							<button class="btn btn-info form-control" name="update_p_cat" type="submit"><i class="fas fa-edit"></i> Update Subategory</button>
 						</div>
 					</div>
 				</form>
