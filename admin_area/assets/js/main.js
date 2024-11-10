@@ -52,7 +52,7 @@ function DeleteManufacturer(manufacturer_id) {
 } // Delete Manufacturer End
 
 
-// Delete Product Category Script
+// Delete Subcategory Script
 function DeletePCat(p_cat_id) {
     swal({
       title: "Are you sure?",
@@ -79,7 +79,7 @@ function DeletePCat(p_cat_id) {
 } // Delete Product End
 
 
-// Delete Product Category Script
+// Delete Subcategory Script
 function DeleteCat(cat_id) {
     swal({
       title: "Are you sure?",
@@ -103,7 +103,7 @@ function DeleteCat(cat_id) {
         swal("Cancelled", "Your imaginary file is safe :)", "error");
       }
     }); // Swal End
-} // Delete Product Category End
+} // Delete Subcategory End
 
 
 // Delete Slide Script

@@ -1,81 +1,81 @@
 <?php
-    $admin_email = $_SESSION['admin_email'];
+$admin_email = $_SESSION['admin_email'];
 
-    $get_admin = $getFromU->view_admin_by_email($admin_email);
+$get_admin = $getFromU->view_admin_by_email($admin_email);
 
-    $admin_id = $get_admin->admin_id;
-    $admin_name = $get_admin->admin_name;
-    $admin_image = $get_admin->admin_image;
+$admin_id = $get_admin->admin_id;
+$admin_name = $get_admin->admin_name;
+$admin_image = $get_admin->admin_image;
 
-    $dashboard = (isset($_GET['dashboard'])) ? 'active' : '';
+$dashboard = (isset($_GET['dashboard'])) ? 'active' : '';
 
-    $products = (isset($_GET['add_product']) || isset($_GET['view_products']) || isset($_GET['edit_product'])) ? 'active' : '';
-    $add_product = (isset($_GET['add_product'])) ? 'active' : '';
-    $view_products = (isset($_GET['view_products'])) ? 'active' : '';
+$products = (isset($_GET['add_product']) || isset($_GET['view_products']) || isset($_GET['edit_product'])) ? 'active' : '';
+$add_product = (isset($_GET['add_product'])) ? 'active' : '';
+$view_products = (isset($_GET['view_products'])) ? 'active' : '';
 
-    $bundles = (isset($_GET['add_bundle']) || isset($_GET['view_bundles']) || isset($_GET['edit_bundle'])) ? 'active' : '';
-    $add_bundle = (isset($_GET['add_bundle'])) ? 'active' : '';
-    $view_bundles = (isset($_GET['view_bundles'])) ? 'active' : '';
+$bundles = (isset($_GET['add_bundle']) || isset($_GET['view_bundles']) || isset($_GET['edit_bundle'])) ? 'active' : '';
+$add_bundle = (isset($_GET['add_bundle'])) ? 'active' : '';
+$view_bundles = (isset($_GET['view_bundles'])) ? 'active' : '';
 
-    $product_to_bundles = (isset($_GET['add_product_to_bundle']) || isset($_GET['view_product_to_bundles']) || isset($_GET['edit_product_to_bundle'])) ? 'active' : '';
-    $add_product_to_bundle = (isset($_GET['add_product_to_bundle'])) ? 'active' : '';
-    $view_product_to_bundles = (isset($_GET['view_product_to_bundles'])) ? 'active' : '';
+$product_to_bundles = (isset($_GET['add_product_to_bundle']) || isset($_GET['view_product_to_bundles']) || isset($_GET['edit_product_to_bundle'])) ? 'active' : '';
+$add_product_to_bundle = (isset($_GET['add_product_to_bundle'])) ? 'active' : '';
+$view_product_to_bundles = (isset($_GET['view_product_to_bundles'])) ? 'active' : '';
 
-    $icons = (isset($_GET['add_icon']) || isset($_GET['view_icons']) || isset($_GET['edit_icon'])) ? 'active' : '';
-    $add_icon = (isset($_GET['add_icon'])) ? 'active' : '';
-    $view_icons = (isset($_GET['view_icons'])) ? 'active' : '';
+$icons = (isset($_GET['add_icon']) || isset($_GET['view_icons']) || isset($_GET['edit_icon'])) ? 'active' : '';
+$add_icon = (isset($_GET['add_icon'])) ? 'active' : '';
+$view_icons = (isset($_GET['view_icons'])) ? 'active' : '';
 
-    $manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
-    $add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
-    $view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
+$manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
+$add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
+$view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
 
-    $p_cats = (isset($_GET['add_p_cat']) || isset($_GET['view_p_cats']) || isset($_GET['edit_p_cat'])) ? 'active' : '';
-    $add_p_cat = (isset($_GET['add_p_cat'])) ? 'active' : '';
-    $view_p_cats = (isset($_GET['view_p_cats'])) ? 'active' : '';
+$p_cats = (isset($_GET['add_p_cat']) || isset($_GET['view_p_cats']) || isset($_GET['edit_p_cat'])) ? 'active' : '';
+$add_p_cat = (isset($_GET['add_p_cat'])) ? 'active' : '';
+$view_p_cats = (isset($_GET['view_p_cats'])) ? 'active' : '';
 
-    $cats = (isset($_GET['add_cat']) || isset($_GET['view_cats']) || isset($_GET['edit_cat'])) ? 'active' : '';
-    $add_cat = (isset($_GET['add_cat'])) ? 'active' : '';
-    $view_cats = (isset($_GET['view_cats'])) ? 'active' : '';
+$cats = (isset($_GET['add_cat']) || isset($_GET['view_cats']) || isset($_GET['edit_cat'])) ? 'active' : '';
+$add_cat = (isset($_GET['add_cat'])) ? 'active' : '';
+$view_cats = (isset($_GET['view_cats'])) ? 'active' : '';
 
-    $slides = (isset($_GET['add_slide']) || isset($_GET['view_slides']) || isset($_GET['edit_slide'])) ? 'active' : '';
-    $add_slide = (isset($_GET['add_slide'])) ? 'active' : '';
-    $view_slides = (isset($_GET['view_slides'])) ? 'active' : '';
+$slides = (isset($_GET['add_slide']) || isset($_GET['view_slides']) || isset($_GET['edit_slide'])) ? 'active' : '';
+$add_slide = (isset($_GET['add_slide'])) ? 'active' : '';
+$view_slides = (isset($_GET['view_slides'])) ? 'active' : '';
 
-    $view_customers = (isset($_GET['view_customers'])) ? 'active' : '';
+$view_customers = (isset($_GET['view_customers'])) ? 'active' : '';
 
-    $view_orders = (isset($_GET['view_orders'])) ? 'active' : '';
+$view_orders = (isset($_GET['view_orders'])) ? 'active' : '';
 
-    $view_payments = (isset($_GET['view_payments'])) ? 'active' : '';
+$view_payments = (isset($_GET['view_payments'])) ? 'active' : '';
 
-    $users = (isset($_GET['add_user']) || isset($_GET['view_users']) || isset($_GET['edit_user'])) ? 'active' : '';
-    $add_user = (isset($_GET['add_user'])) ? 'active' : '';
-    $view_users = (isset($_GET['view_users'])) ? 'active' : '';
+$users = (isset($_GET['add_user']) || isset($_GET['view_users']) || isset($_GET['edit_user'])) ? 'active' : '';
+$add_user = (isset($_GET['add_user'])) ? 'active' : '';
+$view_users = (isset($_GET['view_users'])) ? 'active' : '';
 
-    $boxes = (isset($_GET['add_box']) || isset($_GET['view_boxes']) || isset($_GET['edit_box'])) ? 'active' : '';
-    $add_box = (isset($_GET['add_box'])) ? 'active' : '';
-    $view_boxes = (isset($_GET['view_boxes'])) ? 'active' : '';
+$boxes = (isset($_GET['add_box']) || isset($_GET['view_boxes']) || isset($_GET['edit_box'])) ? 'active' : '';
+$add_box = (isset($_GET['add_box'])) ? 'active' : '';
+$view_boxes = (isset($_GET['view_boxes'])) ? 'active' : '';
 
-    $coupons = (isset($_GET['add_coupon']) || isset($_GET['view_coupons']) || isset($_GET['edit_coupon'])) ? 'active' : '';
-    $add_coupon = (isset($_GET['add_coupon'])) ? 'active' : '';
-    $view_coupons = (isset($_GET['view_coupons'])) ? 'active' : '';
+$coupons = (isset($_GET['add_coupon']) || isset($_GET['view_coupons']) || isset($_GET['edit_coupon'])) ? 'active' : '';
+$add_coupon = (isset($_GET['add_coupon'])) ? 'active' : '';
+$view_coupons = (isset($_GET['view_coupons'])) ? 'active' : '';
 
-    $terms = (isset($_GET['add_terms']) || isset($_GET['view_terms']) || isset($_GET['edit_terms'])) ? 'active' : '';
-    $add_terms = (isset($_GET['add_terms'])) ? 'active' : '';
-    $view_terms = (isset($_GET['view_terms'])) ? 'active' : '';
+$terms = (isset($_GET['add_terms']) || isset($_GET['view_terms']) || isset($_GET['edit_terms'])) ? 'active' : '';
+$add_terms = (isset($_GET['add_terms'])) ? 'active' : '';
+$view_terms = (isset($_GET['view_terms'])) ? 'active' : '';
 
-    $services = (isset($_GET['add_service']) || isset($_GET['view_services']) || isset($_GET['edit_service'])) ? 'active' : '';
-    $add_service = (isset($_GET['add_service'])) ? 'active' : '';
-    $view_services = (isset($_GET['view_services'])) ? 'active' : '';
+$services = (isset($_GET['add_service']) || isset($_GET['view_services']) || isset($_GET['edit_service'])) ? 'active' : '';
+$add_service = (isset($_GET['add_service'])) ? 'active' : '';
+$view_services = (isset($_GET['view_services'])) ? 'active' : '';
 
-    $edit_css = (isset($_GET['edit_css'])) ? 'active' : '';
+$edit_css = (isset($_GET['edit_css'])) ? 'active' : '';
 
-    $edit_contact_us = (isset($_GET['edit_contact_us'])) ? 'active' : '';
+$edit_contact_us = (isset($_GET['edit_contact_us'])) ? 'active' : '';
 
-    $edit_about_us = (isset($_GET['edit_about_us'])) ? 'active' : '';
+$edit_about_us = (isset($_GET['edit_about_us'])) ? 'active' : '';
 
-    $enquiry_types = (isset($_GET['add_enquiry_type']) || isset($_GET['view_enquiry_types']) || isset($_GET['edit_enquiry_type'])) ? 'active' : '';
-    $add_enquiry_type = (isset($_GET['add_enquiry_type'])) ? 'active' : '';
-    $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
+$enquiry_types = (isset($_GET['add_enquiry_type']) || isset($_GET['view_enquiry_types']) || isset($_GET['edit_enquiry_type'])) ? 'active' : '';
+$add_enquiry_type = (isset($_GET['add_enquiry_type'])) ? 'active' : '';
+$view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
 
 
 ?>
@@ -89,7 +89,8 @@
                 <img src="./assets/img/users/<?php echo $admin_image; ?>" class="img-fluid img-circle" width="45px" />
             </div>
             <div class="admin-info">
-                <div class="font-strong"><?php echo $admin_name; ?></div><small>Administrator</small></div>
+                <div class="font-strong"><?php echo $admin_name; ?></div><small>Administrator</small>
+            </div>
         </div>
         <ul class="side-menu metismenu">
             <li>
@@ -166,7 +167,7 @@
             </li>
             <li class="<?php echo $p_cats; ?>">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                    <span class="nav-label">Product Categories</span><i class="fa fa-angle-left arrow"></i>
+                    <span class="nav-label">Subcategories</span><i class="fa fa-angle-left arrow"></i>
                 </a>
                 <ul class="nav-2-level collapse">
                     <li>
@@ -309,7 +310,7 @@
                     <span class="nav-label">Update About Us</span>
                 </a>
             </li>
-             <li class="<?php echo $edit_css; ?>">
+            <li class="<?php echo $edit_css; ?>">
                 <a href="index.php?edit_css"><i class="sidebar-item-icon fas fas fa-pen-alt"></i>
                     <span class="nav-label">Edit CSS</span>
                 </a>

@@ -1,20 +1,20 @@
 <?php
-    $admin_email = $_SESSION['admin_email'];
+$admin_email = $_SESSION['admin_email'];
 
-    $get_admin = $getFromU->view_admin_by_email($admin_email);
+$get_admin = $getFromU->view_admin_by_email($admin_email);
 
-    $admin_id = $get_admin->admin_id;
-    $admin_name = $get_admin->admin_name;
-    $admin_image = $get_admin->admin_image;
+$admin_id = $get_admin->admin_id;
+$admin_name = $get_admin->admin_name;
+$admin_image = $get_admin->admin_image;
 
-    $get_products = $getFromU->viewAllFromTable("products");
-    $count_products = count($get_products);
+$get_products = $getFromU->viewAllFromTable("products");
+$count_products = count($get_products);
 
-    $get_customers = $getFromU->viewAllFromTable("customers");
-    $count_customers = count($get_customers);
+$get_customers = $getFromU->viewAllFromTable("customers");
+$count_customers = count($get_customers);
 
-    $get_product_categories = $getFromU->viewAllFromTable("product_categories");
-    $count_product_categories = count($get_product_categories);
+$get_product_categories = $getFromU->viewAllFromTable("product_categories");
+$count_product_categories = count($get_product_categories);
 
 ?>
 
@@ -125,58 +125,60 @@
                                         <span class="badge badge-success badge-big"><i class="fa fa-check"></i></span>
                                     </div>
                                     <div class="media-body">
-                                        <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small></div>
+                                        <div class="font-13">4 task compiled</div><small class="text-muted">22 mins</small>
                                     </div>
-                                </a>
-                                <a class="list-group-item">
-                                    <div class="media">
-                                        <div class="media-img">
-                                            <span class="badge badge-default badge-big"><i class="fa fa-shopping-basket"></i></span>
-                                        </div>
-                                        <div class="media-body">
-                                            <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small></div>
-                                        </div>
-                                    </a>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <span class="badge badge-danger badge-big"><i class="fa fa-bolt"></i></span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small>
-                                            </div>
-                                         </div>
-                                    </a>
-                                    <a class="list-group-item">
-                                        <div class="media">
-                                            <div class="media-img">
-                                                <span class="badge badge-success badge-big"><i class="fa fa-user"></i></span>
-                                            </div>
-                                            <div class="media-body">
-                                                <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small>
-                                            </div>
-                                         </div>
-                                    </a>
                                 </div>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="dropdown dropdown-user">
-                        <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                            <img src="./assets/img/users/<?php echo $admin_image; ?>" />
-                            <span></span><?php echo $admin_name; ?><i class="fa fa-angle-down m-l-5"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-right">
-                            <a class="dropdown-item" href="index.php?user_profile=<?php echo $admin_id; ?>"><i class="fa fa-user"></i>Profile</a>
-                            <a class="dropdown-item" href="index.php?view_products"><i class="fa fa-cog"></i>Products <span class="badge badge-info rounded"><?php echo $count_products; ?></span></a>
-                            <a class="dropdown-item" href="index.php?view_customers"><i class="fas fa-users"></i>Customers <span class="badge badge-info rounded"><?php echo $count_customers; ?></span></a>
-                            <a class="dropdown-item" href="index.php?view_cats"><i class="fas fa-ambulance"></i>Product Categories <span class="badge badge-info rounded"><?php echo $count_product_categories; ?></span></a>
-                            <li class="dropdown-divider"></li>
-                            <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
-                        </ul>
+                            </a>
+                            <a class="list-group-item">
+                                <div class="media">
+                                    <div class="media-img">
+                                        <span class="badge badge-default badge-big"><i class="fa fa-shopping-basket"></i></span>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="font-13">You have 12 new orders</div><small class="text-muted">40 mins</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="list-group-item">
+                                <div class="media">
+                                    <div class="media-img">
+                                        <span class="badge badge-danger badge-big"><i class="fa fa-bolt"></i></span>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="font-13">Server #7 rebooted</div><small class="text-muted">2 hrs</small>
+                                    </div>
+                                </div>
+                            </a>
+                            <a class="list-group-item">
+                                <div class="media">
+                                    <div class="media-img">
+                                        <span class="badge badge-success badge-big"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="font-13">New user registered</div><small class="text-muted">2 hrs</small>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
                     </li>
                 </ul>
             </li>
+            <li class="dropdown dropdown-user">
+                <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
+                    <img src="./assets/img/users/<?php echo $admin_image; ?>" />
+                    <span></span><?php echo $admin_name; ?><i class="fa fa-angle-down m-l-5"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="index.php?user_profile=<?php echo $admin_id; ?>"><i class="fa fa-user"></i>Profile</a>
+                    <a class="dropdown-item" href="index.php?view_products"><i class="fa fa-cog"></i>Products <span class="badge badge-info rounded"><?php echo $count_products; ?></span></a>
+                    <a class="dropdown-item" href="index.php?view_customers"><i class="fas fa-users"></i>Customers <span class="badge badge-info rounded"><?php echo $count_customers; ?></span></a>
+                    <a class="dropdown-item" href="index.php?view_cats"><i class="fas fa-ambulance"></i>Subcategories <span class="badge badge-info rounded"><?php echo $count_product_categories; ?></span></a>
+                    <li class="dropdown-divider"></li>
+                    <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
+                </ul>
+            </li>
+        </ul>
+        </li>
         </ul>
         <!-- END TOP-RIGHT TOOLBAR-->
     </div>

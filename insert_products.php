@@ -90,11 +90,11 @@ if (isset($_POST['submit'])) {
 
 					<div class="form-row mb-3">
 						<div class="col-3">
-							<label for="product_cat">Product Categories</label>
+							<label for="product_cat">Subcategories</label>
 						</div>
 						<div class="col-md-9">
 							<select name="product_cat" id="product_cat" class="form-control" required>
-								<option value="">----- Select a Product Category -----</option>
+								<option value="">----- Select a Subcategory -----</option>
 								<?php
 								$p_categories = $getFromU->viewAllFromTable("product_categories");
 								foreach ($p_categories as $p_category) {
@@ -105,7 +105,7 @@ if (isset($_POST['submit'])) {
 								<?php } ?>
 							</select>
 							<div class="invalid-feedback">
-								Please select a Product Categories.
+								Please select a Subcategories.
 							</div>
 						</div>
 					</div>
