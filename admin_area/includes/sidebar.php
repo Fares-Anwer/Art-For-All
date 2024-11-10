@@ -113,32 +113,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     </li>
                 </ul>
             </li>
-            <li class="<?php echo $bundles; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fas fa-layer-group"></i>
-                    <span class="nav-label">Bundles</span><i class="fa fa-angle-left arrow"></i>
-                </a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_bundle; ?>" href="index.php?add_bundle"><i class="fas fa-plus-circle"></i> Insert Bundle</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_bundles; ?>" href="index.php?view_bundles"><i class="fas fa-eye"></i> View Bundles</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="<?php echo $product_to_bundles; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fas fa-object-ungroup"></i>
-                    <span class="nav-label">Product <i class="fa fa-angle-right px-1"></i> Bundle Rel</span><i class="fa fa-angle-left arrow"></i>
-                </a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_product_to_bundle; ?>" href="index.php?add_product_to_bundle"><i class="fas fa-plus-circle"></i> Insert Relation</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_product_to_bundles; ?>" href="index.php?view_product_to_bundles"><i class="fas fa-eye"></i> View Relations</a>
-                    </li>
-                </ul>
-            </li>
             <li class="<?php echo $icons; ?>">
                 <a href="javascript:;"><i class="sidebar-item-icon fas fa-info-circle"></i>
                     <span class="nav-label">Icons</span><i class="fa fa-angle-left arrow"></i>
