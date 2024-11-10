@@ -53,7 +53,7 @@ function DeleteManufacturer(manufacturer_id) {
 
 
 // Delete Subategory Script
-function DeletePCat(p_cat_id) {
+function DeletePCat(cat_id) {
     swal({
       title: "Are you sure?",
       text: "You will not be able to recover this imaginary file!",
@@ -68,7 +68,7 @@ function DeletePCat(p_cat_id) {
     },
     function(isConfirm) {
       if (isConfirm) {
-        window.location.href = "./includes/delete_p_cat.php?p_cat_id=" +p_cat_id+ "";
+        window.location.href = "./includes/delete_p_cat.php?cat_id=" +cat_id+ "";
         return true;
 
         swal("Deleted!", "Your imaginary file has been deleted.", "success");

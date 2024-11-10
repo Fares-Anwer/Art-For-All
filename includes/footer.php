@@ -12,9 +12,9 @@
 						<hr>
 						<h4>User Section</h4>
 						<ul>
-							<?php if (!isset($_SESSION['customer_email'])): ?>
+							<?php if (!isset($_SESSION['customer_email'])) : ?>
 								<li><a href="checkout.php">Login</a></li>
-							<?php else: ?>
+							<?php else : ?>
 								<li><a href="logout.php">Logout</a></li>
 							<?php endif ?>
 							<li><a href="customer_register.php">Register</a></li>
@@ -27,12 +27,12 @@
 						<h4>Top Pro Categories</h4>
 						<ul>
 							<?php
-							$product_cats = $getFromU->viewAllFromTable("product_categories");
+							$product_cats = $getFromU->viewAllFromTable("categories");
 							foreach ($product_cats as $product_cat) {
-								$p_cat_id = $product_cat->p_cat_id;
-								$p_cat_title = $product_cat->p_cat_title;
+								$cat_id = $product_cat->cat_id;
+								$p_cat_title = $product_cat->cat_title;
 							?>
-								<li><a href="shop.php?p_cat_id=<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></a></li>
+								<li><a href="shop.php?cat_id=<?php echo $cat_id; ?>"><?php echo $p_cat_title; ?></a></li>
 							<?php } ?>
 						</ul>
 						<hr class="hidden-md-down hidden-lg-down">

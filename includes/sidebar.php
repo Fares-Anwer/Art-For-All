@@ -138,7 +138,7 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         <?php
         $get_product_catagories = $getFromU->selectTopProductCatagories();
         foreach ($get_product_catagories as $get_product_catagory) {
-          $p_cat_id = $get_product_catagory->p_cat_id;
+          $cat_id = $get_product_catagory->cat_id;
           $p_cat_title = $get_product_catagory->p_cat_title;
           $p_cat_image = $get_product_catagory->p_cat_image;
 
@@ -151,8 +151,8 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
           <li class="checkbox checkbox-primary form-control mb-2 bg-light">
             <a>
               <div class="custom-control custom-checkbox mr-sm-2" style="top: 15px">
-                <input type="checkbox" <?php (isset($aPCat[$p_cat_id])) ? print "checked='checked' " : ""; ?> name="p_cat" value="<?php echo $p_cat_id; ?>" class="custom-control-input get_p_cat" id="p_cat[<?php echo $p_cat_id; ?>]">
-                <label class="custom-control-label" for="p_cat[<?php echo $p_cat_id; ?>]"><span><?php echo $p_cat_image; ?></span> <span><?php echo $p_cat_title; ?></span><br></label>
+                <input type="checkbox" <?php (isset($aPCat[$cat_id])) ? print "checked='checked' " : ""; ?> name="p_cat" value="<?php echo $cat_id; ?>" class="custom-control-input get_p_cat" id="p_cat[<?php echo $cat_id; ?>]">
+                <label class="custom-control-label" for="p_cat[<?php echo $cat_id; ?>]"><span><?php echo $p_cat_image; ?></span> <span><?php echo $p_cat_title; ?></span><br></label>
               </div>
             </a>
           </li>
@@ -162,7 +162,7 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         <?php
         $get_product_catagories = $getFromU->selectNonTopProductCatagories();
         foreach ($get_product_catagories as $get_product_catagory) {
-          $p_cat_id = $get_product_catagory->p_cat_id;
+          $cat_id = $get_product_catagory->cat_id;
           $p_cat_title = $get_product_catagory->p_cat_title;
           $p_cat_image = $get_product_catagory->p_cat_image;
 
@@ -175,8 +175,8 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
           <li class="checkbox checkbox-primary form-control mb-2 bg-light">
             <a>
               <div class="custom-control custom-checkbox mr-sm-2" style="top: 15px">
-                <input type="checkbox" <?php (isset($aPCat[$p_cat_id])) ? print "checked='checked' " : ""; ?> name="p_cat" value="<?php echo $p_cat_id; ?>" class="custom-control-input get_p_cat" id="p_cat[<?php echo $p_cat_id; ?>]">
-                <label class="custom-control-label" for="p_cat[<?php echo $p_cat_id; ?>]"><span><?php echo $p_cat_image; ?></span> <span><?php echo $p_cat_title; ?></span><br></label>
+                <input type="checkbox" <?php (isset($aPCat[$cat_id])) ? print "checked='checked' " : ""; ?> name="p_cat" value="<?php echo $cat_id; ?>" class="custom-control-input get_p_cat" id="p_cat[<?php echo $cat_id; ?>]">
+                <label class="custom-control-label" for="p_cat[<?php echo $cat_id; ?>]"><span><?php echo $p_cat_image; ?></span> <span><?php echo $p_cat_title; ?></span><br></label>
               </div>
             </a>
           </li>

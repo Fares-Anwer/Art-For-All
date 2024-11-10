@@ -139,19 +139,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     </li>
                 </ul>
             </li>
-            <li class="<?php echo $p_cats; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-edit"></i>
-                    <span class="nav-label">Subcategories</span><i class="fa fa-angle-left arrow"></i>
-                </a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_p_cat; ?>" href="index.php?add_p_cat"><i class="fas fa-plus-circle"></i> Insert Category</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_p_cats; ?>" href="index.php?view_p_cats"><i class="fas fa-eye"></i> View Categories</a>
-                    </li>
-                </ul>
-            </li>
             <li class="<?php echo $cats; ?>">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-table"></i>
                     <span class="nav-label">Categories</span><i class="fa fa-angle-left arrow"></i>

@@ -13,7 +13,7 @@ $count_products = count($get_products);
 $get_customers = $getFromU->viewAllFromTable("customers");
 $count_customers = count($get_customers);
 
-$get_product_categories = $getFromU->viewAllFromTable("product_categories");
+$get_product_categories = $getFromU->viewAllFromTable("categories");
 $count_product_categories = count($get_product_categories);
 
 ?>
@@ -172,7 +172,7 @@ $count_product_categories = count($get_product_categories);
                     <a class="dropdown-item" href="index.php?user_profile=<?php echo $admin_id; ?>"><i class="fa fa-user"></i>Profile</a>
                     <a class="dropdown-item" href="index.php?view_products"><i class="fa fa-cog"></i>Products <span class="badge badge-info rounded"><?php echo $count_products; ?></span></a>
                     <a class="dropdown-item" href="index.php?view_customers"><i class="fas fa-users"></i>Customers <span class="badge badge-info rounded"><?php echo $count_customers; ?></span></a>
-                    <a class="dropdown-item" href="index.php?view_cats"><i class="fas fa-ambulance"></i>Subcategories <span class="badge badge-info rounded"><?php echo $count_product_categories; ?></span></a>
+                    <a class="dropdown-item" href="index.php?view_cats"><i class="fas fa-ambulance"></i>categories <span class="badge badge-info rounded"><?php echo $count_product_categories; ?></span></a>
                     <li class="dropdown-divider"></li>
                     <a class="dropdown-item" href="logout.php"><i class="fa fa-power-off"></i>Logout</a>
                 </ul>

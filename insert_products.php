@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
 	move_uploaded_file($temp_name2, "product_images/$product_img2");
 	move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-	$insert_product = $getFromU->create("products", array("p_cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("products", array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';
@@ -108,34 +108,6 @@ if (isset($_POST['submit'])) {
 							</select>
 							<div class="invalid-feedback">
 								Please select a Categories.
-							</div>
-						</div>
-					</div>
-
-
-					<div class="form-row mb-3">
-						<div class="col-3">
-							<label for="product_cat">Subcategories</label>
-						</div>
-						<div class="col-md-9">
-							<select name="product_cat" id="product_cat" class="form-control" required>
-								<option value="">----- Select a Subategory -----</option>
-								<?php
-								$p_categories = $getFromU->viewAllFromTable("product_categories");
-								foreach ($p_categories as $p_category) {
-									$Category = $p_categories->Category;
-									if ($Category == $cat_title) {
-										$p_cat_id = $p_category->p_cat_id;
-										$p_cat_title = $p_category->p_cat_title;
-
-
-								?>
-										<option value="<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></option>
-								<?php }
-								} ?>
-							</select>
-							<div class="invalid-feedback">
-								Please select a Subcategories.
 							</div>
 						</div>
 					</div>

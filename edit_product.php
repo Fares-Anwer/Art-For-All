@@ -9,7 +9,7 @@ if (isset($_GET['edit_product'])) {
 
 	$product_title 		= $view_product->product_title;
 	$manufacturer_id 	= $view_product->manufacturer_id;
-	$p_cat_id 				= $view_product->p_cat_id;
+	$cat_id 				= $view_product->cat_id;
 	$cat_id 					= $view_product->cat_id;
 	$product_price 		= $view_product->product_price;
 	$product_psp_price = $view_product->product_psp_price;
@@ -23,7 +23,7 @@ if (isset($_GET['edit_product'])) {
 	$product_label 		= $view_product->product_label;
 	$the_status 		  = $view_product->status;
 
-	$view_p_category 	= $getFromU->view_All_By_p_cat_ID($p_cat_id);
+	$view_p_category 	= $getFromU->view_All_By_cat_id($cat_id);
 	$the_p_cat_title 	= $view_p_category->p_cat_title;
 
 	$view_category 		= $getFromU->view_All_By_cat_ID($cat_id);
@@ -73,7 +73,7 @@ if (isset($_POST['update_product'])) {
 	move_uploaded_file($temp_name2, "product_images/$product_img2");
 	move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-	$update_product = $getFromU->update_product("products", $product_id, array("p_cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($update_product) {
 		$_SESSION['product_update_msg'] = "Product has been Updated Sucessfully";
@@ -142,31 +142,6 @@ if (isset($_POST['update_product'])) {
 						</div>
 					</div>
 
-
-					<div class="form-row mb-3">
-						<div class="col-3">
-							<label for="product_cat">Subcategories</label>
-						</div>
-						<div class="col-md-9">
-							<select name="product_cat" id="product_cat" class="form-control" required>
-								<option value="<?php echo $p_cat_id; ?>"><?php echo $the_p_cat_title; ?></option>
-								<?php
-								$p_categories = $getFromU->viewAllFromTable("product_categories");
-								foreach ($p_categories as $p_category) {
-									$p_cat_id = $p_category->p_cat_id;
-									$p_cat_title = $p_category->p_cat_title;
-									if ($p_cat_title == $the_p_cat_title) {
-										continue;
-									}
-								?>
-									<option value="<?php echo $p_cat_id; ?>"><?php echo $p_cat_title; ?></option>
-								<?php } ?>
-							</select>
-							<div class="invalid-feedback">
-								Please select a Subcategories.
-							</div>
-						</div>
-					</div>
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
