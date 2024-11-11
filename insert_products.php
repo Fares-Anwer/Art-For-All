@@ -181,12 +181,7 @@ if (isset($_POST['submit'])) {
 								<li class="nav-item">
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Product Features</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Product Video</a>
-								</li>
+
 							</ul>
 							<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -195,18 +190,7 @@ if (isset($_POST['submit'])) {
 										Please provide Product Description.
 									</div>
 								</div>
-								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-									<textarea name="product_features" class="form-control summernote" rows="15" id="product_features" placeholder="Enter Product Features"></textarea>
-									<div class="invalid-feedback">
-										Please provide Product Features.
-									</div>
-								</div>
-								<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-									<textarea name="product_video" class="form-control summernote" rows="15" id="product_video" placeholder="Enter Product Video"></textarea>
-									<div class="invalid-feedback">
-										Please provide Product Video.
-									</div>
-								</div>
+
 							</div>
 
 						</div>

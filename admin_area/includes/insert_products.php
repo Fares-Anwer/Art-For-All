@@ -8,8 +8,6 @@ if (isset($_POST['submit'])) {
 	$product_price = $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];
 	$product_desc = $_POST['product_desc'];
-	$product_features = $_POST['product_features'];
-	$product_video = $_POST['product_video'];
 	$product_keywords = $_POST['product_keywords'];
 	$product_label = $_POST['product_label'];
 	$status = 'product';
@@ -26,7 +24,7 @@ if (isset($_POST['submit'])) {
 	move_uploaded_file($temp_name2, "product_images/$product_img2");
 	move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-	$insert_product = $getFromU->create("products", array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("products", array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';
@@ -183,11 +181,8 @@ if (isset($_POST['submit'])) {
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
 								</li>
 								<li class="nav-item">
-									<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Product Features</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Product Video</a>
-								</li>
+
 							</ul>
 							<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -196,18 +191,7 @@ if (isset($_POST['submit'])) {
 										Please provide Product Description.
 									</div>
 								</div>
-								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-									<textarea name="product_features" class="form-control summernote" rows="15" id="product_features" placeholder="Enter Product Video" required></textarea>
-									<div class="invalid-feedback">
-										Please provide Product Features.
-									</div>
-								</div>
-								<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-									<textarea name="product_video" class="form-control summernote" rows="15" id="product_video" placeholder="Enter Product Video" required></textarea>
-									<div class="invalid-feedback">
-										Please provide Product Video.
-									</div>
-								</div>
+
 							</div>
 
 						</div>

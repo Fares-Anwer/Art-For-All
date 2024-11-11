@@ -241,12 +241,7 @@ if (isset($_POST['update_product'])) {
 								<li class="nav-item">
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Product Features</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Product Video</a>
-								</li>
+
 							</ul>
 							<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
@@ -255,20 +250,7 @@ if (isset($_POST['update_product'])) {
 										Please provide Product Description.
 									</div>
 								</div>
-								<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-									<textarea name="product_features" class="form-control summernote" rows="15" id="product_features" placeholder="Enter Product Video" required><?php echo $product_features; ?></textarea>
-									<div class="invalid-feedback">
-										Please provide Product Features.
-									</div>
-								</div>
-								<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-									<input type='text' name='product_video' class='form-control' value='<?php echo $product_video; ?>' id='product_video' placeholder='Enter Product Video' required>
-									<p class="mt-3" style="text-align: center;"><?php echo $product_video; ?></p>
-									<div class="invalid-feedback">
-										Please provide Product Video.
-									</div>
 
-								</div>
 							</div>
 						</div>
 					</div>
