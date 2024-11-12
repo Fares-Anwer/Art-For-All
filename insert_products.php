@@ -7,11 +7,9 @@ if (isset($_POST['submit'])) {
 	$product_price = $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];
 	$product_desc = $_POST['product_desc'];
-	$product_features = $_POST['product_features'];
-	$product_video = $_POST['product_video'];
 	$product_keywords = $_POST['product_keywords'];
 	$product_label = $_POST['product_label'];
-	$status = 'product';
+	$status = '0';
 
 	$product_img1 = $_FILES['product_img1']['name'];
 	$product_img2 = $_FILES['product_img2']['name'];
@@ -21,11 +19,11 @@ if (isset($_POST['submit'])) {
 	$temp_name2 = $_FILES['product_img2']['tmp_name'];
 	$temp_name3 = $_FILES['product_img3']['tmp_name'];
 
-	move_uploaded_file($temp_name1, "product_images/$product_img1");
-	move_uploaded_file($temp_name2, "product_images/$product_img2");
-	move_uploaded_file($temp_name3, "product_images/$product_img3");
+	move_uploaded_file($temp_name1, "admin_area/product_images/$product_img1");
+	move_uploaded_file($temp_name2, "admin_area/product_images/$product_img2");
+	move_uploaded_file($temp_name3, "admin_area/product_images/$product_img3");
 
-	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';

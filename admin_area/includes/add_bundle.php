@@ -3,7 +3,6 @@
 if (isset($_POST['submit'])) {
 	$product_title = $_POST['product_title'];
 	$manufacturer_id = $_POST['manufacturer'];
-	$product_cat = $_POST['product_cat'];
 	$cat_id = $_POST['cat'];
 	$product_price = $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];

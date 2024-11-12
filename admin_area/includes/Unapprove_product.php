@@ -81,7 +81,8 @@
                         $product_label = $view_product->product_label;
                         $add_date = $view_product->add_date;
                         $product_sold = $getFromU->countFromTableByProductID('pending_orders', $product_id);
-                        if ($status == "1") {
+                        if ($status == "0") {
+
 
                     ?>
 
@@ -97,11 +98,15 @@
                                 <td><?php echo ucwords($status); ?></td>
                                 <td><?php echo $add_date; ?></td>
                                 <td>
+                                    <a class="text-info" href="index.php?accept_product=<?php echo $product_id; ?>"><i class="fas fa-check-circle"></i> Accept</a>
+                                </td>
+                                <td>
                                     <a class="text-info" href="index.php?edit_product=<?php echo $product_id; ?>"><i class="fas fa-edit"></i> Edit</a>
                                 </td>
                                 <td>
                                     <a class="text-danger" onclick="DeleteProduct('<?php echo $product_id; ?>')"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
+
 
                             </tr>
 

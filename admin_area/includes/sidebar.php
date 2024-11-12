@@ -9,17 +9,11 @@ $admin_image = $get_admin->admin_image;
 
 $dashboard = (isset($_GET['dashboard'])) ? 'active' : '';
 
-$products = (isset($_GET['add_product']) || isset($_GET['view_products']) || isset($_GET['edit_product'])) ? 'active' : '';
+$products = (isset($_GET['add_product']) || isset($_GET['view_products']) || isset($_GET['edit_product']) || isset($_GET['Unapprove_product'])) ? 'active' : '';
 $add_product = (isset($_GET['add_product'])) ? 'active' : '';
 $view_products = (isset($_GET['view_products'])) ? 'active' : '';
+$unapprove_product = (isset($_GET['Unapprove_product'])) ? 'active' : '';
 
-$bundles = (isset($_GET['add_bundle']) || isset($_GET['view_bundles']) || isset($_GET['edit_bundle'])) ? 'active' : '';
-$add_bundle = (isset($_GET['add_bundle'])) ? 'active' : '';
-$view_bundles = (isset($_GET['view_bundles'])) ? 'active' : '';
-
-$product_to_bundles = (isset($_GET['add_product_to_bundle']) || isset($_GET['view_product_to_bundles']) || isset($_GET['edit_product_to_bundle'])) ? 'active' : '';
-$add_product_to_bundle = (isset($_GET['add_product_to_bundle'])) ? 'active' : '';
-$view_product_to_bundles = (isset($_GET['view_product_to_bundles'])) ? 'active' : '';
 
 $icons = (isset($_GET['add_icon']) || isset($_GET['view_icons']) || isset($_GET['edit_icon'])) ? 'active' : '';
 $add_icon = (isset($_GET['add_icon'])) ? 'active' : '';
@@ -28,10 +22,6 @@ $view_icons = (isset($_GET['view_icons'])) ? 'active' : '';
 $manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
 $add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
 $view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
-
-$p_cats = (isset($_GET['add_p_cat']) || isset($_GET['view_p_cats']) || isset($_GET['edit_p_cat'])) ? 'active' : '';
-$add_p_cat = (isset($_GET['add_p_cat'])) ? 'active' : '';
-$view_p_cats = (isset($_GET['view_p_cats'])) ? 'active' : '';
 
 $cats = (isset($_GET['add_cat']) || isset($_GET['view_cats']) || isset($_GET['edit_cat'])) ? 'active' : '';
 $add_cat = (isset($_GET['add_cat'])) ? 'active' : '';
@@ -109,10 +99,14 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                         <a class="<?php echo $add_product; ?>" href="index.php?add_product"><i class="fas fa-plus-circle"></i> Insert Product</a>
                     </li>
                     <li>
-                        <a class="<?php echo $view_products; ?>" href="index.php?view_products"><i class="fas fa-eye"></i> View Products</a>
+                        <a class="<?php echo $view_products; ?>" href="index.php?view_products"><i class="fas fa-eye"></i> View Approve Products</a>
+                    </li>
+                    <li>
+                        <a class="<?php echo $unapprove_product; ?>" href="index.php?Unapprove_product"><i class="fas fa-eye-slash"></i> View Unapprove Products</a>
                     </li>
                 </ul>
             </li>
+
             <li class="<?php echo $icons; ?>">
                 <a href="javascript:;"><i class="sidebar-item-icon fas fa-info-circle"></i>
                     <span class="nav-label">Icons</span><i class="fa fa-angle-left arrow"></i>
@@ -163,6 +157,7 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     <li>
                         <a class="<?php echo $view_boxes; ?>" href="index.php?view_boxes"><i class="fas fa-eye"></i> View Boxes</a>
                     </li>
+
                 </ul>
             </li>
 

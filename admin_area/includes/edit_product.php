@@ -14,8 +14,6 @@ if (isset($_GET['edit_product'])) {
 	$product_price 		= $view_product->product_price;
 	$product_psp_price = $view_product->product_psp_price;
 	$product_desc 		= $view_product->product_desc;
-	$product_features = $view_product->product_features;
-	$product_video 		= $view_product->product_video;
 	$product_keywords = $view_product->product_keywords;
 	$the_product_img1 = $view_product->product_img1;
 	$the_product_img2 = $view_product->product_img2;
@@ -40,13 +38,10 @@ if (isset($_GET['edit_product'])) {
 if (isset($_POST['update_product'])) {
 	$product_title 		= $_POST['product_title'];
 	$manufacturer_id 	= $_POST['manufacturer_id'];
-	$product_cat 			= $_POST['product_cat'];
 	$cat_id 					= $_POST['cat'];
 	$product_price 		= $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];
 	$product_desc 		= $_POST['product_desc'];
-	$product_features = $_POST['product_features'];
-	$product_video 		= $_POST['product_video'];
 	$product_keywords = $_POST['product_keywords'];
 	$product_label    = $_POST['product_label'];
 	$status    				= $_POST['status'];
@@ -73,7 +68,7 @@ if (isset($_POST['update_product'])) {
 	move_uploaded_file($temp_name2, "product_images/$product_img2");
 	move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_features" => $product_features, "product_video" => $product_video, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $product_cat, "cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($update_product) {
 		$_SESSION['product_update_msg'] = "Product has been Updated Sucessfully";
