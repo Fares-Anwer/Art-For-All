@@ -139,7 +139,6 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         $get_product_catagories = $getFromU->selectTopProductCatagories();
         foreach ($get_product_catagories as $get_product_catagory) {
           $cat_id = $get_product_catagory->cat_id;
-          $p_cat_title = $get_product_catagory->p_cat_title;
           $p_cat_image = $get_product_catagory->p_cat_image;
 
           if ($p_cat_image == "") {

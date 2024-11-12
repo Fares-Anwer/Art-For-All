@@ -164,15 +164,6 @@ class User
     return $stmt->fetchAll();
   }
 
-  public function view_relation_by_id($rel_id)
-  {
-    $sql = "SELECT * FROM bundle_product_relation WHERE rel_id = :rel_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":rel_id", $rel_id);
-    $stmt->execute();
-    return $stmt->fetch();
-  }
-
   public function view_customer_by_id($customer_id)
   {
     $sql = "SELECT * FROM customers WHERE customer_id = :customer_id";
@@ -644,15 +635,6 @@ class User
     return $stmt->fetch();
   }
 
-  public function viewAllFromBundleByBundleID($bundle_id)
-  {
-    $sql = "SELECT * FROM bundle_product_relation WHERE bundle_id = :bundle_id ";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":bundle_id", $bundle_id);
-    $stmt->execute();
-    return $stmt->fetchAll();
-  }
-
   public function countFromTableByProductID($table_name, $product_id)
   {
     $sql = "SELECT * FROM $table_name WHERE product_id = :product_id ";
@@ -736,17 +718,6 @@ class User
 
     return $stmt->fetchAll();
   }
-
-  public function view_bundle_products($status)
-  {
-    $sql = "SELECT * FROM products WHERE status = :status ORDER BY 1";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":status", $status);
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-  }
-
   public function viewAllFromTable($table_name)
   {
     $sql = "SELECT * FROM {$table_name}";

@@ -90,8 +90,6 @@ if (isset($_POST['add_to_wishlist'])) {
 					$product_label     = $get_product->product_label;
 					$manufacturer_id   = $get_product->manufacturer_id;
 					$product_psp_price = $get_product->product_psp_price;
-					$product_features  = $get_product->product_features;
-					$product_video     = $get_product->product_video;
 					$status            = $get_product->status;
 
 					$view_manufacturer = $getFromU->selectManufacturerByManufacturerID($manufacturer_id);
@@ -113,7 +111,6 @@ if (isset($_POST['add_to_wishlist'])) {
 
 					$get_p_cats = $getFromU->viewAllByCatID($cat_id);
 					foreach ($get_p_cats as $get_p_cat) {
-						$p_cat_title = $get_p_cat->p_cat_title;
 						$cat_id = $get_p_cat->cat_id;
 
 			?>
@@ -204,7 +201,6 @@ if (isset($_POST['add_to_wishlist'])) {
 												$p_id = $_POST['product_id'];
 												$ip_add = $getFromU->getRealUserIp();
 												$product_qty = $_POST['product_qty'];
-												$product_size = $_POST['product_size'];
 
 												$get_product = $getFromU->view_Product_By_Product_ID($p_id);
 												$product_price = $get_product->product_price;
@@ -223,7 +219,7 @@ if (isset($_POST['add_to_wishlist'])) {
 														$product_price = $product_price;
 													}
 
-													$insert_cart = $getFromU->create("cart", array("p_id" => $p_id, "ip_add" => $ip_add, "qty" => $product_qty, "product_price" => $product_price, "size" => $product_size));
+													$insert_cart = $getFromU->create("cart", array("p_id" => $p_id, "ip_add" => $ip_add, "qty" => $product_qty, "product_price" => $product_price));
 													echo '<script>alert("This product added successfully in cart")</script>';
 													header('Location: shop.php');
 												}
@@ -233,7 +229,7 @@ if (isset($_POST['add_to_wishlist'])) {
 											?>
 											<form method="post">
 												<div class="form-group row">
-													<label for="product_qty" class="col-sm-5 col-form-label-sm text-xl-right"><?php echo $title; ?> Quantity</label>
+													<label for="product_qty" class="col-sm-5 col-form-label-sm text-xl-right"> Quantity</label>
 													<div class="col-sm-7">
 														<select name="product_qty" id="product_qty" class="form-control">
 															<option value="1">1</option>
@@ -246,18 +242,7 @@ if (isset($_POST['add_to_wishlist'])) {
 													</div>
 												</div>
 
-												<div class="form-group row">
-													<label for="product_size" class="col-sm-5 col-form-label-sm text-xl-right"><?php echo $title; ?> Size</label>
-													<div class="col-sm-7">
-														<select name="product_size" id="product_size" class="form-control" required>
-															<option value="">--- Select a Size ---</option>
-															<option value="small">Small</option>
-															<option value="medium">Medium</option>
-															<option value="large">Large</option>
-															<option value="extra large">Extra Large</option>
-														</select>
-													</div>
-												</div>
+
 
 												<div class="form-group row mb-0">
 													<div class="col-sm-7">
@@ -309,50 +294,6 @@ if (isset($_POST['add_to_wishlist'])) {
 
 							</div>
 
-							<div class="row my-4">
-								<div class="col-12">
-									<div class="card">
-										<div class="card-body">
-
-											<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
-												<li class="nav-item">
-													<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php echo $title; ?> Description</a>
-												</li>
-												<li class="nav-item">
-													<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false"><?php echo $title; ?> Fearures</a>
-												</li>
-												<li class="nav-item">
-													<a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false"><?php echo $title; ?> Video</a>
-												</li>
-											</ul>
-											<div class="tab-content" id="myTabContent">
-												<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-													<h5 class="card-title"><?php echo $title; ?> Details</h5>
-													<p class="card-text"><?php echo $product_desc; ?></p>
-													<h5 class="card-title">Size &amp Fit</h5>
-													<ul>
-														<li>Small</li>
-														<li>Medium</li>
-														<li>Large</li>
-														<li>Extra Large</li>
-													</ul>
-												</div>
-												<div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-													<h5 class="card-title"><?php echo $title; ?> Fearures</h5>
-													<p class="card-text"><?php echo $product_features; ?></p>
-												</div>
-												<div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-													<h5 class="card-title"><?php echo $title; ?> Video</h5>
-													<p class="card-text text-center"><?php echo $product_video; ?></p>
-												</div>
-											</div>
-
-
-
-										</div>
-									</div>
-								</div>
-							</div>
 
 
 						</div> <!-- col-md-9 END --3 -->
@@ -449,8 +390,6 @@ if (isset($_POST['add_to_wishlist'])) {
 
 			<div class="row">
 				<?php
-
-				$get_bundle_product_relations = $getFromU->viewAllFromBundleByBundleID($the_product_id);
 
 				foreach ($get_bundle_product_relations as $get_bundle_product_relation) {
 					$bundle_product_relation_product_id = $get_bundle_product_relation->product_id;
