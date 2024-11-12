@@ -30,9 +30,9 @@ function AcceptProduct(product_id) {
     text: "You will not be able to recover this imaginary file!",
     type: "warning",
     showCancelButton: true,
-    confirmButtonClass: "btn-danger",
-    confirmButtonText: "Yes, Delete",
-    cancelButtonClass: "btn-info",
+    confirmButtonClass: "btn-info",
+    confirmButtonText: "Yes, Accept",
+    cancelButtonClass: "btn-danger",
     cancelButtonText: "No, Back",
     closeOnConfirm: false,
     closeOnCancel: false

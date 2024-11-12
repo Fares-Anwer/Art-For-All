@@ -278,21 +278,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
             </li>
             <li class="heading">PAGES</li>
             <li>
-                <a href="javascript:;"><i class="sidebar-item-icon fa fa-envelope"></i>
-                    <span class="nav-label">Mailbox</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a href="mailbox.html">Inbox</a>
-                    </li>
-                    <li>
-                        <a href="mail_view.html">Mail view</a>
-                    </li>
-                    <li>
-                        <a href="mail_compose.html">Compose mail</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="calendar.html"><i class="sidebar-item-icon fa fa-calendar"></i>
                     <span class="nav-label">Calendar</span>
                 </a>

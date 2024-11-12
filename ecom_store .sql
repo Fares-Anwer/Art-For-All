@@ -87,33 +87,6 @@ INSERT INTO `boxes_section` (`box_id`, `box_title`, `box_desc`) VALUES
 (2, 'BEST PRICES', 'Some quick example text to build on the card title and make up the bulk of the card\'s content.'),
 (3, '100% SATISFICTION & GUARENTED', 'Some quick example text to build on the card title and make up the bulk of the card\'s content.');
 
--- --------------------------------------------------------
-
---
--- Table structure for table `bundle_product_relation`
---
-
-CREATE TABLE `bundle_product_relation` (
-  `rel_id` int(10) NOT NULL,
-  `rel_title` varchar(255) NOT NULL,
-  `product_id` int(10) NOT NULL,
-  `bundle_id` int(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bundle_product_relation`
---
-
-INSERT INTO `bundle_product_relation` (`rel_id`, `rel_title`, `product_id`, `bundle_id`) VALUES
-(1, 'Relation 1', 1, 15),
-(2, 'Relation 2', 2, 15),
-(3, 'Relation 3', 4, 15),
-(4, 'Relation 4', 10, 15),
-(5, 'Test Relation', 2, 1),
-(6, 'Test Relation 2', 14, 1);
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `cart`
 --
@@ -221,18 +194,6 @@ CREATE TABLE `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`) VALUES
-(4, 'Shishir Sarder', 'shishir.srdr16@gmail.com', '123456', 'Bangladesh', 'Savar', '01723795078', 'RTH', 'mee.jpg', '::1', ''),
-(5, 'Jarin Ritu', 'jarin.ritu@gmail.com', 'jarin123', 'Bangladesh', 'Dhaka', '01841795079', 'Fajilatunnessa Hall', 'ritu.jpg', '2', '54345367867'),
-(7, 'Maruf Hossain', 'maruf@gmail.com', '12345', 'Bangladesh', 'Savar', '01723795045', 'RTH', 'sam.jpg', '::1', '24234365678'),
-(8, 'Rimon Rana', 'rimon.rana@gmail.com', '123456', 'Bangladesh', 'Savar', '01723795078', 'RTH, 503', '61YDYbR5w2L._UX385_.jpg', '::1', '45787524575'),
-(9, 'Manun Sarder', 'mamun.srdr@gmail.com', '1234567890', 'India', 'Kolkata', '10258225741', 'Koklata -2345', '119566765lblackgymlegoriginalimaeryjghpnfqeym1495278822.jpg', '::1', '24532453434'),
-(12, 'Demo User', 'rimonmon10@gmail.com', '123456', 'Bangladesh', 'Savar', '01723795078', 'RTH, 503', '6420282559364.jpg', '::1', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_orders`
 --
 
 CREATE TABLE `customer_orders` (
@@ -248,24 +209,7 @@ CREATE TABLE `customer_orders` (
 
 --
 -- Dumping data for table `customer_orders`
---
 
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `size`, `order_date`, `order_status`) VALUES
-(1, 5, 68, 679423457, 2, 'medium', '2018-10-07 18:25:38', 'Complete'),
-(2, 5, 12, 679423457, 1, 'large', '2018-10-07 14:24:28', 'pending'),
-(3, 4, 24, 72826274, 2, 'medium', '2018-10-23 07:00:46', 'pending'),
-(4, 4, 240, 72826274, 2, 'small', '2018-10-23 07:00:47', 'pending'),
-(5, 4, 100, 72826274, 1, 'medium', '2018-10-23 07:00:47', 'pending'),
-(6, 4, 50, 72826274, 1, 'medium', '2018-10-23 07:00:47', 'pending'),
-(7, 4, 75, 72826274, 1, 'small', '2018-10-23 07:00:48', 'pending'),
-(8, 4, 70, 1039424096, 1, 'large', '2018-10-23 14:23:36', 'pending'),
-(9, 4, 90, 1178884563, 1, 'small', '2018-10-25 17:09:31', 'Complete'),
-(10, 4, 10, 795767235, 1, 'medium', '2018-10-25 17:16:08', 'Complete'),
-(11, 4, 34, 795767235, 1, 'large', '2018-10-25 17:16:08', 'Complete');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `enquiry_type`
 --
 
@@ -649,14 +593,6 @@ ALTER TABLE `admins`
 ALTER TABLE `boxes_section`
   MODIFY `box_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
---
--- AUTO_INCREMENT for table `bundle_product_relation`
---
-ALTER TABLE `bundle_product_relation`
-  MODIFY `rel_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
   MODIFY `cat_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;

@@ -108,12 +108,6 @@
                                 <td>
                                     <a class="text-danger" onclick="DeleteProduct('<?php echo $product_id; ?>')"><i class="fas fa-trash-alt"></i> Delete</a>
                                 </td>
-                                <td>
-                                    <a href="index.php?accept_product=<?php echo $product_id; ?>">Approve Product</a>
-
-                                </td>
-
-
                             </tr>
 
                     <?php }

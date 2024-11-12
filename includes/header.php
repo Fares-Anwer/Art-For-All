@@ -75,7 +75,7 @@ foreach ($records as $record) {
 						<li><a href="cart.php">Go To Cart</a></li>
 						<li>
 
-						<li><a href="insert_products.php">Insert Products</a></li>
+						<li><a href="insert_products.php">Add Products</a></li>
 						<li>
 							<?php if (!isset($_SESSION['customer_email'])): ?>
 								<a href="checkout.php">Login</a>
