@@ -22,7 +22,6 @@ if (isset($_GET['edit_product'])) {
 	$the_status 		  = $view_product->status;
 
 	$view_p_category 	= $getFromU->view_All_By_cat_id($cat_id);
-	$the_p_cat_title 	= $view_p_category->p_cat_title;
 
 	$view_category 		= $getFromU->view_All_By_cat_ID($cat_id);
 	$the_cat_title 		= $view_category->cat_title;

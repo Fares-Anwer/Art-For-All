@@ -24,6 +24,29 @@ function DeleteProduct(product_id) {
       }
     }); // Swal End
 } // Delete Product End
+function AcceptProduct(product_id) {
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this imaginary file!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonClass: "btn-danger",
+    confirmButtonText: "Yes, Delete",
+    cancelButtonClass: "btn-info",
+    cancelButtonText: "No, Back",
+    closeOnConfirm: false,
+    closeOnCancel: false
+  },
+  function(isConfirm) {
+    if (isConfirm) {
+      window.location.href = "./includes/accept_product.php?product_id=" +product_id+ "";
+      return true;
+
+      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    } else {
+      swal("Cancelled", "Your imaginary file is safe :)", "error");
+    }
+  })}; // Swal End
 
 // Delete Manufacturer Script
 function DeleteManufacturer(manufacturer_id) {

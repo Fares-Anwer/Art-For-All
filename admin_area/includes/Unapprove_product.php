@@ -59,6 +59,7 @@
                         <th>Keywords</th>
                         <th>Status</th>
                         <th>Date</th>
+                        <th>Accept</th>
                         <th>Edit</th>
                         <th>Delete</th>
                     </tr>
@@ -98,13 +99,18 @@
                                 <td><?php echo ucwords($status); ?></td>
                                 <td><?php echo $add_date; ?></td>
                                 <td>
-                                    <a class="text-info" href="index.php?accept_product=<?php echo $product_id; ?>"><i class="fas fa-check-circle"></i> Accept</a>
+
+                                    <a class="text-info" onclick="AcceptProduct('<?php echo $product_id; ?>')"><i class="fas fa-check-circle"></i> Accept</a>
                                 </td>
                                 <td>
                                     <a class="text-info" href="index.php?edit_product=<?php echo $product_id; ?>"><i class="fas fa-edit"></i> Edit</a>
                                 </td>
                                 <td>
                                     <a class="text-danger" onclick="DeleteProduct('<?php echo $product_id; ?>')"><i class="fas fa-trash-alt"></i> Delete</a>
+                                </td>
+                                <td>
+                                    <a href="index.php?accept_product=<?php echo $product_id; ?>">Approve Product</a>
+
                                 </td>
 
 
