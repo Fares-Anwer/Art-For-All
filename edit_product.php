@@ -8,7 +8,6 @@ if (isset($_GET['edit_product'])) {
 	$view_product 		= $getFromU->view_Product_By_Product_ID($product_id);
 
 	$product_title 		= $view_product->product_title;
-	$manufacturer_id 	= $view_product->manufacturer_id;
 	$cat_id 				= $view_product->cat_id;
 	$cat_id 					= $view_product->cat_id;
 	$product_price 		= $view_product->product_price;
@@ -18,14 +17,11 @@ if (isset($_GET['edit_product'])) {
 	$the_product_img1 = $view_product->product_img1;
 	$product_label 		= $view_product->product_label;
 	$the_status 		  = $view_product->status;
-
+	$customer_id = $view_product->customer_id;
 	$view_p_category 	= $getFromU->view_All_By_cat_id($cat_id);
 
 	$view_category 		= $getFromU->view_All_By_cat_ID($cat_id);
 	$the_cat_title 		= $view_category->cat_title;
-
-	$view_manufacturer 		  = $getFromU->view_All_By_Manufacturer_ID($manufacturer_id);
-	$the_manufacturer_title = $view_manufacturer->manufacturer_title;
 }
 
 ?>
@@ -34,7 +30,6 @@ if (isset($_GET['edit_product'])) {
 
 if (isset($_POST['update_product'])) {
 	$product_title 		= $_POST['product_title'];
-	$manufacturer_id 	= $_POST['manufacturer_id'];
 	$cat_id 					= $_POST['cat'];
 	$product_price 		= $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];
@@ -42,7 +37,7 @@ if (isset($_POST['update_product'])) {
 	$product_keywords = $_POST['product_keywords'];
 	$product_label    = $_POST['product_label'];
 	$status    				= $_POST['status'];
-
+	$customer_id 		= $_POST['customer_id'];
 	$product_img1 		= $_FILES['product_img1']['name'];
 
 	$temp_name1 			= $_FILES['product_img1']['tmp_name'];
@@ -54,7 +49,7 @@ if (isset($_POST['update_product'])) {
 
 	move_uploaded_file($temp_name1, "product_images/$product_img1");
 
-	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status, "customer_id" => $customer_id));
 
 	if ($update_product) {
 		$_SESSION['product_update_msg'] = "Product has been Updated Sucessfully";
@@ -63,7 +58,7 @@ if (isset($_POST['update_product'])) {
 		echo '<script>alert("Product has not added")</script>';
 	}
 }
-
+echo $customer_id;
 ?>
 
 <nav aria-label="breadcrumb" class="my-4">
@@ -103,18 +98,18 @@ if (isset($_POST['update_product'])) {
 							<label for="product_cat">Product Manufacturer</label>
 						</div>
 						<div class="col-md-9">
-							<select name="manufacturer_id" id="manufacturer_id" class="form-control" required>
+							<select name="customer_id" id="manufacturer_id" class="form-control" required>
 								<option value="<?php echo $manufacturer_id; ?>"><?php echo $the_manufacturer_title; ?></option>
 								<?php
-								$manufacturers = $getFromU->viewAllFromTable("manufacturers");
-								foreach ($manufacturers as $manufacturer) {
-									$manufacturer_id = $manufacturer->manufacturer_id;
-									$manufacturer_title = $manufacturer->manufacturer_title;
-									if ($manufacturer_title == $the_manufacturer_title) {
+								$customers = $getFromU->viewAllFromTable("customers");
+								foreach ($customers as $customer) {
+									$customer_id = $customer->customer_id;
+									$customer_name = $customer->customer_name;
+									if ($manufacturer_title == $the_customer_id) {
 										continue;
 									}
 								?>
-									<option value="<?php echo $manufacturer_id; ?>"><?php echo $manufacturer_title; ?></option>
+									<option value="<?php echo $mcustomer_id; ?>"><?php echo $customer_name; ?></option>
 								<?php } ?>
 							</select>
 							<div class="invalid-feedback">
@@ -264,7 +259,6 @@ if (isset($_POST['update_product'])) {
 							</div>
 						</div>
 					</div>
-
 
 
 					<div class="row">

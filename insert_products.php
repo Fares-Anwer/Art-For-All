@@ -16,9 +16,11 @@ if (!isset($_SESSION['customer_email'])) {
 
 
 <?php
+$view_customer		  = $getFromU->view_customer_by_email($_SESSION['customer_email']);
+$_SESSION['customer_id'] = $view_customer->customer_id;
+
 if (isset($_POST['submit'])) {
 	$product_title = $_POST['product_title'];
-	$manufacturer_id = $_POST['manufacturer'];
 	$cat_id = $_POST['cat'];
 	$product_price = $_POST['product_price'];
 	$product_psp_price = $_POST['product_psp_price'];
@@ -26,6 +28,7 @@ if (isset($_POST['submit'])) {
 	$product_keywords = $_POST['product_keywords'];
 	$product_label = $_POST['product_label'];
 	$status = '0';
+	$customer_id 		= $_SESSION['customer_id'];
 
 	$product_img1 = $_FILES['product_img1']['name'];
 
@@ -33,7 +36,7 @@ if (isset($_POST['submit'])) {
 
 	move_uploaded_file($temp_name1, "admin_area/product_images/$product_img1");
 
-	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status, "customer_id" => $customer_id));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';
@@ -42,7 +45,6 @@ if (isset($_POST['submit'])) {
 		echo '<script>alert("Product has not added")</script>';
 	}
 }
-
 ?>
 
 
@@ -77,7 +79,7 @@ if (isset($_POST['submit'])) {
 							<label for="product_title">Manufacturer</label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="manufacturer" class="form-control" id="manufacturer" value="<?php echo htmlspecialchars($_SESSION['customer_email']); ?>" required>
+							<input type="text" name="customer" class="form-control" id="customer" value="<?php echo htmlspecialchars($_SESSION['customer_email']); ?>" required>
 							<div class="invalid-feedback">
 								Please provide a Product Title.
 							</div>
