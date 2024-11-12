@@ -18,7 +18,7 @@ function DeleteProduct(product_id) {
         window.location.href = "./includes/delete_product.php?product_id=" +product_id+ "";
         return true;
 
-        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+        swal("Accept!", "Your imaginary file has been Accept.", "success");
       } else {
         swal("Cancelled", "Your imaginary file is safe :)", "error");
       }

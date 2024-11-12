@@ -1,4 +1,22 @@
 <?php require_once 'includes/header.php'; ?>
+
+<?php
+session_start();
+
+// تخزين الصفحة الأصلية في الجلسة فقط إذا لم تكن محددة من قبل
+if (!isset($_SESSION['original_page'])) {
+	$_SESSION['original_page'] = "insert_products.php";
+}
+
+// التحقق إذا كان المستخدم مسجلاً الدخول
+if (!isset($_SESSION['customer_email'])) {
+	header('Location: checkout.php');
+	exit();
+}
+?>
+
+
+
 <?php
 if (isset($_POST['submit'])) {
 	$product_title = $_POST['product_title'];
@@ -257,6 +275,15 @@ if (isset($_POST['submit'])) {
 </div>
 
 
+<?php if (isset($_SESSION['customer_email']) && isset($_SESSION['customer_pass'])): ?>
+	<div class="alert alert-success">
+		<p>Welcome back, <?php echo htmlspecialchars($_SESSION['customer_email']); ?>!</p>
+		<p>Your password is: <?php echo htmlspecialchars($_SESSION['customer_pass']); ?></p>
+	</div>
+<?php else: ?>
+	<p>Please log in to view your information.</p>
+<?php endif; ?>
+</div>
 
 
 

@@ -9,9 +9,4 @@ session_start();
 
 $getFromU = new User($pdo);
 
-define('BASE_URL', 'http://localhost/ecommerce/');
-
-
-
-
-?>
+define('BASE_URL', 'http://localhost:8081/Modern-E-Commerce-Store-master/');
