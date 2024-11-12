@@ -80,28 +80,19 @@ if (isset($_POST['submit'])) {
 							</div>
 						</div>
 					</div>
-
 					<div class="form-row mb-3">
 						<div class="col-3">
-							<label for="manufacturer">Manufacturer</label>
+							<label for="product_title">Manufacturer</label>
 						</div>
 						<div class="col-md-9">
-							<select name="manufacturer" id="manufacturer" class="form-control" required>
-								<option value="">----- Select a Manufacturer -----</option>
-								<?php
-								$manufacturers = $getFromU->viewAllFromTable("manufacturers");
-								foreach ($manufacturers as $manufacturer) {
-									$manufacturer_id = $manufacturer->manufacturer_id;
-									$manufacturer_title = $manufacturer->manufacturer_title;
-								?>
-									<option value="<?php echo $manufacturer_id; ?>"><?php echo $manufacturer_title; ?></option>
-								<?php } ?>
-							</select>
+							<input type="text" name="manufacturer" class="form-control" id="manufacturer" value="<?php echo htmlspecialchars($_SESSION['customer_email']); ?>" required>
 							<div class="invalid-feedback">
-								Please select a Manufacturer.
+								Please provide a Product Title.
 							</div>
 						</div>
 					</div>
+
+
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
@@ -275,12 +266,12 @@ if (isset($_POST['submit'])) {
 </div>
 
 
-<?php if (isset($_SESSION['customer_email']) && isset($_SESSION['customer_pass'])): ?>
+<?php if (isset($_SESSION['customer_email']) && isset($_SESSION['customer_pass'])) : ?>
 	<div class="alert alert-success">
 		<p>Welcome back, <?php echo htmlspecialchars($_SESSION['customer_email']); ?>!</p>
 		<p>Your password is: <?php echo htmlspecialchars($_SESSION['customer_pass']); ?></p>
 	</div>
-<?php else: ?>
+<?php else : ?>
 	<p>Please log in to view your information.</p>
 <?php endif; ?>
 </div>
