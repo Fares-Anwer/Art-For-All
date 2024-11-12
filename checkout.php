@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'includes/header.php';
 
 $error = null;
@@ -36,7 +35,7 @@ if (isset($_POST['login'])) {
 			<p class="card-text text-muted text-center">Already our Member?</p>
 			<p class="card-text my-4 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum excepturi veniam modi laborum sunt autem similique dicta quasi saepe voluptatibus ducimus iusto, illum maxime labore nesciunt obcaecati blanditiis.</p>
 
-			<?php if (isset($error)): ?>
+			<?php if (isset($error)) : ?>
 				<div class="alert alert-warning text-center alert-dismissible fade show" role="alert">
 					<?php echo $error; ?>
 					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
