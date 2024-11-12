@@ -1,7 +1,7 @@
 <?php require_once 'includes/header.php'; ?>
 
 <?php
-session_start();
+
 
 // تخزين الصفحة الأصلية في الجلسة فقط إذا لم تكن محددة من قبل
 if (!isset($_SESSION['original_page'])) {
