@@ -5,15 +5,6 @@ require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Modern-E-Commerce-Store-mas
 <?php
 // تحقق إذا كان هناك معرف المنتج في الرابط
 if (isset($_GET['product_id'])) {
-
-    if ($_GET['product_id']) {
-        $id = intval($_GET['product_id']);
-        $stmt = $con->prepare("update products set status='1' where id='$id'");
-        $stmt->execute();
-        $msg = "Comment unapprove ";
-    }
-
-
     $product_id = $_GET['product_id'];
 
     // إعداد استعلام SQL لتحديث القيمة status إلى 1
