@@ -6,8 +6,6 @@ if (isset($_POST['add_service'])) {
 	$service_title = $getFromU->checkInput($_POST['service_title']);
 	$service_desc = $_POST['service_desc'];
 	$service_button = $getFromU->checkInput($_POST['service_button']);
-	$service_image = $_FILES['service_image']['name'];
-	$temp_name = $_FILES['service_image']['tmp_name'];
 
 	$get_services = $getFromU->viewAllFromTable('services');
 	$count_services = count($get_services);
@@ -15,9 +13,8 @@ if (isset($_POST['add_service'])) {
 	if ($count_services >= 3) {
 		$error = "You have already added 3 Services";
 	} else {
-		move_uploaded_file($temp_name, "services_images/$service_image");
 
-		$insert_service = $getFromU->create("services", array("service_title" => $service_title, "service_desc" => $service_desc, "service_image" => $service_image));
+		$insert_service = $getFromU->create("services", array("service_title" => $service_title, "service_desc" => $service_desc));
 
 		if ($insert_service) {
 			$_SESSION['insert_service_msg'] = "Service has been added Sucessfully";
@@ -71,19 +68,6 @@ if (isset($_POST['add_service'])) {
 							</div>
 						</div>
 					</div>
-
-					<div class="form-row mb-3">
-						<div class="col-3">
-							<label for="service_image">Service Image</label>
-						</div>
-						<div class="col-md-9">
-							<input type="file" name="service_image" class="form-control" id="service_image" placeholder="Category Title" required>
-							<div class="invalid-feedback">
-								Please provide a Service Image.
-							</div>
-						</div>
-					</div>
-
 					<div class="form-row mb-3">
 						<div class="col-3">
 							<label for="service_desc">Service Description</label>
