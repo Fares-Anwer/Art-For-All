@@ -16,8 +16,6 @@ if (isset($_GET['edit_product'])) {
 	$product_desc 		= $view_product->product_desc;
 	$product_keywords = $view_product->product_keywords;
 	$the_product_img1 = $view_product->product_img1;
-	$the_product_img2 = $view_product->product_img2;
-	$the_product_img3 = $view_product->product_img3;
 	$product_label 		= $view_product->product_label;
 	$the_status 		  = $view_product->status;
 
@@ -46,28 +44,17 @@ if (isset($_POST['update_product'])) {
 	$status    				= $_POST['status'];
 
 	$product_img1 		= $_FILES['product_img1']['name'];
-	$product_img2 		= $_FILES['product_img2']['name'];
-	$product_img3 		= $_FILES['product_img3']['name'];
 
 	$temp_name1 			= $_FILES['product_img1']['tmp_name'];
-	$temp_name2 			= $_FILES['product_img2']['tmp_name'];
-	$temp_name3 			= $_FILES['product_img3']['tmp_name'];
 
 	if (empty($product_img1)) {
 		$product_img1 = $the_product_img1;
 	}
-	if (empty($product_img2)) {
-		$product_img2 = $the_product_img2;
-	}
-	if (empty($product_img3)) {
-		$product_img3 = $the_product_img3;
-	}
+
 
 	move_uploaded_file($temp_name1, "product_images/$product_img1");
-	move_uploaded_file($temp_name2, "product_images/$product_img2");
-	move_uploaded_file($temp_name3, "product_images/$product_img3");
 
-	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$update_product = $getFromU->update_product("products", $product_id, array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($update_product) {
 		$_SESSION['product_update_msg'] = "Product has been Updated Sucessfully";
@@ -175,33 +162,6 @@ if (isset($_POST['update_product'])) {
 							</div>
 						</div>
 					</div>
-
-					<div class="form-row mb-3">
-						<div class="col-md-3">
-							<label for="product_img2">Product Image 2</label>
-						</div>
-						<div class="col-md-9">
-							<input type="file" name="product_img2" id="product_img2">
-							<img src="product_images/<?php echo $the_product_img2; ?>" width="30" height="30">
-							<div class="invalid-feedback">
-								Please provide a Product Image 2.
-							</div>
-						</div>
-					</div>
-
-					<div class="form-row mb-3">
-						<div class="col-md-3">
-							<label for="product_img3">Product Image 3</label>
-						</div>
-						<div class="col-md-9">
-							<input type="file" name="product_img3" id="product_img3">
-							<img src="product_images/<?php echo $the_product_img3; ?>" width="30" height="30">
-							<div class="invalid-feedback">
-								Please provide a Product Image 3.
-							</div>
-						</div>
-					</div>
-
 					<div class="form-row mb-3">
 						<div class="col-md-3">
 							<label for="product_price">Product Price</label>

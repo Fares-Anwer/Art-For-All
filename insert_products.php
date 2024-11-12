@@ -1,8 +1,6 @@
 <?php require_once 'includes/header.php'; ?>
 
 <?php
-session_start();
-
 // تخزين الصفحة الأصلية في الجلسة فقط إذا لم تكن محددة من قبل
 if (!isset($_SESSION['original_page'])) {
 	$_SESSION['original_page'] = "insert_products.php";
@@ -30,18 +28,12 @@ if (isset($_POST['submit'])) {
 	$status = '0';
 
 	$product_img1 = $_FILES['product_img1']['name'];
-	$product_img2 = $_FILES['product_img2']['name'];
-	$product_img3 = $_FILES['product_img3']['name'];
 
 	$temp_name1 = $_FILES['product_img1']['tmp_name'];
-	$temp_name2 = $_FILES['product_img2']['tmp_name'];
-	$temp_name3 = $_FILES['product_img3']['tmp_name'];
 
 	move_uploaded_file($temp_name1, "admin_area/product_images/$product_img1");
-	move_uploaded_file($temp_name2, "admin_area/product_images/$product_img2");
-	move_uploaded_file($temp_name3, "admin_area/product_images/$product_img3");
 
-	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_img2" => $product_img2, "product_img3" => $product_img3, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "manufacturer_id" => $manufacturer_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';
@@ -130,31 +122,6 @@ if (isset($_POST['submit'])) {
 							</div>
 						</div>
 					</div>
-
-					<div class="form-row mb-3">
-						<div class="col-md-3">
-							<label for="product_img2">Product Image 2</label>
-						</div>
-						<div class="col-md-9">
-							<input type="file" name="product_img2" id="product_img2" required>
-							<div class="invalid-feedback">
-								Please provide a Product Image 2.
-							</div>
-						</div>
-					</div>
-
-					<div class="form-row mb-3">
-						<div class="col-md-3">
-							<label for="product_img3">Product Image 3</label>
-						</div>
-						<div class="col-md-9">
-							<input type="file" name="product_img3" id="product_img3" required>
-							<div class="invalid-feedback">
-								Please provide a Product Image 3.
-							</div>
-						</div>
-					</div>
-
 					<div class="form-row mb-3">
 						<div class="col-md-3">
 							<label for="product_price">Product Price</label>
@@ -208,7 +175,7 @@ if (isset($_POST['submit'])) {
 							<label for="product_keywords">Product Keyword</label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="product_keywords" class="form-control" id="product_keywords" placeholder="Enter Product Keyword" required>
+							<input type="text" name="product_keywords" class="form-control" id="product_keywords" placeholder="Enter Product Keyword">
 							<div class="invalid-feedback">
 								Please provide Product Keyword.
 							</div>
@@ -264,19 +231,6 @@ if (isset($_POST['submit'])) {
 		</script>
 	</div>
 </div>
-
-
-<?php if (isset($_SESSION['customer_email']) && isset($_SESSION['customer_pass'])) : ?>
-	<div class="alert alert-success">
-		<p>Welcome back, <?php echo htmlspecialchars($_SESSION['customer_email']); ?>!</p>
-		<p>Your password is: <?php echo htmlspecialchars($_SESSION['customer_pass']); ?></p>
-	</div>
-<?php else : ?>
-	<p>Please log in to view your information.</p>
-<?php endif; ?>
-</div>
-
-
 
 <?php require_once 'includes/footer.php'; ?>
 

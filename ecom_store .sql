@@ -333,8 +333,6 @@ CREATE TABLE `products` (
   `product_title` varchar(255) NOT NULL,
   `product_url` text NOT NULL,
   `product_img1` text NOT NULL,
-  `product_img2` text NOT NULL,
-  `product_img3` text NOT NULL,
   `product_price` int(10) NOT NULL,
   `product_psp_price` int(100) NOT NULL,
   `product_desc` text NOT NULL,

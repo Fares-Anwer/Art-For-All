@@ -85,8 +85,6 @@ if (isset($_POST['add_to_wishlist'])) {
 					$product_price     = $get_product->product_price;
 					$product_desc      = $get_product->product_desc;
 					$product_img1      = $get_product->product_img1;
-					$product_img2 		 = $get_product->product_img2;
-					$product_img3      = $get_product->product_img3;
 					$product_label     = $get_product->product_label;
 					$manufacturer_id   = $get_product->manufacturer_id;
 					$product_psp_price = $get_product->product_psp_price;
@@ -165,12 +163,6 @@ if (isset($_POST['add_to_wishlist'])) {
 											<div class="carousel-inner">
 												<div class="carousel-item active">
 													<img class="d-block w-100 img-fluid" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="First slide">
-												</div>
-												<div class="carousel-item">
-													<img class="d-block w-100 img-fluid" src="admin_area/product_images/<?php echo $product_img2; ?>" alt="Second slide">
-												</div>
-												<div class="carousel-item">
-													<img class="d-block w-100 img-fluid" src="admin_area/product_images/<?php echo $product_img3; ?>" alt="Third slide">
 												</div>
 											</div>
 											<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -281,12 +273,6 @@ if (isset($_POST['add_to_wishlist'])) {
 									<div class="row" id="thumbs">
 										<div class="col-4">
 											<a href="#" class="thumb"><img class="img-fluid img-thumbnail" src="admin_area/product_images/<?php echo $product_img1; ?>"></a>
-										</div>
-										<div class="col-4">
-											<a href="#" class="thumb"><img class="img-fluid img-thumbnail" src="admin_area/product_images/<?php echo $product_img2; ?>"></a>
-										</div>
-										<div class="col-4">
-											<a href="#" class="thumb"><img class="img-fluid img-thumbnail" src="admin_area/product_images/<?php echo $product_img3; ?>"></a>
 										</div>
 									</div>
 
