@@ -9,7 +9,6 @@ if (isset($_GET['edit_product'])) {
 
 	$product_title 		= $view_product->product_title;
 	$cat_id 				= $view_product->cat_id;
-	$cat_id 					= $view_product->cat_id;
 	$product_price 		= $view_product->product_price;
 	$product_psp_price = $view_product->product_psp_price;
 	$product_desc 		= $view_product->product_desc;
