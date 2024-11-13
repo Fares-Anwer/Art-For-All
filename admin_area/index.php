@@ -95,18 +95,6 @@ if (!isset($_SESSION['admin_email'])) {
         require_once 'includes/view_icons.php';
       } elseif (isset($_GET['edit_icon'])) {
         require_once 'includes/edit_icon.php';
-      } elseif (isset($_GET['add_bundle'])) {
-        require_once 'includes/add_bundle.php';
-      } elseif (isset($_GET['view_bundles'])) {
-        require_once 'includes/view_bundles.php';
-      } elseif (isset($_GET['edit_bundle'])) {
-        require_once 'includes/edit_bundle.php';
-      } elseif (isset($_GET['add_product_to_bundle'])) {
-        require_once 'includes/add_product_to_bundle.php';
-      } elseif (isset($_GET['view_product_to_bundles'])) {
-        require_once 'includes/view_product_to_bundles.php';
-      } elseif (isset($_GET['edit_product_to_bundle'])) {
-        require_once 'includes/edit_product_to_bundle.php';
       } elseif (isset($_GET['edit_contact_us'])) {
         require_once 'includes/edit_contact_us.php';
       } elseif (isset($_GET['add_enquiry_type'])) {

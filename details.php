@@ -86,7 +86,6 @@ if (isset($_POST['add_to_wishlist'])) {
 					$product_desc      = $get_product->product_desc;
 					$product_img1      = $get_product->product_img1;
 					$product_label     = $get_product->product_label;
-					$manufacturer_id   = $get_product->manufacturer_id;
 					$product_psp_price = $get_product->product_psp_price;
 					$status            = $get_product->status;
 

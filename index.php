@@ -163,8 +163,11 @@
 				$product_price = "$$product_price";
 				$product_psp_price = "";
 			}
-			$view_customer		  = $getFromU->view_customer_by_id($customer_id);
+			$view_customer = $getFromU->view_customer_by_id($customer_id);
 			$the_customer_name = $view_customer->customer_name;
+			if ($the_customer_name == NULL) {
+				$the_customer_name = "Admin";
+			}
 		?>
 
 			<div class="col-sm-6 col-md-4 col-lg-3 single">
