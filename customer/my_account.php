@@ -156,7 +156,7 @@ if (!isset($_SESSION['customer_email'])) {
 					$message .= '<h3 class="text-center"><a href="localhost/ecommerce/customer/my_account.php?confirm_code=' . $customer_confirm_code . '">Click Here To Confirm Email</a></h3> ';
 
 					$subject = 'Confirm Email';
-					$message = $message;
+					// $message = $message;
 					$headers =  'MIME-Version: 1.0' . "\r\n";
 					$headers .= 'From: eCommerce Admin <info@address.com>' . "\r\n";
 					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";

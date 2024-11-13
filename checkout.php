@@ -1,103 +1,86 @@
-<?php
-require_once 'includes/header.php';
+<?php require_once 'includes/header.php'; ?>
 
-$error = null;
-
-if (isset($_POST['login'])) {
-	$customer_email = $_POST['c_email'];
-	$customer_pass = $_POST['c_pass'];
-
-	$login = $getFromU->login($customer_email, $customer_pass);
-
-	if ($login === false) {
-		$error = "Email or Password is Wrong";
-	} else {
-		// تخزين البريد الإلكتروني وكلمة المرور في الجلسة
-		$_SESSION['customer_email'] = $customer_email;
-		$_SESSION['customer_pass'] = $customer_pass;
-		$_SESSION['login_success_msg'] = "You have Successfully Logged In";
-
-		// توجيه المستخدم بعد تسجيل الدخول بنجاح
-		$redirect_back = isset($_SESSION['original_page']) ? $_SESSION['original_page'] : 'index.php';
-		unset($_SESSION['original_page']);
-		header("Location: $redirect_back");
-		exit();
-	}
-}
-?>
-
-<!-- باقي الكود كما هو سابقاً -->
-
-<div class="card">
-	<div class="card-body">
-		<div class="col-md-12">
-			<h3 class="card-title text-center">Login</h3>
-			<p class="card-text text-muted text-center">Already our Member?</p>
-			<p class="card-text my-4 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias eum excepturi veniam modi laborum sunt autem similique dicta quasi saepe voluptatibus ducimus iusto, illum maxime labore nesciunt obcaecati blanditiis.</p>
-
-			<?php if (isset($error)) : ?>
-				<div class="alert alert-warning text-center alert-dismissible fade show" role="alert">
-					<?php echo $error; ?>
-					<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
+	<a class="navbar-brand home" href="#">Navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto text-uppercase">
+			<li>
+				<a href="index.php">Home</a>
+			</li>
+			<li>
+				<a href="shop.php">Shop</a>
+			</li>
+			<?php if (!isset($_SESSION['customer_email'])): ?>
+				<li><a href="checkout.php">My Account</a></li>
+			<?php else: ?>
+				<li><a href="customer/my_account.php?my_orders">My Account</a></li>
 			<?php endif ?>
+			<li>
+				<a href="cart.php">Shopping Cart</a>
+			</li>
+			<li>
+				<a href="contact.php">Contact Us</a>
+			</li>
+			<li>
+				<a href="about.php">About Us</a>
+			</li>
+			<li>
+				<a href="services.php">Services</a>
+			</li>
+		</ul>
 
+		<a href="cart.php" class="btn btn-success mr-2"><i class="fas fa-shopping-cart"></i><span> <?php echo $getFromU->count_product_by_ip($ip_add); ?> items in Cart</span></a>
 
-			<form method="post" class="needs-validation" novalidate>
-				<div class="form-row">
-					<div class="col-12 mb-3">
-						<label for="email" class="font-weight-bold">Email</label>
-						<input type="email" name="c_email" class="form-control" id="email" placeholder="Enter Your Email" required>
-						<div class="invalid-feedback">
-							Please provide a valid Email Address.
-						</div>
-					</div>
-				</div>
-				<div class="form-row">
-					<div class="col-12 mb-3">
-						<label for="password" class="font-weight-bold">Password</label>
-						<input type="password" name="c_pass" class="form-control" id="password" placeholder="Enter Your Password" required>
-						<div class="invalid-feedback">
-							Please provide a Password.
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-
-					<div class="col-lg-4 offset-lg-4">
-						<button class="btn btn-info form-control" name="login" type="submit"><i class="fas fa-sign-in-alt"></i> Login</button>
-					</div>
-					<div class="col-md-2 offset-md-2">
-						<a href="forgot_password.php" class="btn btn-sm btn-danger">Forgot Password?</a>
-					</div>
-				</div>
-			</form>
-
-			<a href="customer_register.php">New ? Register Here</a>
-
-			<script>
-				// Example starter JavaScript for disabling form submissions if there are invalid fields
-				(function() {
-					'use strict';
-					window.addEventListener('load', function() {
-						// Fetch all the forms we want to apply custom Bootstrap validation styles to
-						var forms = document.getElementsByClassName('needs-validation');
-						// Loop over them and prevent submission
-						var validation = Array.prototype.filter.call(forms, function(form) {
-							form.addEventListener('submit', function(event) {
-								if (form.checkValidity() === false) {
-									event.preventDefault();
-									event.stopPropagation();
-								}
-								form.classList.add('was-validated');
-							}, false);
-						});
-					}, false);
-				})();
-			</script>
-		</div>
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="user_query" required="1">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Search</button>
+		</form>
 	</div>
+</nav>
+
+
+<div id="content">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.php">Home</a></li>
+						<li class="breadcrumb-item" aria-current="page">Checkout</li>
+					</ol>
+				</nav>
+			</div>
+
+
+			<div class="col-md-12 mb-5">
+				<?php
+				if (!isset($_SESSION['customer_email'])) {
+					require_once 'customer/customer_login.php';
+				} else {
+					require_once 'payment_options.php';
+				}
+
+
+				?>
+			</div> <!-- col-md-9 End -->
+
+
+
+		</div> <!-- Row End -->
+
+
+
+
+
+	</div> <!-- SINGLE PRODUCT ROW END -->
+
 </div>
+</div>
+
+
+
+
+<?php require_once 'includes/footer.php'; ?>

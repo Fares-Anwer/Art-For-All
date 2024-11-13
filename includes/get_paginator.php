@@ -12,7 +12,7 @@ $aPath = '';
 if (isset($_REQUEST['man']) && is_array($_REQUEST['man'])) {
 	foreach ($_REQUEST['man'] as $sKey => $sVal) {
 		if ((int)$sVal != 0) {
-			$aWhere[] = 'manufacturer_id=' . (int)$sVal;
+			$aWhere[] = 'customer_id =' . (int)$sVal;
 			$aPath .= 'man[]=' . (int)$sVal . '&';
 		}
 	}
