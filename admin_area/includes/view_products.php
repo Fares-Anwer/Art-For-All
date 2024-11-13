@@ -58,6 +58,7 @@
                         <th>Sold</th>
                         <th>Keywords</th>
                         <th>Status</th>
+                        <th>customer_id</th>
                         <th>Date</th>
                         <th>Edit</th>
                         <th>Delete</th>
@@ -78,6 +79,7 @@
                         $product_psp_price = $view_product->product_psp_price;
                         $product_keywords = $view_product->product_keywords;
                         $status = $view_product->status;
+                        $customer_id = $view_product->customer_id;
                         $product_label = $view_product->product_label;
                         $add_date = $view_product->add_date;
                         $product_sold = $getFromU->countFromTableByProductID('pending_orders', $product_id);
@@ -95,6 +97,7 @@
                                 <td><?php echo $product_sold; ?></td>
                                 <td><?php echo $product_keywords; ?></td>
                                 <td><?php echo ucwords($status); ?></td>
+                                <td><?php echo $customer_id; ?></td>
                                 <td><?php echo $add_date; ?></td>
                                 <td>
                                     <a class="text-info" href="index.php?edit_product=<?php echo $product_id; ?>"><i class="fas fa-edit"></i> Edit</a>

@@ -104,7 +104,8 @@ echo $customer_id;
 								// if ($manufacturer_title == $customer_id) {
 
 								?>
-								<option value="<?php echo $mcustomer_id; ?>"><?php echo htmlspecialchars($customer_name); ?></option>
+								<option value="<?php echo htmlspecialchars($mcustomer_id);
+												echo htmlspecialchars($customer_name); ?>"><?php echo htmlspecialchars($customer_name); ?></option>
 							</select>
 							<div class="invalid-feedback">
 								Please select a Product Manufacturer.

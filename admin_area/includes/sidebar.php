@@ -19,9 +19,9 @@ $icons = (isset($_GET['add_icon']) || isset($_GET['view_icons']) || isset($_GET[
 $add_icon = (isset($_GET['add_icon'])) ? 'active' : '';
 $view_icons = (isset($_GET['view_icons'])) ? 'active' : '';
 
-$manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
-$add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
-$view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
+// $manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
+// $add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
+// $view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
 
 $cats = (isset($_GET['add_cat']) || isset($_GET['view_cats']) || isset($_GET['edit_cat'])) ? 'active' : '';
 $add_cat = (isset($_GET['add_cat'])) ? 'active' : '';
@@ -117,19 +117,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     </li>
                     <li>
                         <a class="<?php echo $view_icons; ?>" href="index.php?view_icons"><i class="fas fa-eye"></i> View Icons</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="<?php echo $manufacturers; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fas fa-cog"></i>
-                    <span class="nav-label">Manufacturers</span><i class="fa fa-angle-left arrow"></i>
-                </a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_manufacturer; ?>" href="index.php?add_manufacturer"><i class="fas fa-plus-circle"></i> Insert Manufacturer</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_manufacturers; ?>" href="index.php?view_manufacturers"><i class="fas fa-eye"></i> View Manufacturers</a>
                     </li>
                 </ul>
             </li>

@@ -63,9 +63,9 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         <?php
         $get_manufacturers = $getFromU->selectTopManufacturer();
         foreach ($get_manufacturers as $get_manufacturer) {
-          $manufacturer_id = $get_manufacturer->manufacturer_id;
-          $manufacturer_title = $get_manufacturer->manufacturer_title;
-          $manufacturer_image = $get_manufacturer->manufacturer_image;
+          $manufacturer_id = $get_manufacturer->customer_id;
+          $manufacturer_title = $get_manufacturer->customer_name;
+          $manufacturer_image = $get_manufacturer->customer_image;
 
           if ($manufacturer_image == "") {
           } else {
@@ -87,9 +87,9 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         <?php
         $get_manufacturers = $getFromU->selectNonTopManufacturer();
         foreach ($get_manufacturers as $get_manufacturer) {
-          $manufacturer_id = $get_manufacturer->manufacturer_id;
-          $manufacturer_title = $get_manufacturer->manufacturer_title;
-          $manufacturer_image = $get_manufacturer->manufacturer_image;
+          $manufacturer_id = $get_manufacturer->customer_id;
+          $manufacturer_title = $get_manufacturer->custometrs_name;
+          $manufacturer_image = $get_manufacturer->custometrs_image;
 
           if ($manufacturer_image == "") {
           } else {
@@ -116,26 +116,6 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
 
 </div>
 
-
-<div class="card sidebar-menu">
-  <div class="card-header">
-    Subcategories
-    <div class="float-right">
-      <a href="#" class="text-dark"><span class="nav-toggle2 hide-show2" style="font-size: 10px"><i class="fas fa-minus"></i></span></a>
-    </div>
-  </div>
-  <div class="panel-collapse2 collapse-data2">
-    <div class="card-body">
-      <div class="input-group">
-        <input type="text" class="form-control" name="" id="dev-table-filter" data-action="filter" data-filter="#dev-p-cats" placeholder="Filter Subcategories" aria-describedby="basic-addon2">
-        <div class="input-group-prepend">
-          <a href="#" class="input-group-text" id="basic-addon2"><i class="fas fa-search"></i></a href="#">
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
 
 
 

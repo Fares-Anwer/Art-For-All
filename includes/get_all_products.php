@@ -9,7 +9,7 @@ $aWhere = array();
 if (isset($_REQUEST['man']) && is_array($_REQUEST['man'])) {
 	foreach ($_REQUEST['man'] as $sKey => $sVal) {
 		if ((int)$sVal != 0) {
-			$aWhere[] = 'manufacturer_id=' . (int)$sVal;
+			$aWhere[] = 'customer_id=' . (int)$sVal;
 		}
 	}
 }
@@ -59,11 +59,11 @@ foreach ($get_products as $get_product) {
 	$product_price = $get_product->product_price;
 	$product_img1 = $get_product->product_img1;
 	$product_label   = $get_product->product_label;
-	$manufacturer_id = $get_product->manufacturer_id;
+	$customer_id = $get_product->customer_id;
 	$product_psp_price = $get_product->product_psp_price;
 
-	$view_manufacturer = $getFromU->selectManufacturerByManufacturerID($manufacturer_id);
-	$manufacturer_title = $view_manufacturer->manufacturer_title;
+	$view_manufacturer = $getFromU->view_customer_by_id($customer_id);
+	$manufacturer_title = $view_manufacturer->customer_name;
 
 	if ($product_label == "Sale" || $product_label == "Gift") {
 		$product_price = "<del>$$product_price</del>";

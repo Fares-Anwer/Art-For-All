@@ -58,6 +58,7 @@
                         <th>Sold</th>
                         <th>Keywords</th>
                         <th>Status</th>
+                        <th>customer_id</th>
                         <th>Date</th>
                         <th>Accept</th>
                         <th>Edit</th>
@@ -80,6 +81,7 @@
                         $product_keywords = $view_product->product_keywords;
                         $status = $view_product->status;
                         $product_label = $view_product->product_label;
+                        $customer_id = $view_product->customer_id;
                         $add_date = $view_product->add_date;
                         $product_sold = $getFromU->countFromTableByProductID('pending_orders', $product_id);
                         if ($status == "0") {
@@ -97,6 +99,7 @@
                                 <td><?php echo $product_sold; ?></td>
                                 <td><?php echo $product_keywords; ?></td>
                                 <td><?php echo ucwords($status); ?></td>
+                                <td><?php echo $customer_id; ?></td>
                                 <td><?php echo $add_date; ?></td>
                                 <td>
 

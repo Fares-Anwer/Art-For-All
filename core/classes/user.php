@@ -470,7 +470,7 @@ class User
 
   public function selectTopManufacturer()
   {
-    $sql = "SELECT * FROM manufacturers WHERE manufacturer_top = 'Yes' ";
+    $sql = "SELECT * FROM customers WHERE manufacturer_top = 'Yes' ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -478,7 +478,7 @@ class User
 
   public function selectNonTopManufacturer()
   {
-    $sql = "SELECT * FROM manufacturers WHERE manufacturer_top = 'No' ";
+    $sql = "SELECT * FROM customers WHERE manufacturer_top = 'No' ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();

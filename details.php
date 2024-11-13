@@ -88,9 +88,7 @@ if (isset($_POST['add_to_wishlist'])) {
 					$product_label     = $get_product->product_label;
 					$product_psp_price = $get_product->product_psp_price;
 					$status            = $get_product->status;
-
-					$view_manufacturer = $getFromU->selectManufacturerByManufacturerID($manufacturer_id);
-					$manufacturer_title = $view_manufacturer->manufacturer_title;
+					$pro_customer_id	   = $get_product->customer_id;
 
 					if ($status == "product") {
 						$title = "Product";
@@ -251,8 +249,11 @@ if (isset($_POST['add_to_wishlist'])) {
 													<?php } ?>
 
 												</center>
-
-												<p class="btn btn-sm btn-info mb-0">Manufacturer : <?php echo $manufacturer_title; ?></p>
+												<?php
+												$customer = $getFromU->view_customer_by_id($pro_customer_id);
+												$pcustomer_name = $customer->customer_name;
+												?>
+												<p class="btn btn-sm btn-info mb-0">Manufacturer : <?php echo $pcustomer_name; ?></p>
 
 												<h6 class="card-text mt-4">Price : <?php echo $product_price; ?></h6>
 												<?php if ($product_label == "Sale" || $product_label == "Gift" || $product_label == "Bundle") : ?>
@@ -287,7 +288,7 @@ if (isset($_POST['add_to_wishlist'])) {
 			} ?>
 		</div> <!-- Row end -->
 
-		<?php if ($status == "product") : ?>
+		<?php if ($status == 1) : ?>
 
 			<div class="row suggestion_heading">
 				<div class="col-md-12 ">
@@ -312,11 +313,10 @@ if (isset($_POST['add_to_wishlist'])) {
 						$product_price = $product->product_price;
 						$product_img1 = $product->product_img1;
 						$product_label   = $product->product_label;
-						$manufacturer_id = $product->manufacturer_id;
 						$product_psp_price = $product->product_psp_price;
-
-						$view_manufacturer = $getFromU->selectManufacturerByManufacturerID($manufacturer_id);
-						$manufacturer_title = $view_manufacturer->manufacturer_title;
+						$prod_customer_id = $product->customer_id;
+						$customer = $getFromU->view_customer_by_id($prod_customer_id);
+						$prcustomer_name = $customer->customer_name;
 
 						if ($product_label == "Sale" || $product_label == "Gift") {
 							$product_price = "<del>$$product_price</del>";
@@ -336,7 +336,7 @@ if (isset($_POST['add_to_wishlist'])) {
 								<div class="card">
 									<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
 									<div class="card-body text-center">
-										<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $manufacturer_title; ?></p>
+										<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
 										<hr>
 										<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
 										<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>

@@ -81,12 +81,12 @@ if (isset($_POST['submit'])) {
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
-							<label for="product_img1">Product Image 1</label>
+							<label for="product_img1">Product Image</label>
 						</div>
 						<div class="col-md-9">
 							<input type="file" name="product_img1" id="product_img1" required>
 							<div class="invalid-feedback">
-								Please provide a Product Image 1.
+								Please provide a Product Image.
 							</div>
 						</div>
 					</div>
