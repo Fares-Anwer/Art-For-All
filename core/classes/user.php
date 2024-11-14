@@ -191,14 +191,6 @@ class User
     return $stmt->fetch();
   }
 
-  public function view_icon_by_id($icon_id)
-  {
-    $sql = "SELECT * FROM icons WHERE icon_id = :icon_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":icon_id", $icon_id);
-    $stmt->execute();
-    return $stmt->fetch();
-  }
 
   public function view_customer_orders_by_order_id($order_id)
   {
@@ -430,24 +422,6 @@ class User
     return $stmt->fetchAll();
   }
 
-  public function selectTerm1()
-  {
-    $sql = "SELECT * FROM terms LIMIT 0,1";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-
-    return $stmt->fetch();
-  }
-
-  public function selectTerms($count)
-  {
-    $sql = "SELECT * FROM terms LIMIT 1,$count";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->execute();
-
-    return $stmt->fetchAll();
-  }
-
 
   public function selectSlideAll()
   {
@@ -535,15 +509,6 @@ class User
     return $stmt->fetch();
   }
 
-  public function selectTermsByTermID($term_id)
-  {
-    $sql = "SELECT * FROM terms WHERE term_id = :term_id";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":term_id", $term_id);
-    $stmt->execute();
-    return $stmt->fetch();
-  }
-
   public function selectLatestProduct()
   {
     $sql = "SELECT * FROM artwork ORDER BY 1 DESC LIMIT 0,8";
@@ -598,14 +563,6 @@ class User
     return $stmt->fetchAll();
   }
 
-  public function viewIconsByProductID($product_id)
-  {
-    $sql = "SELECT * FROM icons WHERE icon_product = :product_id ";
-    $stmt = $this->pdo->prepare($sql);
-    $stmt->bindParam(":product_id", $product_id);
-    $stmt->execute();
-    return $stmt->fetchAll();
-  }
 
   public function viewProductByProductURL($product_id)
   {
@@ -1011,34 +968,6 @@ class User
     }
 
     $sql = "UPDATE {$table} SET {$columns} WHERE box_id = {$box_id}";
-    $stmt = $this->pdo->prepare($sql);
-    if ($stmt) {
-      foreach ($fields as $key => $value) {
-        $stmt->bindValue(":" . $key, $value);
-      }
-
-      if ($stmt->execute()) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-  }
-
-
-  public function update_terms($table, $term_id, $fields = array())
-  {
-    $columns = '';
-    $i       = 1;
-    foreach ($fields as $name => $value) {
-      $columns .= "{$name} = :{$name}";
-      if ($i < count($fields)) {
-        $columns .= ', ';
-      }
-      $i++;
-    }
-
-    $sql = "UPDATE {$table} SET {$columns} WHERE term_id = {$term_id}";
     $stmt = $this->pdo->prepare($sql);
     if ($stmt) {
       foreach ($fields as $key => $value) {

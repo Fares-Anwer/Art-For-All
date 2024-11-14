@@ -271,9 +271,7 @@
 							</div>
 
 							<div class="form-row">
-								<center>
-									<div class="g-recaptcha" data-sitekey="6LeQlHYUAAAAAI2t81Q3myw4fefWMyiPJ5PpY3q0"></div>
-								</center>
+								<div class="g-recaptcha center" data-sitekey="6LeQlHYUAAAAAI2t81Q3myw4fefWMyiPJ5PpY3q0"></div>
 							</div>
 
 							<div class="row">

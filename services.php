@@ -21,8 +21,6 @@
 						$service_id = $get_service->service_id;
 						$service_title = $get_service->service_title;
 						$service_desc = $get_service->service_desc;
-						$service_button = $get_service->service_button;
-						$service_url = $get_service->service_url;
 					?>
 
 
@@ -32,7 +30,6 @@
 								<p class="card-text"><?php echo $service_desc; ?></p>
 							</div>
 							<div class="card-footer">
-								<center class="text-muted"><a href="<?php echo $service_url; ?>" class="btn btn-sm btn-info text-center"><?php echo $service_button; ?></a></center>
 							</div>
 						</div>
 					<?php } ?>

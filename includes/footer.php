@@ -19,7 +19,6 @@
 						<li><a href="logout.php" class="text-light">Logout</a></li>
 					<?php endif ?>
 					<li><a href="customer_register.php" class="text-light">Register</a></li>
-					<li><a href="terms.php" class="text-light">Terms &amp; Conditions</a></li>
 				</ul>
 			</div>
 

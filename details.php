@@ -201,16 +201,11 @@ if (isset($_POST['add_to_wishlist'])) {
 													</div>
 												</div>
 
-												<center class='mb-3'>
-													<?php
-													$view_icons = $getFromU->viewIconsByProductID($the_product_id);
-													foreach ($view_icons as $view_icon) {
-														$icon_image = $view_icon->icon_image;
-													?>
-														<img src="admin_area/icon_images/<?php echo $icon_image; ?>" width="45" height="45">
-													<?php } ?>
+												<div class='mb-3 center'>
+													<img src="admin_area/icon_images/<?php echo $icon_image; ?>" width="45" height="45">
+												<?php } ?>
 
-												</center>
+												</div>
 												<?php
 												$customer = $getFromU->view_customer_by_id($pro_customer_id);
 												$pcustomer_name = $customer->customer_name;
@@ -245,9 +240,9 @@ if (isset($_POST['add_to_wishlist'])) {
 
 
 						</div> <!-- col-md-9 END --3 -->
-			<?php }
-				}
-			} ?>
+				<?php }
+			}
+				?>
 		</div> <!-- Row end -->
 
 		<?php if ($status == 1) : ?>

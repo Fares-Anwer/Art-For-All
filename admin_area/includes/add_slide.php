@@ -4,7 +4,6 @@ if (isset($_POST['add_slide'])) {
 	$slide_name = $getFromU->checkInput($_POST['slide_name']);
 	$slide_title = $getFromU->checkInput($_POST['slide_title']);
 	$slide_text = $getFromU->checkInput($_POST['slide_text']);
-	$slide_url = $getFromU->checkInput($_POST['slide_url']);
 
 	$slide_image = $_FILES['slide_image']['name'];
 	$temp_name = $_FILES['slide_image']['tmp_name'];
@@ -17,7 +16,7 @@ if (isset($_POST['add_slide'])) {
 
 		move_uploaded_file($temp_name, "slides_images/$slide_image");
 
-		$insert_slide = $getFromU->create("slider", array("slide_name" => $slide_name, "slide_title" => $slide_title, "slide_text" => $slide_text, "slide_image" => $slide_image, "slide_url" => $slide_url));
+		$insert_slide = $getFromU->create("slider", array("slide_name" => $slide_name, "slide_title" => $slide_title, "slide_text" => $slide_text, "slide_image" => $slide_image));
 
 		if ($insert_slide) {
 			$_SESSION['insert_slide_msg'] = "Slide has been added Sucessfully";

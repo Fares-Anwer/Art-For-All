@@ -10,7 +10,6 @@ if (isset($_GET['edit_slide'])) {
 	$the_slide_image 	= $view_slide->slide_image;
 	$slide_title 			= $view_slide->slide_title;
 	$slide_text 			= $view_slide->slide_text;
-	$slide_url 			  = $view_slide->slide_url;
 }
 
 ?>
@@ -22,14 +21,13 @@ if (isset($_POST['update_slide'])) {
 	$slide_name 	= $_POST['slide_name'];
 	$slide_title 	= $_POST['slide_title'];
 	$slide_text 	= $_POST['slide_text'];
-	$slide_url 		= $_POST['slide_url'];
 
 	$slide_image  = $_FILES['slide_image']['name'];
 	$temp_name    = $_FILES['slide_image']['tmp_name'];
 
 	move_uploaded_file($temp_name, "slides_images/$slide_image");
 
-	$update_slide = $getFromU->update_slide("slider", $slide_id, array("slide_name" => $slide_name, "slide_title" => $slide_title, "slide_image" => $slide_image, "slide_text" => $slide_text, "slide_url" => $slide_url));
+	$update_slide = $getFromU->update_slide("slider", $slide_id, array("slide_name" => $slide_name, "slide_title" => $slide_title, "slide_image" => $slide_image, "slide_text" => $slide_text));
 
 	if (file_exists("slides_images/$the_slide_image")) {
 		unlink("slides_images/$the_slide_image");

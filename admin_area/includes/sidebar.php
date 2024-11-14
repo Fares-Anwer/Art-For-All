@@ -15,14 +15,6 @@ $view_products = (isset($_GET['view_products'])) ? 'active' : '';
 $unapprove_product = (isset($_GET['Unapprove_product'])) ? 'active' : '';
 
 
-$icons = (isset($_GET['add_icon']) || isset($_GET['view_icons']) || isset($_GET['edit_icon'])) ? 'active' : '';
-$add_icon = (isset($_GET['add_icon'])) ? 'active' : '';
-$view_icons = (isset($_GET['view_icons'])) ? 'active' : '';
-
-// $manufacturers = (isset($_GET['add_manufacturer']) || isset($_GET['view_manufacturers']) || isset($_GET['edit_manufacturer'])) ? 'active' : '';
-// $add_manufacturer = (isset($_GET['add_manufacturer'])) ? 'active' : '';
-// $view_manufacturers = (isset($_GET['view_manufacturers'])) ? 'active' : '';
-
 $cats = (isset($_GET['add_cat']) || isset($_GET['view_cats']) || isset($_GET['edit_cat'])) ? 'active' : '';
 $add_cat = (isset($_GET['add_cat'])) ? 'active' : '';
 $view_cats = (isset($_GET['view_cats'])) ? 'active' : '';
@@ -48,10 +40,6 @@ $view_boxes = (isset($_GET['view_boxes'])) ? 'active' : '';
 $coupons = (isset($_GET['add_coupon']) || isset($_GET['view_coupons']) || isset($_GET['edit_coupon'])) ? 'active' : '';
 $add_coupon = (isset($_GET['add_coupon'])) ? 'active' : '';
 $view_coupons = (isset($_GET['view_coupons'])) ? 'active' : '';
-
-$terms = (isset($_GET['add_terms']) || isset($_GET['view_terms']) || isset($_GET['edit_terms'])) ? 'active' : '';
-$add_terms = (isset($_GET['add_terms'])) ? 'active' : '';
-$view_terms = (isset($_GET['view_terms'])) ? 'active' : '';
 
 $services = (isset($_GET['add_service']) || isset($_GET['view_services']) || isset($_GET['edit_service'])) ? 'active' : '';
 $add_service = (isset($_GET['add_service'])) ? 'active' : '';
@@ -103,20 +91,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     </li>
                     <li>
                         <a class="<?php echo $unapprove_product; ?>" href="index.php?Unapprove_product"><i class="fas fa-eye-slash"></i> View Unapprove Products</a>
-                    </li>
-                </ul>
-            </li>
-
-            <li class="<?php echo $icons; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fas fa-info-circle"></i>
-                    <span class="nav-label">Icons</span><i class="fa fa-angle-left arrow"></i>
-                </a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_icon; ?>" href="index.php?add_icon"><i class="fas fa-plus-circle"></i> Insert Icon</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_icons; ?>" href="index.php?view_icons"><i class="fas fa-eye"></i> View Icons</a>
                     </li>
                 </ul>
             </li>
@@ -199,19 +173,6 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     </li>
                     <li>
                         <a class="<?php echo $view_users; ?>" href="index.php?view_users"><i class="fas fa-eye"></i> View Users</a>
-                    </li>
-
-                </ul>
-            </li>
-            <li class="<?php echo $terms; ?>">
-                <a href="javascript:;"><i class="sidebar-item-icon fab fa-squarespace"></i>
-                    <span class="nav-label">Terms</span><i class="fa fa-angle-left arrow"></i></a>
-                <ul class="nav-2-level collapse">
-                    <li>
-                        <a class="<?php echo $add_terms; ?>" href="index.php?add_terms"><i class="fas fa-plus-circle"></i> Insert Terms</a>
-                    </li>
-                    <li>
-                        <a class="<?php echo $view_terms; ?>" href="index.php?view_terms"><i class="fas fa-eye"></i> View Terms</a>
                     </li>
 
                 </ul>
