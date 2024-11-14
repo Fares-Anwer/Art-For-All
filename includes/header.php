@@ -24,25 +24,22 @@ foreach ($records as $record) {
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<!-- Google Fonts -->
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<!-- Font Awesome CSS -->
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-	<!--   <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"> -->
-	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
-
-	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<title>eCommerce Store</title>
 </head>
 
 <body>
 
-	<div id="top"> <!-- Top Starts -->
-		<div class="container"> <!-- Container Starts -->
-			<div class="row"> <!-- row Starts -->
-				<div class="col-md-6"> <!-- col-md-6 offer Starts -->
+	<!-- Top bar with navigation -->
+	<div id="top" class="bg-dark text-light py-2"> <!-- Top Starts -->
+		<div class="container">
+			<div class="row d-flex justify-content-between">
+				<div class="col-md-6">
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
@@ -54,37 +51,42 @@ foreach ($records as $record) {
 						}
 						?>
 					</a>
+				</div>
 
-				</div> <!-- col-md-6 offer Ends -->
-
-				<div class="col-md-6"> <!-- col-md-6 Starts -->
-					<ul class="menu"> <!-- menu starts -->
+				<div class="col-md-6">
+					<ul class="nav justify-content-end">
 						<?php if (!isset($_SESSION['customer_email'])): ?>
-							<li><a href="customer_register.php">Register</a></li>
+							<li class="nav-item"><a class="nav-link text-light" href="customer_register.php">Register</a></li>
 						<?php endif ?>
 
 						<?php if (!isset($_SESSION['customer_email'])): ?>
-							<li><a href="checkout.php">My Account</a></li>
+							<li class="nav-item"><a class="nav-link text-light" href="checkout.php">My Account</a></li>
 						<?php else: ?>
-							<li><a href="customer/my_account.php?my_orders">My Account</a></li>
+							<li class="nav-item"><a class="nav-link text-light" href="customer/my_account.php?my_orders">My Account</a></li>
 						<?php endif ?>
 
-						<li><a href="cart.php">Go To Cart</a></li>
-						<li>
-
-						<li><a href="insert_products.php">Add Products</a></li>
-						<li>
+						<li class="nav-item"><a class="nav-link text-light" href="cart.php">Go To Cart</a></li>
+						<li class="nav-item"><a class="nav-link text-light" href="insert_products.php">Add Products</a></li>
+						<li class="nav-item">
 							<?php if (!isset($_SESSION['customer_email'])): ?>
-								<a href="checkout.php">Login</a>
+								<a class="nav-link text-light" href="checkout.php">Login</a>
 							<?php else: ?>
-								<a href="logout.php">Logout</a>
+								<a class="nav-link text-light" href="logout.php">Logout</a>
 							<?php endif ?>
-
 						</li>
-					</ul> <!-- menu ends -->
-				</div> <!-- col-md-6 Ends -->
-			</div><!-- row ends -->
-
-
-		</div> <!-- Container Ends -->
+					</ul>
+				</div>
+			</div>
+		</div>
 	</div> <!-- Top Ends -->
+
+	<!-- Navbar Removed -->
+
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

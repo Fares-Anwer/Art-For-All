@@ -52,54 +52,8 @@ if (isset($_POST['apply_coupon'])) {
 
 ?>
 
-
-
-
-
 <?php require_once 'includes/header.php'; ?>
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-		<span class="navbar-toggler-icon"></span>
-	</button>
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto text-uppercase">
-			<li>
-				<a href="index.php">Home</a>
-			</li>
-			<li>
-				<a href="shop.php">Marketplace</a>
-			</li>
-
-			<?php if (!isset($_SESSION['customer_email'])): ?>
-				<li><a href="checkout.php">My Account</a></li>
-			<?php else: ?>
-				<li><a href="customer/my_account.php?my_orders">My Account</a></li>
-			<?php endif ?>
-
-			<li>
-				<a class="active" href="cart.php">Shopping Cart</a>
-			</li>
-			<li>
-				<a href="contact.php">Contact Us</a>
-			</li>
-			<li>
-				<a href="about.php">About Us</a>
-			</li>
-			<li>
-				<a href="services.php">Services</a>
-			</li>
-		</ul>
-
-		<a href="cart.php" class="btn btn-success mr-2"><i class="fas fa-shopping-cart"></i><span> <?php echo $getFromU->count_product_by_ip($ip_add); ?> items in Cart</span></a>
-
-		<form class="form-inline my-2 my-lg-0">
-			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="user_query" required="1">
-			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Search</button>
-		</form>
-	</div>
-</nav>
-
+<?php require_once 'includes/sidebar_for_all.php'; ?>
 
 <div id="content">
 	<div class="container">
@@ -286,98 +240,100 @@ if (isset($_POST['apply_coupon'])) {
 				</div>
 			</div>
 
-		</div> <!-- Row End -->
-
-
-		<div class="row suggestion_heading">
-			<div class="col-md-12 ">
-				<div class="text-center">
-					<h2 class="">You may also Like this</h2>
+			<div class="row suggestion_heading mb-4">
+				<div class="col-md-12">
+					<div class="text-center">
+						<h2 class="font-weight-bold" style="font-size: 2rem; letter-spacing: 1px;">You May Also Like This</h2>
+					</div>
 				</div>
 			</div>
-		</div>
 
-		<div class="row">
-			<?php
-			$random_products = $getFromU->select_random_products();
-			foreach ($random_products as $random_product) {
-				$product_title = $random_product->product_title;
-				$product_id = $random_product->product_id;
-				$product_img1 = $random_product->product_img1;
-				$product_price = $random_product->product_price;
-				$product_label   = $random_product->product_label;
-				$prod_customer_id = $random_product->customer_id;
-				$product_psp_price = $random_product->product_psp_price;
+			<div class="row">
+				<?php
+				$random_products = $getFromU->select_random_products();
+				foreach ($random_products as $random_product) {
+					$product_title = $random_product->product_title;
+					$product_id = $random_product->product_id;
+					$product_img1 = $random_product->product_img1;
+					$product_price = $random_product->product_price;
+					$product_label = $random_product->product_label;
+					$prod_customer_id = $random_product->customer_id;
+					$product_psp_price = $random_product->product_psp_price;
 
-				$customer = $getFromU->view_customer_by_id($prod_customer_id);
-				$prcustomer_name = $customer->customer_name;
+					$customer = $getFromU->view_customer_by_id($prod_customer_id);
+					$prcustomer_name = $customer->customer_name;
 
-				if ($product_label == "Sale" || $product_label == "Gift") {
-					$product_price = "<del>$$product_price</del>";
-					$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";
-				} else {
-					$product_price = "$$product_price";
-					$product_psp_price = "";
-				}
-			?>
-				<div class="col-sm-6 col-md-3 justify-content-center single">
-					<div class="product mb-4">
-						<div class="card">
-							<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
+					if ($product_label == "Sale" || $product_label == "Gift") {
+						$product_price = "<del>$$product_price</del>";
+						$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";
+					} else {
+						$product_price = "$$product_price";
+						$product_psp_price = "";
+					}
+				?>
+					<div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
+						<div class="card product-card shadow-lg rounded border-0">
+							<a href="details.php?product_id=<?php echo $product_id; ?>">
+								<img class="card-img-top img-fluid rounded-top" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Product Image">
+							</a>
 							<div class="card-body text-center">
-								<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
+								<p class="btn btn-sm btn-info mb-0">Mnf By: <?php echo $prcustomer_name; ?></p>
 								<hr>
-								<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
-								<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
+								<h5 class="card-title text-dark text-truncate">
+									<a href="details.php?product_id=<?php echo $product_id; ?>" class="text-decoration-none"><?php echo $product_title; ?></a>
+								</h5>
+								<p class="card-text text-muted"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
 								<div class="row">
-									<div class="col-md-6  pr-1 pb-2">
-										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info form-control">Details</a>
+									<div class="col-md-6 mb-2">
+										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info w-100">Details</a>
 									</div>
-									<div class="col-md-6  pr-lg-3 pr-1">
-										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success form-control"><i class="fas fa-shopping-cart"></i> Add</a>
+									<div class="col-md-6 mb-2">
+										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success w-100">
+											<i class="fas fa-shopping-cart"></i> Add
+										</a>
 									</div>
 								</div>
 							</div>
+
+							<?php if (!empty($product_label)): ?>
+								<a class="label <?php echo strtolower($product_label); ?>" style="position: absolute; top: 10px; right: 10px; z-index: 1;">
+									<div class="thelabel" style="font-size: 1.2rem; padding: 5px 10px; background-color: #f8b400; color: #fff; border-radius: 3px; text-transform: uppercase;">
+										<?php echo $product_label; ?>
+									</div>
+								</a>
+							<?php endif ?>
 						</div>
 					</div>
-					<?php if (!empty($product_label)): ?>
-						<a class="label sale" style="color: black">
-							<div class="thelabel"><?php echo $product_label; ?></div>
-							<div class="label-background"></div>
-						</a>
-					<?php endif ?>
-				</div> <!-- SINGLE PRODUCT END -->
+				<?php } ?>
+			</div>
 
-			<?php } ?>
 
-		</div> <!-- SINGLE PRODUCT ROW END -->
-
+		</div>
 	</div>
-</div>
 
 
-<?php require_once 'includes/footer.php'; ?>
+	<?php require_once 'includes/footer.php'; ?>
 
-<script>
-	$(document).ready(function(data) {
-		$(document).on('keyup', '.quentity', function() {
-			var id = $(this).data("product_id");
-			var quentity = $(this).val();
+	<script>
+		$(document).ready(function(data) {
+			$(document).on('keyup', '.quentity', function() {
+				var id = $(this).data("product_id");
+				var quentity = $(this).val();
 
-			if (quentity != '') {
-				$.ajax({
-					url: "change.php",
-					method: "POST",
-					data: {
-						id: id,
-						quentity: quentity
-					},
-					success: function(data) {
-						$("body").load('cart_body.php');
-					}
-				});
-			}
+				if (quentity != '') {
+					$.ajax({
+						url: "change.php",
+						method: "POST",
+						data: {
+							id: id,
+							quentity: quentity
+						},
+						success: function(data) {
+							$("body").load('cart_body.php');
+						}
+					});
+				}
 
+			});
 		});
-	});
-</script>
+	</script>
