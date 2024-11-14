@@ -141,7 +141,6 @@ foreach ($records as $record) {
 												<th colspan="2" scope="col">Product</th>
 												<th scope="col" width="20%">Quantity</th>
 												<th scope="col">Unit Price ($)</th>
-												<th scope="col">Size</th>
 												<th scope="col">Delete</th>
 												<th scope="col">Sub Total ($)</th>
 											</tr>
@@ -156,7 +155,6 @@ foreach ($records as $record) {
 												$product_id = $record->p_id;
 												$product_qty = $record->qty;
 												$product_price = $record->product_price;
-												$product_size = $record->size;
 												$get_prices = $getFromU->viewProductByProductID($product_id);
 												foreach ($get_prices as $get_price) {
 													$product_img1 = $get_price->product_img1;
@@ -178,7 +176,6 @@ foreach ($records as $record) {
 															<input type="number" name="quentity" value="<?php echo $_SESSION['product_qty']; ?>" data-product-id="<?php echo $product_id; ?>" class="quentity form-control">
 														</td>
 														<td>$ <?php echo $product_price; ?></td>
-														<td><?php echo ucwords($product_size); ?></td>
 														<td>
 															<div class="custom-control custom-checkbox">
 																<input type="checkbox" name="remove[]" value="<?php echo $product_id; ?>" class="custom-control-input" id="checkbox['<?php echo $product_id; ?>']">
@@ -191,7 +188,7 @@ foreach ($records as $record) {
 											} ?>
 
 											<tr>
-												<th class="text-right" colspan="6"> Total </th>
+												<th class="text-right" colspan="5"> Total </th>
 												<th class="text-right" colspan="1"> $ <?php echo number_format($total, 2); ?></th>
 											</tr>
 
@@ -295,11 +292,11 @@ foreach ($records as $record) {
 					$product_img1 = $random_product->product_img1;
 					$product_price = $random_product->product_price;
 					$product_label   = $random_product->product_label;
-					$manufacturer_id = $random_product->manufacturer_id;
+					$customer_id = $random_product->customer_id;
 					$product_psp_price = $random_product->product_psp_price;
 
-					$view_manufacturer = $getFromU->selectManufacturerByManufacturerID($manufacturer_id);
-					$manufacturer_title = $view_manufacturer->manufacturer_title;
+					$view_manufacturer = $getFromU->view_customer_by_id($customer_id);
+					$manufacturer_title = $view_manufacturer->customer_name;
 
 					if ($product_label == "Sale" || $product_label == "Gift") {
 						$product_price = "<del>$$product_price</del>";

@@ -73,7 +73,7 @@ if (!isset($_SESSION['customer_email'])) {
 				$customer_confirm_code = $get_customer->customer_confirm_code;
 				?>
 
-				<?php if (!empty($customer_confirm_code)): ?>
+				<?php if (empty($customer_confirm_code)): ?>
 					<div class="alert alert-danger alert-dismissible fade show" role="alert">
 						<strong>Warning!</strong> Please confirm your email. If you do not received your email
 						<a href="my_account.php?send_email" class="alert-link">Send Email Again</a>

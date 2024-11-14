@@ -109,7 +109,6 @@ $count_pending_orders = count($get_pending_orders);
                 <th>Invoice No</th>
                 <th>Product ID</th>
                 <th>Qty</th>
-                <th>Size</th>
                 <th>Status</th>
               </tr>
             </thead>
@@ -123,7 +122,6 @@ $count_pending_orders = count($get_pending_orders);
                 $invoice_no = $get_order->invoice_no;
                 $product_id = $get_order->product_id;
                 $qty = $get_order->qty;
-                $size = $get_order->size;
                 $order_status = $get_order->order_status;
 
                 $get_customer_details = $getFromU->view_customer_by_id($customer_id);
@@ -136,7 +134,6 @@ $count_pending_orders = count($get_pending_orders);
                   <td><a href="invoice.php?invoice_id=<?php echo $invoice_no; ?>"><?php echo $invoice_no; ?></a></td>
                   <td><?php echo $product_id; ?></td>
                   <td><?php echo $qty; ?></td>
-                  <td><?php echo ucwords($size); ?></td>
                   <td>
                     <span class="w-100 badge <?php ($order_status === 'pending') ? print 'badge-danger' : print 'badge-success'; ?>"> <?php echo ucwords($order_status); ?></span>
                   </td>
