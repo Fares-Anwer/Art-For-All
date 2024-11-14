@@ -59,7 +59,6 @@ if (isset($_POST['apply_coupon'])) {
 <?php require_once 'includes/header.php'; ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
-	<a class="navbar-brand home" href="#">Navbar</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
