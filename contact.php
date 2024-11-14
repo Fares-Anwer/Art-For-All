@@ -10,7 +10,7 @@
 				<a href="index.php">Home</a>
 			</li>
 			<li>
-				<a href="shop.php">Shop</a>
+				<a href="shop.php">Marketplace</a>
 			</li>
 			<?php if (!isset($_SESSION['customer_email'])): ?>
 				<li><a href="checkout.php">My Account</a></li>

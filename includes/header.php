@@ -55,9 +55,6 @@ foreach ($records as $record) {
 						?>
 					</a>
 
-					<a href="#">Shopping Cart: Sub-Total Price $ <?php echo $total; ?>, Total Items : <?php echo $getFromU->count_product_by_ip($ip_add); ?></a>
-
-
 				</div> <!-- col-md-6 offer Ends -->
 
 				<div class="col-md-6"> <!-- col-md-6 Starts -->

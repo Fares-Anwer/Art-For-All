@@ -35,9 +35,6 @@ foreach ($records as $record) {
 						?>
 					</a>
 
-					<a href="#">Shopping Cart: Sub-Total Price $ <?php echo $total; ?>, Total Items : <?php echo $getFromU->count_product_by_ip($ip_add); ?></a>
-
-
 				</div> <!-- col-md-6 offer Ends -->
 
 				<div class="col-md-6"> <!-- col-md-6 Starts -->
@@ -72,7 +69,6 @@ foreach ($records as $record) {
 
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
-		<a class="navbar-brand home" href="#">Navbar</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -82,7 +78,7 @@ foreach ($records as $record) {
 					<a href="index.php">Home</a>
 				</li>
 				<li>
-					<a href="shop.php">Shop</a>
+					<a href="shop.php">Marketplace</a>
 				</li>
 
 				<?php if (!isset($_SESSION['customer_email'])): ?>

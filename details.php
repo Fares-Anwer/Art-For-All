@@ -37,7 +37,7 @@ if (isset($_POST['add_to_wishlist'])) {
 				<a href="index.php">Home</a>
 			</li>
 			<li>
-				<a class="active" href="shop.php">Shop</a>
+				<a class="active" href="shop.php">Marketplace</a>
 			</li>
 			<?php if (!isset($_SESSION['customer_email'])) : ?>
 				<li><a href="checkout.php">My Account</a></li>

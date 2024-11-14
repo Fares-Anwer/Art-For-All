@@ -31,7 +31,7 @@ if (isset($_GET['order_id'])) {
 				<a href="../index.php">Home</a>
 			</li>
 			<li>
-				<a href="../shop.php">Shop</a>
+				<a href="../shop.php">Marketplace</a>
 			</li>
 			<li>
 				<a class="active" href="my_account.php">My Account</a>
