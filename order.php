@@ -16,7 +16,7 @@ if (isset($_GET['c_id'])) {
 		$product_price = $select_cart->product_price;
 		$sub_total = $product_price * $product_qty;
 
-		$insert_customer_order = $getFromU->create("customer_orders", array("customer_id" => $customer_id, "due_amount" => $sub_total, "invoice_no" => $invoice_no, "qty" => $product_qty,  "order_date" => date("Y-m-d H:i:s"), "order_status" => $status));
+		$insert_customer_order = $getFromU->create("orders", array("customer_id" => $customer_id, "due_amount" => $sub_total, "invoice_no" => $invoice_no, "qty" => $product_qty,  "order_date" => date("Y-m-d H:i:s"), "order_status" => $status));
 
 		$insert_pending_order = $getFromU->create("pending_orders", array("customer_id" => $customer_id, "invoice_no" => $invoice_no, "product_id" => $product_id, "qty" => $product_qty, "order_status" => $status));
 

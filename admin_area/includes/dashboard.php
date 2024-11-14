@@ -1,6 +1,6 @@
 <?php
 
-$get_products = $getFromU->viewAllFromTable("products");
+$get_products = $getFromU->viewAllFromTable("artwork");
 $count_products = count($get_products);
 
 $get_customers = $getFromU->viewAllFromTable("customers");

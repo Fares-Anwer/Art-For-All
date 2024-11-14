@@ -202,7 +202,7 @@ class User
 
   public function view_customer_orders_by_order_id($order_id)
   {
-    $sql = "SELECT * FROM customer_orders WHERE order_id = :order_id";
+    $sql = "SELECT * FROM orders WHERE order_id = :order_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":order_id", $order_id);
     $stmt->execute();
@@ -211,7 +211,7 @@ class User
 
   public function view_distinct_status()
   {
-    $sql = "SELECT DISTINCT status FROM products";
+    $sql = "SELECT DISTINCT status FROM artwork";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -237,7 +237,7 @@ class User
 
   public function view_customer_orders_by_id($customer_id)
   {
-    $sql = "SELECT * FROM customer_orders WHERE customer_id = :customer_id";
+    $sql = "SELECT * FROM orders WHERE customer_id = :customer_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":customer_id", $customer_id);
     $stmt->execute();
@@ -254,7 +254,7 @@ class User
 
   public function view_customer_order_by_order_id($order_id)
   {
-    $sql = "SELECT * FROM customer_orders WHERE order_id = :order_id";
+    $sql = "SELECT * FROM orders WHERE order_id = :order_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":order_id", $order_id);
     $stmt->execute();
@@ -264,7 +264,7 @@ class User
 
   public function viewCustomerOrderByOrderId($order_id)
   {
-    $sql = "SELECT * FROM customer_orders WHERE order_id = :order_id";
+    $sql = "SELECT * FROM orders WHERE order_id = :order_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":order_id", $order_id);
     $stmt->execute();
@@ -546,7 +546,7 @@ class User
 
   public function selectLatestProduct()
   {
-    $sql = "SELECT * FROM products ORDER BY 1 DESC LIMIT 0,8";
+    $sql = "SELECT * FROM artwork ORDER BY 1 DESC LIMIT 0,8";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
 
@@ -555,7 +555,7 @@ class User
 
   public function selectAllProducts1($start_from, $per_page)
   {
-    $sql = "SELECT * FROM products ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+    $sql = "SELECT * FROM artwork ORDER BY 1 DESC LIMIT $start_from, $per_page ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -563,7 +563,7 @@ class User
 
   public function selectAllProducts($conditions)
   {
-    $sql = "SELECT * FROM products $conditions ";
+    $sql = "SELECT * FROM artwork $conditions ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -571,7 +571,7 @@ class User
 
   public function selectAllProductBycat_id($start_from, $per_page, $cat_id)
   {
-    $sql = "SELECT * FROM products WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+    $sql = "SELECT * FROM artwork WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":cat_id", $cat_id);
     $stmt->execute();
@@ -581,7 +581,7 @@ class User
 
   public function selectAllProductBy_cat_ID($start_from, $per_page, $cat_id)
   {
-    $sql = "SELECT * FROM products WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
+    $sql = "SELECT * FROM artwork WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT $start_from, $per_page ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":cat_id", $cat_id);
     $stmt->execute();
@@ -591,7 +591,7 @@ class User
 
   public function viewProductByProductID($product_id)
   {
-    $sql = "SELECT * FROM products WHERE product_id = :product_id ";
+    $sql = "SELECT * FROM artwork WHERE product_id = :product_id ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":product_id", $product_id);
     $stmt->execute();
@@ -609,7 +609,7 @@ class User
 
   public function viewProductByProductURL($product_id)
   {
-    $sql = "SELECT * FROM products WHERE product_url = :product_id ";
+    $sql = "SELECT * FROM artwork WHERE product_url = :product_id ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":product_id", $product_id);
     $stmt->execute();
@@ -618,7 +618,7 @@ class User
 
   public function view_Product_By_Product_ID($product_id)
   {
-    $sql = "SELECT * FROM products WHERE product_id = :product_id ";
+    $sql = "SELECT * FROM artwork WHERE product_id = :product_id ";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":product_id", $product_id);
     $stmt->execute();
@@ -711,7 +711,7 @@ class User
 
   public function viewProductByCatID($cat_id)
   {
-    $sql = "SELECT * FROM products WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT 4";
+    $sql = "SELECT * FROM artwork WHERE cat_id = :cat_id ORDER BY 1 DESC LIMIT 4";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":cat_id", $cat_id);
     $stmt->execute();
@@ -798,7 +798,7 @@ class User
 
   public function count_product_by_status($order_status)
   {
-    $sql = "SELECT * FROM customer_orders WHERE order_status = :order_status";
+    $sql = "SELECT * FROM orders WHERE order_status = :order_status";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":order_status", $order_status);
     $stmt->execute();
@@ -819,7 +819,7 @@ class User
 
   public function select_random_products()
   {
-    $sql = "SELECT * FROM products ORDER BY rand() LIMIT 0, 4";
+    $sql = "SELECT * FROM artwork ORDER BY rand() LIMIT 0, 4";
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -1201,7 +1201,7 @@ class User
 
   public function delete_product($product_id)
   {
-    $sql = "DELETE FROM products WHERE product_id = :product_id";
+    $sql = "DELETE FROM artwork WHERE product_id = :product_id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindParam(":product_id", $product_id);
     return $stmt->execute();

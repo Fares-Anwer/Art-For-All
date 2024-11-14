@@ -93,7 +93,7 @@ if (isset($_GET['order_id'])) {
 
 							$insert_payment = $getFromU->create("payments", array("invoice_no" => $invoice_no, "amount" => $amount, "payment_mode" => $payment_mode, "ref_no" => $ref_no, "code" => $code, "payment_date" => $payment_date));
 
-							$getFromU->update_customer_order_status($complete, "customer_orders", $order_id);
+							$getFromU->update_customer_order_status($complete, "orders", $order_id);
 
 							$getFromU->update_customer_order_status($complete, "pending_orders", $order_id);
 

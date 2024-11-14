@@ -7,7 +7,7 @@ $admin_id = $get_admin->admin_id;
 $admin_name = $get_admin->admin_name;
 $admin_image = $get_admin->admin_image;
 
-$get_products = $getFromU->viewAllFromTable("products");
+$get_products = $getFromU->viewAllFromTable("artwork");
 $count_products = count($get_products);
 
 $get_customers = $getFromU->viewAllFromTable("customers");
