@@ -68,16 +68,16 @@ foreach ($records as $record) {
 							<li><a href="customer_register.php">Register</a></li>
 						<?php endif ?>
 
-						<?php if (!isset($_SESSION['customer_email'])): ?>
-							<li><a href="checkout.php">My Account</a></li>
+						<?php if (isset($_SESSION['customer_email'])): ?>
+							<li><a href="insert_products.php">Add Products</a></li>
+
 						<?php else: ?>
 							<li><a href="customer/my_account.php?my_orders">My Account</a></li>
 						<?php endif ?>
 
 						<li><a href="cart.php">Go To Cart</a></li>
-						<li>
 
-						<li><a href="insert_products.php">Add Products</a></li>
+
 						<li>
 							<?php if (!isset($_SESSION['customer_email'])): ?>
 								<a href="checkout.php">Login</a>
@@ -93,3 +93,5 @@ foreach ($records as $record) {
 
 		</div> <!-- Container Ends -->
 	</div> <!-- Top Ends -->
+
+	<?php require_once 'sidebar_for_all.php'; ?>

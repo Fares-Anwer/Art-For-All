@@ -88,7 +88,7 @@
 							</div>
 						</div>
 					<?php
-						$is_first = false;
+						$is_first = true;
 					} ?>
 				</div>
 				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">

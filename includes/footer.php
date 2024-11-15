@@ -41,11 +41,11 @@
 			<div class="col-sm-6 col-md-3 mb-4">
 				<h4 class="text-uppercase">Where we Are?</h4>
 				<address class="text-light">
-					<strong>Riad</strong><br>
-					B-18, <br>
-					Savar, Haiha <br><br>
-					<i class="fas fa-phone-square"></i><span class="sr-only">Telephone:</span> <a href="tel:+966666666666" class="text-light">+966666666666</a><br>
-					<i class="fas fa-envelope"></i><span class="sr-only">Mail:</span> <a href="mailto:info@bdlabit.com" class="text-light">info@Raneem.com</a>
+					<strong>Prince</strong><br>
+					,Sultan Street <br>
+					, Medina,Saudi Arabia <br><br>
+					<i class="fas fa-phone-square"></i><span class="sr-only">Telephone:</span> <a href="#" class="text-light">+966 12 345 6789</a><br>
+					<i class="fas fa-envelope"></i><span class="sr-only">Mail:</span> <a href="info@artforall.com" class="text-light">info@artforall.com</a>
 				</address>
 				<a href="contact.php" class="text-light">Go to Contact Us Page</a>
 			</div>

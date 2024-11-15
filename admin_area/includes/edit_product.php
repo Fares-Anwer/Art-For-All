@@ -48,7 +48,7 @@ if (isset($_POST['update_product'])) {
 
 	move_uploaded_file($temp_name1, "product_images/$product_img1");
 
-	$update_product = $getFromU->update_product("artwork", $product_id, array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status, "customer_id" => $customer_id));
+	$update_product = $getFromU->update_product("artwork", $product_id, array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($update_product) {
 		$_SESSION['product_update_msg'] = "Product has been Updated Sucessfully";
@@ -184,9 +184,6 @@ echo $customer_id;
 							<ul class="nav nav-tabs" id="myTab" role="tablist">
 								<li class="nav-item">
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
-								</li>
-								<li class="nav-item">
-									<a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Product Features</a>
 								</li>
 
 							</ul>

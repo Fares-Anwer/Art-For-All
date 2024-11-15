@@ -41,9 +41,9 @@ foreach ($records as $record) {
 
 <body>
 
-	<div id="top"> <!-- Top Starts -->
-		<div class="container"> <!-- Container Starts -->
-			<div class="row"> <!-- row Starts -->
+	<div id="top" class="bg-dark"> <!-- Top Starts -->
+		<div class="Container"> <!-- Container Starts -->
+			<div class="row "> <!-- row Starts -->
 				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
@@ -56,14 +56,15 @@ foreach ($records as $record) {
 						}
 						?>
 					</a>
-					>
+
 				</div> <!-- col-md-6 offer Ends -->
 
-				<div class="col-md-6"> <!-- col-md-6 Starts -->
+				<div class="col-md-6 "> <!-- col-md-6 Starts -->
 					<ul class="menu"> <!-- menu starts -->
-						<li><a href="../customer_register.php">Register</a></li>
-						<li><a href="../checkout.php">My Account</a></li>
+						<li><a href="../insert_products.php">Add Products</a></li>
+
 						<li><a href="../cart.php">Go To Cart</a></li>
+
 						<li>
 							<?php if (!isset($_SESSION['customer_email'])): ?>
 								<a href="../login.php">Login</a>

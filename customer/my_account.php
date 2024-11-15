@@ -14,24 +14,19 @@ if (!isset($_SESSION['customer_email'])) {
 	exit();
 }
 ?>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="navbar">
-	<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+<nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
-
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-uppercase">
+		<ul class="navbar-nav mr-auto text-light text-uppercase">
 			<li class="nav-item">
 				<a class="nav-link active text-light" href="../index.php">Home</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link text-light" href="../shop.php">Marketplace</a>
 			</li>
-			<?php if (!isset($_SESSION['customer_email'])): ?>
-				<li class="nav-item"><a class="nav-link text-light" href="../checkout.php">My Account</a></li>
-			<?php else: ?>
-				<li class="nav-item"><a class="nav-link text-light" href="customer/my_account.php?my_orders">My Account</a></li>
-			<?php endif ?>
 			<li class="nav-item">
 				<a class="nav-link text-light" href="../cart.php">Shopping Cart</a>
 			</li>

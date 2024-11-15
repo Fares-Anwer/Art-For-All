@@ -63,8 +63,10 @@ foreach ($get_products as $get_product) {
 	$product_psp_price = $get_product->product_psp_price;
 
 	$view_manufacturer = $getFromU->view_customer_by_id($customer_id);
-	$manufacturer_title = $view_manufacturer->customer_name;
-
+	@$manufacturer_title = $view_manufacturer->customer_name;
+	if ($manufacturer_title == NULL) {
+		$manufacturer_title = "Admin";
+	}
 	if ($product_label == "Sale" || $product_label == "Gift") {
 		$product_price = "<del>$$product_price</del>";
 		$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";

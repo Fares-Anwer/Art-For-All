@@ -5,7 +5,6 @@
 if (isset($_POST['add_service'])) {
 	$service_title = $getFromU->checkInput($_POST['service_title']);
 	$service_desc = $_POST['service_desc'];
-	$service_button = $getFromU->checkInput($_POST['service_button']);
 
 	$get_services = $getFromU->viewAllFromTable('services');
 	$count_services = count($get_services);

@@ -1,5 +1,4 @@
 <?php require_once 'includes/header.php'; ?>
-<?php require_once 'includes/sidebar_for_all.php'; ?>
 <div id="content">
 	<div class="container">
 		<div class="row">
@@ -13,7 +12,7 @@
 			</div>
 
 			<div class="col-md-3">
-				<?php require_once 'includes/sidebar.php'; ?>
+				<?php require_once 'includes/sidebar_for_all.php'; ?>
 			</div>
 
 			<div class="col-md-9">

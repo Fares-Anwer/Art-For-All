@@ -208,7 +208,10 @@ if (isset($_POST['add_to_wishlist'])) {
 												</div>
 												<?php
 												$customer = $getFromU->view_customer_by_id($pro_customer_id);
-												$pcustomer_name = $customer->customer_name;
+												@$pcustomer_name = $customer->customer_name;
+												if ($pcustomer_name == NULL) {
+													$pcustomer_name = "Admin";
+												}
 												?>
 												<p class="btn btn-sm btn-info mb-0">Manufacturer : <?php echo $pcustomer_name; ?></p>
 
@@ -273,7 +276,10 @@ if (isset($_POST['add_to_wishlist'])) {
 						$product_psp_price = $product->product_psp_price;
 						$prod_customer_id = $product->customer_id;
 						$customer = $getFromU->view_customer_by_id($prod_customer_id);
-						$prcustomer_name = $customer->customer_name;
+						@$prcustomer_name = $customer->customer_name;
+						if ($prcustomer_name == NULL) {
+							$prcustomer_name = "Admin";
+						}
 
 						if ($product_label == "Sale" || $product_label == "Gift") {
 							$product_price = "<del>$$product_price</del>";

@@ -64,6 +64,29 @@ if (isset($_POST['submit'])) {
 							</div>
 						</div>
 					</div>
+
+					<div class="form-row mb-3">
+						<div class="col-3">
+							<label for="product_id">Coupon Product</label>
+						</div>
+						<div class="col-md-9">
+							<select name="product_id" id="product_id" class="form-control" required>
+								<option value="">----- Select a Product -----</option>
+								<?php
+								$products = $getFromU->selectAllProducts('product');
+								foreach ($products as $product) {
+									$product_id = $product->product_id;
+									$product_title = $product->product_title;
+								?>
+									<option value="<?php echo $product_id; ?>"><?php echo $product_title; ?></option>
+								<?php } ?>
+
+							</select>
+							<div class="invalid-feedback">
+								Please select a Coupon Product.
+							</div>
+						</div>
+					</div>
 					<div class="form-row mb-3">
 						<div class="col-md-3">
 							<label for="coupon_price">Coupon Price</label>

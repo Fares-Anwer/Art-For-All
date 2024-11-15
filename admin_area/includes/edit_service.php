@@ -21,7 +21,7 @@ if (isset($_POST['update_service'])) {
 	$service_title = $getFromU->checkInput($_POST['service_title']);
 	$service_desc = $_POST['service_desc'];
 	$service_id = $getFromU->checkInput($_POST['service_id']);
-	$update_service = $getFromU->update_service("services", $service_id, array("service_title" => $service_title, "service_desc" => $service_desc, "service_button" => $service_button, "service_url" => $service_url));
+	$update_service = $getFromU->update_service("services", $service_id, array("service_title" => $service_title, "service_desc" => $service_desc));
 
 	if ($update_service) {
 		$_SESSION['update_service_msg'] = "Service has been Updated Sucessfully";

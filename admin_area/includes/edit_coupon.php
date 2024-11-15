@@ -81,6 +81,29 @@ if (isset($_POST['update_coupon'])) {
 						</div>
 					</div>
 					<div class="form-row mb-3">
+						<div class="col-3">
+							<label for="product_id">Coupon Product</label>
+						</div>
+						<div class="col-md-9">
+							<select name="product_id" id="product_id" class="form-control" required>
+								<?php
+								$products = $getFromU->viewAllFromTable('artwork');
+								foreach ($products as $product) {
+									$product_P_id = $product->product_id;
+									$product_title = $product->product_title;
+								?>
+									<option <?php if ($product_id == $product_P_id) {
+												echo "selected";
+											} ?> value="<?php echo $product_id; ?>"><?php echo $product_title; ?></option>
+								<?php } ?>
+
+							</select>
+							<div class="invalid-feedback">
+								Please select a Coupon Product.
+							</div>
+						</div>
+					</div>
+					<div class="form-row mb-3">
 						<div class="col-md-3">
 							<label for="coupon_price">Coupon Price</label>
 						</div>
