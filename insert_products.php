@@ -1,24 +1,5 @@
 <?php require_once 'includes/header.php'; ?>
-
 <?php
-// تخزين الصفحة الأصلية في الجلسة فقط إذا لم تكن محددة من قبل
-if (!isset($_SESSION['original_page'])) {
-	$_SESSION['original_page'] = "insert_products.php";
-}
-
-// التحقق إذا كان المستخدم مسجلاً الدخول
-if (!isset($_SESSION['customer_email'])) {
-	header('Location: checkout.php');
-	exit();
-}
-?>
-
-
-
-<?php
-$view_customer		  = $getFromU->view_customer_by_email($_SESSION['customer_email']);
-$_SESSION['customer_id'] = $view_customer->customer_id;
-
 if (isset($_POST['submit'])) {
 	$product_title = $_POST['product_title'];
 	$cat_id = $_POST['cat'];
@@ -28,15 +9,13 @@ if (isset($_POST['submit'])) {
 	$product_keywords = $_POST['product_keywords'];
 	$product_label = $_POST['product_label'];
 	$status = '0';
-	$customer_id 		= $_SESSION['customer_id'];
-
 	$product_img1 = $_FILES['product_img1']['name'];
 
 	$temp_name1 = $_FILES['product_img1']['tmp_name'];
 
-	move_uploaded_file($temp_name1, "admin_area/product_images/$product_img1");
+	move_uploaded_file($temp_name1, "product_images/$product_img1");
 
-	$insert_product = $getFromU->create("artwork", array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status, "customer_id" => $customer_id));
+	$insert_product = $getFromU->create("artwork", array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';
@@ -45,12 +24,14 @@ if (isset($_POST['submit'])) {
 		echo '<script>alert("Product has not added")</script>';
 	}
 }
+
 ?>
 
 
 
 <nav aria-label="breadcrumb" class="my-4">
 	<ol class="breadcrumb">
+		<li class="breadcrumb-item"><a href="index.php?dashboard">Dashboard</a></li>
 		<li class="breadcrumb-item active" aria-current="page">Insert Products</li>
 	</ol>
 </nav>
@@ -74,19 +55,6 @@ if (isset($_POST['submit'])) {
 							</div>
 						</div>
 					</div>
-					<div class="form-row mb-3">
-						<div class="col-3">
-							<label for="product_title">Manufacturer</label>
-						</div>
-						<div class="col-md-9">
-							<input type="text" name="customer" class="form-control" id="customer" value="<?php echo htmlspecialchars($_SESSION['customer_email']); ?>" required>
-							<div class="invalid-feedback">
-								Please provide a Product Title.
-							</div>
-						</div>
-					</div>
-
-
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
@@ -97,9 +65,7 @@ if (isset($_POST['submit'])) {
 								<option value="">----- Select a Category -----</option>
 								<?php
 								$categories = $getFromU->viewAllFromTable("categories");
-
 								foreach ($categories as $category) {
-
 									$cat_id = $category->cat_id;
 									$cat_title = $category->cat_title;
 								?>
@@ -115,12 +81,12 @@ if (isset($_POST['submit'])) {
 
 					<div class="form-row mb-3">
 						<div class="col-md-3">
-							<label for="product_img1">Product Image 1</label>
+							<label for="product_img1">Product Image</label>
 						</div>
 						<div class="col-md-9">
 							<input type="file" name="product_img1" id="product_img1" required>
 							<div class="invalid-feedback">
-								Please provide a Product Image 1.
+								Please provide a Product Image.
 							</div>
 						</div>
 					</div>
@@ -157,6 +123,8 @@ if (isset($_POST['submit'])) {
 								<li class="nav-item">
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
 								</li>
+								<li class="nav-item">
+								</li>
 
 							</ul>
 							<div class="tab-content" id="myTabContent">
@@ -177,7 +145,7 @@ if (isset($_POST['submit'])) {
 							<label for="product_keywords">Product Keyword</label>
 						</div>
 						<div class="col-md-9">
-							<input type="text" name="product_keywords" class="form-control" id="product_keywords" placeholder="Enter Product Keyword">
+							<input type="text" name="product_keywords" class="form-control" id="product_keywords" placeholder="Enter Product Keyword" required>
 							<div class="invalid-feedback">
 								Please provide Product Keyword.
 							</div>
@@ -233,6 +201,10 @@ if (isset($_POST['submit'])) {
 		</script>
 	</div>
 </div>
+
+
+
+
 
 <?php require_once 'includes/footer.php'; ?>
 

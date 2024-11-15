@@ -261,7 +261,10 @@ if (isset($_POST['apply_coupon'])) {
 					$product_psp_price = $random_product->product_psp_price;
 
 					$customer = $getFromU->view_customer_by_id($prod_customer_id);
-					$prcustomer_name = $customer->customer_name;
+					@$prcustomer_name = $customer->customer_name;
+					if ($prcustomer_name == null) {
+						$prcustomer_name = "Admin";
+					}
 
 					if ($product_label == "Sale" || $product_label == "Gift") {
 						$product_price = "<del>$$product_price</del>";
@@ -270,43 +273,39 @@ if (isset($_POST['apply_coupon'])) {
 						$product_price = "$$product_price";
 						$product_psp_price = "";
 					}
+
 				?>
-					<div class="col-sm-6 col-md-4 col-lg-3 mb-4 d-flex justify-content-center">
-						<div class="card product-card shadow-lg rounded border-0">
-							<a href="details.php?product_id=<?php echo $product_id; ?>">
-								<img class="card-img-top img-fluid rounded-top" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Product Image">
-							</a>
-							<div class="card-body text-center">
-								<p class="btn btn-sm btn-info mb-0">Mnf By: <?php echo $prcustomer_name; ?></p>
-								<hr>
-								<h5 class="card-title text-dark text-truncate">
-									<a href="details.php?product_id=<?php echo $product_id; ?>" class="text-decoration-none"><?php echo $product_title; ?></a>
-								</h5>
-								<p class="card-text text-muted"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
-								<div class="row">
-									<div class="col-md-6 mb-2">
-										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info w-100">Details</a>
-									</div>
-									<div class="col-md-6 mb-2">
-										<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success w-100">
-											<i class="fas fa-shopping-cart"></i> Add
-										</a>
+					<div class="col-sm-6 col-md-3 justify-content-center single">
+						<div class="product mb-4">
+							<div class="card">
+								<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
+								<div class="card-body text-center">
+									<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
+									<hr>
+									<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
+									<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
+									<div class="row">
+										<div class="col-md-6  pr-1 pb-2">
+											<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info form-control">Details</a>
+										</div>
+										<div class="col-md-6  pr-lg-3 pr-1">
+											<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success form-control"><i class="fas fa-shopping-cart"></i> Add</a>
+										</div>
 									</div>
 								</div>
 							</div>
-
-							<?php if (!empty($product_label)): ?>
-								<a class="label <?php echo strtolower($product_label); ?>" style="position: absolute; top: 10px; right: 10px; z-index: 1;">
-									<div class="thelabel" style="font-size: 1.2rem; padding: 5px 10px; background-color: #f8b400; color: #fff; border-radius: 3px; text-transform: uppercase;">
-										<?php echo $product_label; ?>
-									</div>
-								</a>
-							<?php endif ?>
 						</div>
-					</div>
-				<?php } ?>
-			</div>
+						<?php if (!empty($product_label)): ?>
+							<a class="label sale" style="color: black">
+								<div class="thelabel"><?php echo $product_label; ?></div>
+								<div class="label-background"></div>
+							</a>
+						<?php endif ?>
+					</div> <!-- SINGLE PRODUCT END -->
 
+				<?php } ?>
+
+			</div> <!-- SINGLE PRODUCT ROW END -->
 
 		</div>
 	</div>

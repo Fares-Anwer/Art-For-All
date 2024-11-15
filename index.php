@@ -136,21 +136,20 @@
 		</div>
 	</div>
 </div>
-
 <div class="container" id="content">
 	<div class="row">
+
 		<?php
-		$getProducts = $getFromU->selectLatestProduct();
+		$getProducts         = $getFromU->selectLatestProduct();
 		foreach ($getProducts as $getProduct) {
-			$product_id = $getProduct->product_id;
-			$product_title = $getProduct->product_title;
-			$product_price = $getProduct->product_price;
-			$product_img1 = $getProduct->product_img1;
-			$product_label = $getProduct->product_label;
+			$product_id        = $getProduct->product_id;
+			$product_title     = $getProduct->product_title;
+			$product_price     = $getProduct->product_price;
+			$product_img1      = $getProduct->product_img1;
+			$product_label     = $getProduct->product_label;
 			$product_psp_price = $getProduct->product_psp_price;
 			$customer_id = $getProduct->customer_id;
 
-			// Handling Sale and Gift Labels
 			if ($product_label == "Sale" || $product_label == "Gift") {
 				$product_price = "<del>$$product_price</del>";
 				$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";
@@ -158,58 +157,46 @@
 				$product_price = "$$product_price";
 				$product_psp_price = "";
 			}
-
 			$view_customer = $getFromU->view_customer_by_id($customer_id);
 			@$the_customer_name = $view_customer->customer_name;
 			if ($the_customer_name == NULL) {
 				$the_customer_name = "Admin";
 			}
 		?>
-			<div class="col-sm-6 col-md-4 col-lg-3 mb-4">
-				<div class="card product-card shadow-sm rounded-lg position-relative">
-					<a href="details.php?product_id=<?php echo $product_id; ?>">
-						<img class="card-img-top img-fluid p-3 rounded" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Product Image">
-					</a>
-					<div class="card-body text-center">
-						<p class="btn btn-sm btn-info mb-0">Mnf By: <?php echo $the_customer_name; ?></p>
-						<hr>
-						<h6 class="card-title text-truncate">
-							<a href="details.php?product_id=<?php echo $product_id; ?>" class="text-dark"><?php echo $product_title; ?></a>
-						</h6>
-						<p class="card-text">
-							<span class="d-block product-price"><?php echo $product_price; ?></span>
-							<?php if ($product_psp_price): ?>
-								<span class="d-block text-warning"><?php echo $product_psp_price; ?></span>
-							<?php endif; ?>
-						</p>
-						<div class="row">
-							<div class="col-md-6 mb-2">
-								<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info btn-sm w-100">Details</a>
-							</div>
-							<div class="col-md-6 mb-2">
-								<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success btn-sm w-100">
-									<i class="fas fa-shopping-cart"></i> Add
-								</a>
+
+			<div class="col-sm-6 col-md-4 col-lg-3 single">
+				<div class="product mb-4">
+					<div class="card rounded">
+						<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid px-4 pt-4 rounded" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
+						<div class="card-body text-center">
+							<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $the_customer_name; ?></p>
+							<hr>
+							<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
+							<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
+							<div class="row">
+								<div class="col-md-6  pr-1 pb-2">
+									<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info form-control">Details</a>
+								</div>
+								<div class="col-md-6  pr-3">
+									<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success form-control"><i class="fas fa-shopping-cart"></i> Add</a>
+								</div>
 							</div>
 						</div>
 					</div>
-
-					<!-- Sale and Gift Labels -->
-					<?php if (!empty($product_label)): ?>
-						<a class="label <?php echo strtolower($product_label); ?>">
-							<div class="thelabel"><?php echo $product_label; ?></div>
-						</a>
-					<?php endif ?>
-
 				</div>
-			</div>
+
+				<?php if (!empty($product_label)): ?>
+					<a class="label sale" style="color: black">
+						<div class="thelabel"><?php echo $product_label; ?></div>
+						<div class="label-background"></div>
+					</a>
+				<?php endif ?>
+
+			</div> <!-- SINGLE PRODUCT END -->
+
 		<?php } ?>
+
 	</div>
-</div>
-
-
-
-</div>
 </div>
 
 
