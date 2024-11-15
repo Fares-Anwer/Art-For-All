@@ -196,7 +196,7 @@
 
 					<!-- Sale and Gift Labels -->
 					<?php if (!empty($product_label)): ?>
-						<a class="label <?php echo strtolower($product_label); ?>" style="position: absolute; top: 10px; right: 10px; z-index: 1;">
+						<a class="label <?php echo strtolower($product_label); ?>">
 							<div class="thelabel"><?php echo $product_label; ?></div>
 						</a>
 					<?php endif ?>
