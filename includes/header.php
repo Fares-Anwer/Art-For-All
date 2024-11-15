@@ -1,5 +1,6 @@
 <?php require_once 'core/init.php'; ?>
 
+
 <?php
 $ip_add = $getFromU->getRealUserIp();
 $total = 0;
@@ -39,10 +40,12 @@ foreach ($records as $record) {
 
 <body>
 
-	<div id="top"> <!-- Top Starts -->
-		<div class="container"> <!-- Container Starts -->
-			<div class="row"> <!-- row Starts -->
-				<div class="col-md-6"> <!-- col-md-6 offer Starts -->
+
+	<!-- Top bar with navigation -->
+	<div id="top" class="bg-dark text-light py-2"> <!-- Top Starts -->
+		<div class="container">
+			<div class="row d-flex justify-content-between">
+				<div class="col-md-6">
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
@@ -55,12 +58,11 @@ foreach ($records as $record) {
 						?>
 					</a>
 
-					<a href="#">Shopping Cart: Sub-Total Price $ <?php echo $total; ?>, Total Items : <?php echo $getFromU->count_product_by_ip($ip_add); ?></a>
 
 
 				</div> <!-- col-md-6 offer Ends -->
 
-				<div class="col-md-6"> <!-- col-md-6 Starts -->
+				<div class="col-md-6 "> <!-- col-md-6 Starts -->
 					<ul class="menu"> <!-- menu starts -->
 						<?php if (!isset($_SESSION['customer_email'])): ?>
 							<li><a href="customer_register.php">Register</a></li>

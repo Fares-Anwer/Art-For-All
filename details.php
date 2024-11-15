@@ -79,7 +79,7 @@ if (isset($_POST['add_to_wishlist'])) {
 							<nav aria-label="breadcrumb">
 								<ol class="breadcrumb">
 									<li class="breadcrumb-item"><a href="index.php">Home</a></li>
-									<li class="breadcrumb-item"><a href="shop.php">Shop</a></li>
+									<li class="breadcrumb-item"><a href="shop.php">Marketplace</a></li>
 									<li class="breadcrumb-item" aria-current="page"><?php echo $product_title; ?></li>
 								</ol>
 							</nav>

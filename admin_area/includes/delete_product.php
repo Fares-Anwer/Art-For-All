@@ -6,7 +6,7 @@
 if (isset($_GET['product_id'])) {
 	$product_id = $_GET['product_id'];
 
-	$sql = "DELETE FROM products WHERE product_id = :product_id";
+	$sql = "DELETE FROM artwork WHERE product_id = :product_id";
 	$stmt = $pdo->prepare($sql);
 	$stmt->bindParam(":product_id", $product_id);
 	if ($stmt->execute()) {

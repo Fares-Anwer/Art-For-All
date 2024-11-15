@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 
 	move_uploaded_file($temp_name1, "product_images/$product_img1");
 
-	$insert_product = $getFromU->create("products", array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
+	$insert_product = $getFromU->create("artwork", array("cat_id" => $cat_id, "add_date" => date("Y-m-d H:i:s"), "product_title" => $product_title, "product_img1" => $product_img1, "product_price" => $product_price, "product_psp_price" => $product_psp_price, "product_desc" => $product_desc, "product_keywords" => $product_keywords, "product_label" => $product_label, "status" => $status));
 
 	if ($insert_product) {
 		echo '<script>alert("Product has been added Sucessfully")</script>';

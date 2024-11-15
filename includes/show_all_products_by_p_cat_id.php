@@ -76,7 +76,7 @@ if (isset($_GET['cat_id'])) {
 		<div class="col-lg-6 offset-lg-3 d-flex">
 			<ul class="pagination mx-auto">
 				<?php
-				$total_pages = $getFromU->countPagesBy_P_Cat("products", $per_page, $cat_id);
+				$total_pages = $getFromU->countPagesBy_P_Cat("artwork", $per_page, $cat_id);
 				if ($total_pages >= 2) {
 				?>
 					<li class="page-item <?php if ($_GET['page'] == 1) {
