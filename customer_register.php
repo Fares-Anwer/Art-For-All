@@ -1,6 +1,45 @@
 <?php require_once 'includes/header.php'; ?>
-<?php require_once 'includes/sidebar_for_all.php'; ?>
 
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
+	<a class="navbar-brand home" href="#">Navbar</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto text-uppercase">
+			<li>
+				<a href="index.php">Home</a>
+			</li>
+			<li>
+				<a href="shop.php">Shop</a>
+			</li>
+			<?php if (!isset($_SESSION['customer_email'])): ?>
+				<li><a href="checkout.php">My Account</a></li>
+			<?php else: ?>
+				<li><a href="customer/my_account.php?my_orders">My Account</a></li>
+			<?php endif ?>
+			<li>
+				<a href="cart.php">Shopping Cart</a>
+			</li>
+			<li>
+				<a href="contact.php">Contact Us</a>
+			</li>
+			<li>
+				<a href="about.php">About Us</a>
+			</li>
+			<li>
+				<a href="services.php">Services</a>
+			</li>
+		</ul>
+
+		<a href="cart.php" class="btn btn-success mr-2"><i class="fas fa-shopping-cart"></i><span> <?php echo $getFromU->count_product_by_ip($ip_add); ?> items in Cart</span></a>
+
+		<form class="form-inline my-2 my-lg-0">
+			<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="user_query" required="1">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="search">Search</button>
+		</form>
+	</div>
+</nav>
 
 
 <div id="content">
@@ -233,7 +272,9 @@
 							</div>
 
 							<div class="form-row">
-								<div class="center g-recaptcha" data-sitekey="6LeQlHYUAAAAAI2t81Q3myw4fefWMyiPJ5PpY3q0"></div>
+								<center>
+									<div class="g-recaptcha" data-sitekey="6LeQlHYUAAAAAI2t81Q3myw4fefWMyiPJ5PpY3q0"></div>
+								</center>
 							</div>
 
 							<div class="row">
@@ -334,7 +375,7 @@
 			if (val.length > 6 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
 
 			// If the password length is greater than 6 and contain alphabet,number,special character respectively
-			if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)))) no = 3;
+			if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,,?,_,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,,?,_,~,-,(,)]/)))) no = 3;
 
 			// If the password length is greater than 6 and must contain alphabets,numbers and special characters
 			if (val.length > 6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
