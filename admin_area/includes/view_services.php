@@ -71,7 +71,6 @@
                     $service_id = $view_service->service_id;
                     $service_title = $view_service->service_title;
                     $service_desc = $view_service->service_desc;
-                    $service_button = $view_service->service_button;
                 ?>
 
                     <div class="card text-justify">

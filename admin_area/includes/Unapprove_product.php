@@ -71,7 +71,7 @@
                 <tbody>
                     <?php
 
-                    $view_products = $getFromU->viewAllFromTable('products');
+                    $view_products = $getFromU->viewAllFromTable('artwork');
                     foreach ($view_products as $view_product) {
                         $product_id = $view_product->product_id;
                         $product_title = $view_product->product_title;

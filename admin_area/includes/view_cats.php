@@ -3,20 +3,21 @@
     <h1 class="page-title">View Category</h1>
 </div>
 <nav aria-label="breadcrumb">
-  <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="index.php?dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-    <li class="breadcrumb-item active" aria-current="page">View Category</li>
-  </ol>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.php?dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page">View Category</li>
+    </ol>
 </nav>
 
 <?php if (isset($_SESSION['insert_cat_msg'])): ?>
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['insert_cat_msg']; unset($_SESSION['insert_cat_msg']); ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <?php echo $_SESSION['insert_cat_msg'];
+                unset($_SESSION['insert_cat_msg']); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>
@@ -26,10 +27,11 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['cat_update_msg']; unset($_SESSION['cat_update_msg']); ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <?php echo $_SESSION['cat_update_msg'];
+                unset($_SESSION['cat_update_msg']); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>
@@ -40,10 +42,11 @@
     <div class="row">
         <div class="col-md-8 offset-md-2">
             <div class="alert alert-success text-white text-center alert-dismissible fade show" role="alert">
-              <?php echo $_SESSION['delete_cat_msg']; unset($_SESSION['delete_cat_msg']); ?>
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
+                <?php echo $_SESSION['delete_cat_msg'];
+                unset($_SESSION['delete_cat_msg']); ?>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>
@@ -74,34 +77,36 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
-                <tfoot><tr></tr></tfoot>
+                <tfoot>
+                    <tr></tr>
+                </tfoot>
                 <tbody>
                     <?php
-                        $view_cats = $getFromU->viewAllFromTable('categories');
-                        foreach ($view_cats as $view_cat) {
-                            $cat_id = $view_cat->cat_id;
-                            $cat_title = $view_cat->cat_title;
-                            $cat_top = $view_cat->cat_top;
-                            $cat_image = $view_cat->cat_image;
-                            $product_store = $getFromU->countFromTableByCatID('products', $cat_id);
+                    $view_cats = $getFromU->viewAllFromTable('categories');
+                    foreach ($view_cats as $view_cat) {
+                        $cat_id = $view_cat->cat_id;
+                        $cat_title = $view_cat->cat_title;
+                        $cat_top = $view_cat->cat_top;
+                        $cat_image = $view_cat->cat_image;
+                        $product_store = $getFromU->countFromTableByCatID('artwork', $cat_id);
                     ?>
 
-                    <tr>
-                        <td><?php echo $cat_id; ?></td>
-                        <td><?php echo $cat_title; ?></td>
-                        <td><img src="other_images/<?php echo $cat_image; ?>" width="30" height="30"></td>
-                        <td><?php echo $cat_top; ?></td>
-                        <td><?php echo $product_store; ?></td>
-                        <td><?php echo 4; ?></td>
-                        <td><?php echo 6; ?></td>
-                        <td>
-                            <a class="text-info" href="index.php?edit_cat=<?php echo $cat_id; ?>"><i class="fas fa-edit"></i> Edit</a>
-                        </td>
-                        <td>
-                            <a class="text-danger" onclick="DeleteCat('<?php echo $cat_id; ?>')"><i class="fas fa-trash-alt"></i> Delete</a>
-                        </td>
+                        <tr>
+                            <td><?php echo $cat_id; ?></td>
+                            <td><?php echo $cat_title; ?></td>
+                            <td><img src="other_images/<?php echo $cat_image; ?>" width="30" height="30"></td>
+                            <td><?php echo $cat_top; ?></td>
+                            <td><?php echo $product_store; ?></td>
+                            <td><?php echo 4; ?></td>
+                            <td><?php echo 6; ?></td>
+                            <td>
+                                <a class="text-info" href="index.php?edit_cat=<?php echo $cat_id; ?>"><i class="fas fa-edit"></i> Edit</a>
+                            </td>
+                            <td>
+                                <a class="text-danger" onclick="DeleteCat('<?php echo $cat_id; ?>')"><i class="fas fa-trash-alt"></i> Delete</a>
+                            </td>
 
-                    </tr>
+                        </tr>
 
                     <?php } ?>
 
@@ -113,7 +118,7 @@
 
 
 <!-- CORE PLUGINS, Must Need-->
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 <!-- PAGE LEVEL SCRIPTS-->
 <script>
@@ -122,6 +127,4 @@
             pageLength: 10,
         });
     });
-
-
 </script>
