@@ -58,7 +58,6 @@
 <?php require_once 'includes/sidebar_for_all.php'; ?>
 
 
-
 <div class="container-fluid px-0" id="slider">
 	<div class="row">
 		<div class="col-md-12">
@@ -92,44 +91,19 @@
 						$is_first = false;
 					} ?>
 				</div>
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</a>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-
-<?php
-$slides = $getFromU->selectSlideAll();
-foreach ($slides as $slide) {
-	$slide_image = $slide->slide_image;
-	$slide_name  = $slide->slide_name;
-	$slide_title  = $slide->slide_title;
-	$slide_text  = $slide->slide_text;
-?>
-	<div class="carousel-item">
-		<div class="carousel-caption d-none d-md-block">
-			<h5><?php echo $slide_title; ?></h5>
-			<p><?php echo $slide_text; ?></p>
-		</div>
-	</div>
-<?php } ?>
-
-</div>
-
-<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-	<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-	<span class="sr-only">Previous</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-	<span class="carousel-control-next-icon" aria-hidden="true"></span>
-	<span class="sr-only">Next</span>
-</a>
-</div>
-<!-- carousel slide ends -->
-</div>
-</div>
-</div>
 
 <div class="container mt-5 advantages"> <!-- advantages starts -->
 	<div class="row">
