@@ -1,5 +1,4 @@
-<?php require_once 'core/init.php'; ?>
-
+<?php require_once('core/init.php'); ?>
 
 <?php
 $ip_add = $getFromU->getRealUserIp();
@@ -15,6 +14,8 @@ foreach ($records as $record) {
 		$total += $sub_total;
 	}
 }
+$customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
+@$customer_disability = $customers->$customer_disability;
 ?>
 
 <!doctype html>
@@ -40,51 +41,40 @@ foreach ($records as $record) {
 
 <body>
 
+	<div id="top" class="bg-dark"> <!-- Top Starts -->
+		<div class="Container"> <!-- Container Starts -->
+			<div class="row "> <!-- row Starts -->
 
-	<!-- Top bar with navigation -->
-	<div id="top" class="bg-dark text-light py-2"> <!-- Top Starts -->
-		<div class="container">
-			<div class="row d-flex justify-content-between">
-				<div class="col-md-6">
+
+				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
+					<object type="image/svg+xml" data="includes/logo.svg" class="logo"></object>
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
-							echo "Welcome : <strong class='text-uppercase'>Guest</strong>";
+							echo 'Welcome : Guest';
 						} else {
 							$customer = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 							$customer_name = $customer->customer_name;
-							echo "Welcome : <strong class='text-uppercase'>$customer_name</strong>";
+							echo "Welcome <strong class='text-uppercase'>$customer_name</strong>";
 						}
 						?>
 					</a>
-
-
 
 				</div> <!-- col-md-6 offer Ends -->
 
 				<div class="col-md-6 "> <!-- col-md-6 Starts -->
 					<ul class="menu"> <!-- menu starts -->
-						<?php if (!isset($_SESSION['customer_email'])): ?>
-							<li><a href="customer_register.php">Register</a></li>
-						<?php endif ?>
-
-						<?php if (isset($_SESSION['customer_email'])): ?>
+						<?php if ($customer_disability == 1): ?>
 							<li><a href="insert_products.php">Add Products</a></li>
-
-						<?php else: ?>
-							<li><a href="customer/my_account.php?my_orders">My Account</a></li>
-						<?php endif ?>
-
+						<?php endif; ?>
 						<li><a href="cart.php">Go To Cart</a></li>
-
 
 						<li>
 							<?php if (!isset($_SESSION['customer_email'])): ?>
-								<a href="checkout.php">Login</a>
+								<a href="login.php">Login</a>
 							<?php else: ?>
 								<a href="logout.php">Logout</a>
 							<?php endif ?>
-
 						</li>
 					</ul> <!-- menu ends -->
 				</div> <!-- col-md-6 Ends -->
@@ -93,5 +83,3 @@ foreach ($records as $record) {
 
 		</div> <!-- Container Ends -->
 	</div> <!-- Top Ends -->
-
-	<?php require_once 'sidebar_for_all.php'; ?>

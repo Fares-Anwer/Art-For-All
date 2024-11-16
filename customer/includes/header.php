@@ -13,6 +13,8 @@ foreach ($records as $record) {
 		$total += $sub_total;
 	}
 }
+$customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
+@$customer_disability = $customers->$customer_disability;
 ?>
 
 <!doctype html>
@@ -46,8 +48,8 @@ foreach ($records as $record) {
 			<div class="row "> <!-- row Starts -->
 
 
+				<object type="image/svg+xml" data="includes/logo.svg" class="logo"></object>
 				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
-					<object type="image/svg+xml" data="includes/logo.svg" class="logo"></object>
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
@@ -59,13 +61,13 @@ foreach ($records as $record) {
 						}
 						?>
 					</a>
-
 				</div> <!-- col-md-6 offer Ends -->
 
 				<div class="col-md-6 "> <!-- col-md-6 Starts -->
 					<ul class="menu"> <!-- menu starts -->
-						<li><a href="../insert_products.php">Add Products</a></li>
-
+						<?php if ($customer_disability == 1): ?>
+							<li><a href="../insert_products.php">Add Products</a></li>
+						<?php endif; ?>
 						<li><a href="../cart.php">Go To Cart</a></li>
 
 						<li>
