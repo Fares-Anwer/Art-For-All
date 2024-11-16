@@ -35,7 +35,7 @@ foreach ($records as $record) {
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
-	<title>eCommerce Store</title>
+	<title>ART-FOR-ALL</title>
 </head>
 
 <body>

@@ -55,7 +55,7 @@
 								} else {
 									$customer_confirm_code = mt_rand();
 
-									$message = '<h1 class="text-center">Email Confirmation From eCommerce Store</h1> ';
+									$message = '<h1 class="text-center">Email Confirmation From ART-FOR-ALL</h1> ';
 									$message .= '<h2 class="text-center">Dear ' . $c_name . '</h2> ';
 									$message .= '<h3 class="text-center"><a href="localhost/ecommerce/customer/my_account.php?confirm_code=' . $customer_confirm_code . '">Click Here To Confirm Email</a></h3> ';
 

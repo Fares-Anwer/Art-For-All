@@ -150,7 +150,7 @@ if (!isset($_SESSION['customer_email'])) {
 					$customer_name = $view_customer->customer_name;
 					$customer_confirm_code = $view_customer->customer_confirm_code;
 
-					$message = '<h1 class="text-center">Email Confirmation From eCommerce Store</h1> ';
+					$message = '<h1 class="text-center">Email Confirmation From ART-FOR-ALL</h1> ';
 					$message .= '<h2 class="text-center">Dear ' . $customer_name . '</h2> ';
 					$message .= '<h3 class="text-center"><a href="localhost/ecommerce/customer/my_account.php?confirm_code=' . $customer_confirm_code . '">Click Here To Confirm Email</a></h3> ';
 
