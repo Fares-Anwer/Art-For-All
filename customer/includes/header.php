@@ -1,23 +1,24 @@
-<?php require_once '../core/init.php'; ?>
+<?php require_once('../core/init.php'); ?>
+
 <?php
 $ip_add = $getFromU->getRealUserIp();
 $total = 0;
 $records = $getFromU->select_products_by_ip($ip_add);
 foreach ($records as $record) {
 	$product_id = $record->p_id;
+	$product_price = $record->product_price;
 	$product_qty = $record->qty;
 	$get_prices = $getFromU->viewProductByProductID($product_id);
 	foreach ($get_prices as $get_price) {
-		$product_price = $get_price->product_price;
 		$sub_total = $product_price * $product_qty;
 		$total += $sub_total;
 	}
 }
-$customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
-@$customer_disability = $customers->$customer_disability;
+// $customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
+// $customer_disability = $customers->$is_disablity;
 ?>
 
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -30,26 +31,23 @@ $customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 	<!-- Font Awesome CSS -->
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-
-	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
-
 	<!--   <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"> -->
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
-
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 
 	<title>ART-FOR-ALL</title>
 </head>
 
 <body>
 
-	<div id="top" class="bg-dark"> <!-- Top Starts -->
+	<div id="top" class="bg-dark text-light py-2"> <!-- Top Starts -->
 		<div class="Container"> <!-- Container Starts -->
-			<div class="row "> <!-- row Starts -->
+			<div class="row d-flex justify-content-between"> <!-- row Starts -->
 
 
-				<object type="image/svg+xml" data="includes/logo.svg" class="logo"></object>
 				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
+					<object type="image/svg+xml" data="includes/logo.svg" style="direction:abslute;" class="logo"></object>
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
@@ -57,22 +55,24 @@ $customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 						} else {
 							$customer = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 							$customer_name = $customer->customer_name;
+							$customer_disability = $customer->is_disablity;
 							echo "Welcome <strong class='text-uppercase'>$customer_name</strong>";
 						}
 						?>
 					</a>
+
 				</div> <!-- col-md-6 offer Ends -->
 
 				<div class="col-md-6 "> <!-- col-md-6 Starts -->
 					<ul class="menu"> <!-- menu starts -->
-						<?php if ($customer_disability == 1): ?>
+						<?php if ($customer_disability == "1"): ?>
 							<li><a href="../insert_products.php">Add Products</a></li>
 						<?php endif; ?>
 						<li><a href="../cart.php">Go To Cart</a></li>
 
 						<li>
 							<?php if (!isset($_SESSION['customer_email'])): ?>
-								<a href="../login.php">Login</a>
+								<a href="../checkout.php">Login</a>
 							<?php else: ?>
 								<a href="../logout.php">Logout</a>
 							<?php endif ?>

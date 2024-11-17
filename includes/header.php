@@ -1,4 +1,5 @@
-<?php require_once('core/init.php'); ?>
+<?php require_once 'core/init.php'; ?>
+
 
 <?php
 $ip_add = $getFromU->getRealUserIp();
@@ -8,20 +9,25 @@ foreach ($records as $record) {
 	$product_id = $record->p_id;
 	$product_price = $record->product_price;
 	$product_qty = $record->qty;
+
 	$get_prices = $getFromU->viewProductByProductID($product_id);
 	foreach ($get_prices as $get_price) {
 		$sub_total = $product_price * $product_qty;
 		$total += $sub_total;
 	}
 }
-$customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
-@$customer_disability = $customers->$customer_disability;
 ?>
 
 <!doctype html>
 <html lang="en">
 
 <head>
+
+	<!-- Start WOWSlider.com HEAD section -->
+	<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+	<script type="text/javascript" src="engine0/jquery.js"></script>
+	<!-- End WOWSlider.com HEAD section -->
+
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -36,50 +42,59 @@ $customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 
-	<title>ART-FOR-ALL</title>
+	<title>eCommerce Store</title>
 </head>
 
 <body>
 
-	<div id="top" class="bg-dark"> <!-- Top Starts -->
-		<div class="Container"> <!-- Container Starts -->
-			<div class="row "> <!-- row Starts -->
 
+	<!-- Top bar with navigation -->
+	<div id="top" class="bg-dark text-light py-2"> <!-- Top Starts -->
 
-				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
-					<object type="image/svg+xml" data="includes/logo.svg" class="logo"></object>
+		<div class="container">
+
+			<div class="row d-flex justify-content-between">
+				<object type="image/svg+xml" data="includes/logo.svg" style="direction:abslute;"></object>
+
+				<div class="col-md-6">
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
-							echo 'Welcome : Guest';
+							echo "Welcome : <strong class='text-uppercase'>Guest</strong>";
 						} else {
 							$customer = $getFromU->view_customer_by_email($_SESSION['customer_email']);
 							$customer_name = $customer->customer_name;
-							echo "Welcome <strong class='text-uppercase'>$customer_name</strong>";
+							echo "Welcome : <strong class='text-uppercase'>$customer_name</strong>";
+							$is_disablity = $customer->is_disablity;
 						}
 						?>
 					</a>
 
+
+
 				</div> <!-- col-md-6 offer Ends -->
 
-				<div class="col-md-6 "> <!-- col-md-6 Starts -->
-					<ul class="menu"> <!-- menu starts -->
-						<?php if ($customer_disability == 1): ?>
-							<li><a href="insert_products.php">Add Products</a></li>
-						<?php endif; ?>
-						<li><a href="cart.php">Go To Cart</a></li>
 
-						<li>
-							<?php if (!isset($_SESSION['customer_email'])): ?>
-								<a href="login.php">Login</a>
-							<?php else: ?>
-								<a href="logout.php">Logout</a>
-							<?php endif ?>
-						</li>
-					</ul> <!-- menu ends -->
-				</div> <!-- col-md-6 Ends -->
-			</div><!-- row ends -->
+				<!-- <div class="col-md-6 ">  col-md-6 Starts -->
+				<ul class="menu"> <!-- menu starts -->
+					<?php
+					if ($is_disablity == "1"):
+					?>
+						<li><a href="../insert_products.php"><?php $is_disablity ?> Add Products</a></li>
+					<?php endif ?>
+					<li><a href="cart.php">Go To Cart</a></li>
+
+					<li>
+						<?php if (!isset($_SESSION['customer_email'])): ?>
+							<a href="checkout.php">Login</a>
+						<?php else: ?>
+							<a href="logout.php">Logout</a>
+						<?php endif ?>
+					</li>
+				</ul> <!-- menu ends -->
+			</div> <!-- col-md-6 Ends -->
+		</div><!-- row ends -->
 
 
-		</div> <!-- Container Ends -->
+	</div> <!-- Container Ends -->
 	</div> <!-- Top Ends -->

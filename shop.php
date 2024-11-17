@@ -1,5 +1,4 @@
 <?php require_once 'includes/header.php'; ?>
-
 <nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -40,8 +39,6 @@
 		</form>
 	</div>
 </nav>
-
-
 <div id="content">
 	<div class="container">
 		<div class="row">
@@ -49,7 +46,7 @@
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.php">Home</a></li>
-						<li class="breadcrumb-item" aria-current="page">Marketplace</li>
+						<li class="breadcrumb-item" aria-current="page">Shop</li>
 					</ol>
 				</nav>
 			</div>

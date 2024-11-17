@@ -1,5 +1,44 @@
 <?php require_once 'includes/header.php'; ?>
+<nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto text-light text-uppercase">
+			<li>
+				<a class="nav-link text-light" href="index.php">Home </a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="shop.php">Marketplace</a>
+			</li>
+			<?php if (isset($_SESSION['customer_email'])): ?>
+				<li><a class="nav-link text-light" href="customer/my_account.php?my_orders">My Account</a></li>
+			<?php else: ?>
+				<li><a class="nav-link text-light" href="checkout.php">My Account</a></li>
+			<?php endif ?>
+			<li>
+				<a class="nav-link text-light" href="cart.php">Shopping Cart</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="contact.php">Contact Us</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" class="active" href="about.php">About Us</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="services.php">Services</a>
+			</li>
+		</ul>
 
+		<a href="cart.php" class="btn btn-warning ms-3"><i class="fas fa-shopping-cart"></i><span> <?php echo $getFromU->count_product_by_ip($ip_add); ?> items in Cart</span></a>
+
+		<!-- Search Form -->
+		<form class="d-flex ms-3" role="search">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="user_query" required="1">
+			<button class="btn btn-outline-light" type="submit" name="search">Search</button>
+		</form>
+	</div>
+</nav>
 <style>
 	#slider {
 		margin: 0;
@@ -46,7 +85,7 @@
 	}
 
 	.carousel-caption h5 {
-		font-size: 2.8rem;
+		font-size: 1rem;
 		font-weight: bold;
 	}
 
@@ -55,51 +94,66 @@
 		line-height: 1.5;
 	}
 </style>
-<?php require_once 'includes/sidebar_for_all.php'; ?>
-
 
 <div class="container-fluid px-0" id="slider">
 	<div class="row">
 		<div class="col-md-12">
-			<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+			<!-- carousel slide starts -->
+			<div id="carouselExampleIndicators" class="carousel slide image-overlay" data-ride="carousel">
 				<ol class="carousel-indicators">
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></li>
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></li>
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></li>
-					<li data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+					<li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
 				</ol>
 				<div class="carousel-inner">
 					<?php
 					$slides = $getFromU->selectSlide1();
-					$is_first = true;
 					foreach ($slides as $slide) {
 						$slide_image = $slide->slide_image;
 						$slide_name  = $slide->slide_name;
 						$slide_title  = $slide->slide_title;
 						$slide_text  = $slide->slide_text;
 					?>
-						<div class="carousel-item <?php echo $is_first ? 'active' : ''; ?>">
-							<div class="image-overlay">
-								<img class="d-block w-100 img-fluid" src="admin_area/slides_images/<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>">
-							</div>
+						<div class="carousel-item active image-overlay">
+							<div target="_blank"><img class="d-block w-100 img-fluid" src="admin_area/slides_images/<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>"></div>
 							<div class="carousel-caption d-none d-md-block">
-								<h5 class="display-4"><?php echo $slide_title; ?></h5>
+								<h5><?php echo $slide_title; ?></h5>
 								<p><?php echo $slide_text; ?></p>
 							</div>
 						</div>
+
+					<?php } ?>
+
 					<?php
-						$is_first = true;
-					} ?>
+					$slides = $getFromU->selectSlideAll();
+					foreach ($slides as $slide) {
+						$slide_image = $slide->slide_image;
+						$slide_name  = $slide->slide_name;
+						$slide_title  = $slide->slide_title;
+						$slide_text  = $slide->slide_text;
+					?>
+						<div class="carousel-item image-overlay">
+							<div target="_blank"><img class="d-block w-100 img-fluid" src="admin_area/slides_images/<?php echo $slide_image; ?>" alt="<?php echo $slide_name; ?>"></div>
+							<div class="carousel-caption d-none d-md-block">
+								<h5><?php echo $slide_title; ?></h5>
+								<p><?php echo $slide_text; ?></p>
+							</div>
+						</div>
+					<?php } ?>
+
 				</div>
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-bs-slide="prev">
+
+				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
+					<span class="sr-only">Previous</span>
 				</a>
-				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-bs-slide="next">
+				<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
+					<span class="sr-only">Next</span>
 				</a>
 			</div>
+			<!-- carousel slide ends -->
 		</div>
 	</div>
 </div>
@@ -135,6 +189,7 @@
 			</div>
 		</div>
 	</div>
+
 </div>
 <div class="container" id="content">
 	<div class="row">

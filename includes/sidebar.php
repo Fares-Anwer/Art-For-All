@@ -84,30 +84,6 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
 
         <?php   } ?>
 
-        <?php
-        $get_manufacturers = $getFromU->selectNonTopManufacturer();
-        foreach ($get_manufacturers as $get_manufacturer) {
-          $nmanufacturer_id = $get_manufacturer->customer_id;
-
-          $customer = $getFromU->view_customer_by_id($nmanufacturer_id);
-          $nmanufacturer_title = $customer->custometr_name;
-          $nmanufacturer_image = $customer->custometr_image;
-          if ($nmanufacturer_image == "") {
-          } else {
-            $nmanufacturer_image = " <img src='admin_area/other_images/$nmanufacturer_image' width='20px'height='20px' > &nbsp;";
-          }
-        ?>
-
-          <li class="checkbox checkbox-primary form-control mb-2 bg-light">
-            <a>
-              <div class="custom-control custom-checkbox mr-sm-2" style="top: 15px">
-                <input type="checkbox" <?php (isset($aMan[$nmanufacturer_id])) ? print "checked='checked' " : ""; ?> name="manufacturer" value="<?php echo $nmanufacturer_id; ?>" class="custom-control-input get_manufacturer" id="manufac[<?php echo $nmanufacturer_id; ?>]">
-                <label class="custom-control-label" for="manufac[<?php echo $nmanufacturer_id; ?>]"><span><?php echo $nmanufacturer_image; ?></span> <span><?php echo $nmanufacturer_title; ?></span><br></label>
-              </div>
-            </a>
-          </li>
-
-        <?php   } ?>
 
 
 
