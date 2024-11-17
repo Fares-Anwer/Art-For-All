@@ -78,7 +78,7 @@ foreach ($records as $record) {
 				<!-- <div class="col-md-6 ">  col-md-6 Starts -->
 				<ul class="menu"> <!-- menu starts -->
 					<?php
-					if ($is_disablity == "1"):
+					if (@$is_disablity == "1"):
 					?>
 						<li><a href="../insert_products.php"><?php $is_disablity ?> Add Products</a></li>
 					<?php endif ?>
