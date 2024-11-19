@@ -1078,6 +1078,34 @@ class User
     }
   }
 
+
+  public function update_customer($table, $customer_id, $fields = array())
+  {
+    $columns = '';
+    $i       = 1;
+    foreach ($fields as $name => $value) {
+      $columns .= "{$name} = :{$name}";
+      if ($i < count($fields)) {
+        $columns .= ', ';
+      }
+      $i++;
+    }
+
+    $sql = "UPDATE {$table} SET {$columns} WHERE customer_id  = {$customer_id}";
+    $stmt = $this->pdo->prepare($sql);
+    if ($stmt) {
+      foreach ($fields as $key => $value) {
+        $stmt->bindValue(":" . $key, $value);
+      }
+
+      if ($stmt->execute()) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+  }
+
   public function update_coupon($table, $coupon_id, $fields = array())
   {
     $columns = '';

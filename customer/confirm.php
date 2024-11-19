@@ -20,27 +20,26 @@ if (isset($_GET['order_id'])) {
 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" id="navbar">
-	<a class="navbar-brand home" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-light  bg-dark sticky-top" id="navbar">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
 	</button>
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-		<ul class="navbar-nav mr-auto text-uppercase">
+		<ul class="navbar-nav mr-auto text-uppercase ">
 			<li>
-				<a href="../index.php">Home</a>
+				<a class="nav-link text-light" href="../index.php">Home</a>
 			</li>
 			<li>
-				<a href="../shop.php">Marketplace</a>
+				<a class="nav-link text-light" href="../shop.php">Marketplace</a>
 			</li>
 			<li>
-				<a class="active" href="my_account.php">My Account</a>
+				<a class="active nav-link text-light" href="my_account.php">My Account</a>
 			</li>
 			<li>
-				<a href="../cart.php">Shopping Cart</a>
+				<a class="nav-link text-light" href="../cart.php ">Shopping Cart</a>
 			</li>
 			<li>
-				<a href="../contact.php">Contact Us</a>
+				<a class="nav-link text-light" href="../contact.php">Contact Us</a>
 			</li>
 		</ul>
 		<?php if (isset($_SESSION['customer_email'])): ?>

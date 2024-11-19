@@ -8,6 +8,7 @@ if (isset($_GET['edit_service'])) {
 		$get_service = $getFromU->view_service_by_id($service_id);
 
 		$service_title = $get_service->service_title;
+		$the_service_image = $get_service->service_image;
 		$service_desc = $get_service->service_desc;
 	} else {
 		header('Location: index.php?view_services');
@@ -21,7 +22,17 @@ if (isset($_POST['update_service'])) {
 	$service_title = $getFromU->checkInput($_POST['service_title']);
 	$service_desc = $_POST['service_desc'];
 	$service_id = $getFromU->checkInput($_POST['service_id']);
-	$update_service = $getFromU->update_service("services", $service_id, array("service_title" => $service_title, "service_desc" => $service_desc));
+
+	$service_image = $_FILES['service_image']['name'];
+	$temp_name = $_FILES['service_image']['tmp_name'];
+
+	if (empty($service_image)) {
+		$service_image = $the_service_image;
+	}
+
+	move_uploaded_file($temp_name, "services_images/$service_image");
+
+	$update_service = $getFromU->update_service("services", $service_id, array("service_title" => $service_title, "service_desc" => $service_desc, "service_image" => $service_image));
 
 	if ($update_service) {
 		$_SESSION['update_service_msg'] = "Service has been Updated Sucessfully";
@@ -60,6 +71,18 @@ if (isset($_POST['update_service'])) {
 		<div class="row">
 			<div class="col-md-8 offset-md-2">
 				<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+					<div class="form-row mb-3">
+						<div class="col-3">
+							<label for="service_image">Service Image</label>
+						</div>
+						<div class="col-md-9">
+							<input type="file" name="service_image" id="service_image">
+							<span><img src="services_images/<?php echo $the_service_image; ?>" class="rounded" height="45" width="45"></span>
+							<div class="invalid-feedback">
+								Please provide a Service Image.
+							</div>
+						</div>
+					</div>
 					<div class="form-row mb-3">
 						<div class="col-3">
 							<label for="service_title">Service Title</label>

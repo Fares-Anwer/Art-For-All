@@ -20,7 +20,7 @@ $count_product_categories = count($get_product_categories);
 
 <header class="header">
     <div class="page-brand">
-        <a class="link" href="index.html">
+        <a class="link" href="index.php?dashboard">
             <span class="brand">Admin
                 <span class="brand-tip pl-1">Panel</span>
             </span>
@@ -61,7 +61,7 @@ $count_product_categories = count($get_product_categories);
                             <a class="list-group-item">
                                 <div class="media">
                                     <div class="media-img">
-                                        <img src="./img/users/u1.jpg" />
+                                        <img src="assets/img/users/u1.jpg" />
                                     </div>
                                     <div class="media-body">
                                         <div class="font-strong"> </div>Jeanne Gonzalez<small class="text-muted float-right">Just now</small>
@@ -72,7 +72,7 @@ $count_product_categories = count($get_product_categories);
                             <a class="list-group-item">
                                 <div class="media">
                                     <div class="media-img">
-                                        <img src="./img/users/u2.jpg" />
+                                        <img src="assets/img/users/u2.jpg" />
                                     </div>
                                     <div class="media-body">
                                         <div class="font-strong"></div>Becky Brooks<small class="text-muted float-right">18 mins</small>
@@ -83,7 +83,7 @@ $count_product_categories = count($get_product_categories);
                             <a class="list-group-item">
                                 <div class="media">
                                     <div class="media-img">
-                                        <img src="./img/users/u3.jpg" />
+                                        <img src="assets/img/users/u3.jpg" />
                                     </div>
                                     <div class="media-body">
                                         <div class="font-strong"></div>Frank Cruz<small class="text-muted float-right">18 mins</small>
@@ -94,7 +94,7 @@ $count_product_categories = count($get_product_categories);
                             <a class="list-group-item">
                                 <div class="media">
                                     <div class="media-img">
-                                        <img src="./img/users/u4.jpg" />
+                                        <img src="assets/img/users/u4.jpg" />
                                     </div>
                                     <div class="media-body">
                                         <div class="font-strong"></div>Rose Pearson<small class="text-muted float-right">3 hrs</small>
@@ -165,7 +165,7 @@ $count_product_categories = count($get_product_categories);
             </li>
             <li class="dropdown dropdown-user">
                 <a class="nav-link dropdown-toggle link" data-toggle="dropdown">
-                    <img src="./assets/img/users/<?php echo $admin_image; ?>" />
+                    <img src="admin_images/<?php echo $admin_image; ?>" />
                     <span></span><?php echo $admin_name; ?><i class="fa fa-angle-down m-l-5"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">

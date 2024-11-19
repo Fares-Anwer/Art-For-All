@@ -70,10 +70,12 @@
                 foreach ($view_services as $view_service) {
                     $service_id = $view_service->service_id;
                     $service_title = $view_service->service_title;
+                    $service_image = $view_service->service_image;
                     $service_desc = $view_service->service_desc;
                 ?>
 
                     <div class="card text-justify">
+                        <img class="card-img-top" height="250px" src="services_images/<?php echo $service_image; ?>" alt="<?php echo $service_title; ?>">
                         <div class="card-body">
                             <h4 class="card-title"><?php echo $service_title; ?></h4>
                             <p class="card-text text-justify"><?php echo $service_desc; ?></p>

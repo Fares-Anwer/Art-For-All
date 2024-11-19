@@ -264,3 +264,10 @@ body{
 #copyright p{
   margin: 0;
 }
+
+#example-table_wrapper{
+  overflow: auto;
+}
+.list-group-item.active{
+  background-color: white;
+}

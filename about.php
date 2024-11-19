@@ -60,6 +60,7 @@
 
 
 			<div class="col-md-12 mb-4">
+				<img class="card-img-top" src="admin_area/other_images/about_us.jpg" height="700px">
 				<div class="card">
 					<div class="card-header text-center">
 						<h5 class="mt-4"><?php echo $about_heading; ?></h5>

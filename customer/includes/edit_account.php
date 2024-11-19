@@ -11,6 +11,11 @@ $customer_contact = $get_customer->customer_contact;
 $customer_address = $get_customer->customer_address;
 $customer_image = $get_customer->customer_image;
 
+$customer_ip = $get_customer->customer_ip;
+$customer_confirm_code = $get_customer->customer_confirm_code;
+$manufacturer_top = $get_customer->manufacturer_top;
+$is_artist = $get_customer->is_artist;
+
 ?>
 
 <div class="card">
@@ -29,14 +34,19 @@ $customer_image = $get_customer->customer_image;
 			$customer_contact = $_POST['c_mobile'];
 			$customer_address = $_POST['c_address'];
 
+			// $view_customer = $getFromU->view_customer_by_id($customer_id);
+
+
 			$customer_image = $_FILES['c_image']['name'];
 			$c_image_tmp = $_FILES['c_image']['tmp_name'];
 			move_uploaded_file($c_image_tmp, "assets/customer_images/$customer_image");
 
-			$update_customer = $getFromU->update_customer("customers", $customer_id, array("customer_name" => $customer_name, "customer_email" => $customer_email, "customer_pass" => $customer_pass, "customer_country" => $customer_country, "customer_city" => $customer_city, "customer_contact" => $customer_contact, "customer_address" => $customer_address, "customer_image" => $customer_image));
-
-			echo '<script>alert("Your Account has been Updated Successfully. Please Login again")</script>';
-			echo '<script>window.open("../logout.php", "_self")</script>';
+			$update_customer = $getFromU->update_customer("customers", $customer_id, array("customer_name" => $customer_name, "customer_email" => $customer_email, "customer_pass" => $customer_pass, "customer_country" => $customer_country, "customer_city" => $customer_city, "customer_contact" => $customer_contact, "customer_address" => $customer_address, "customer_image" => $customer_image, "customer_ip" => $customer_ip, "is_artist" => $is_artist, "manufacturer_top" => $manufacturer_top, "customer_confirm_code" => $customer_confirm_code));
+			if ($update_customer == true) {
+				echo '<script>alert("Your Account has been Updated Successfully. Please Login again")</script>';
+			} else {
+				echo '<script>window.open("../logout.php", "_self")</script>';
+			}
 		}
 
 		?>

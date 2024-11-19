@@ -32,7 +32,7 @@
 							$c_manufacturer_top = $_POST['manufacturer_top'];
 							$c_address = $_POST['c_address'];
 							$c_image = $_FILES['c_image']['name'];
-							$is_disablity = $getFromU->checkInput($_POST['is_disablity']);
+							$is_artist = $getFromU->checkInput($_POST['is_artist']);
 
 							$c_image_tmp = $_FILES['c_image']['tmp_name'];
 
@@ -58,7 +58,7 @@
 									$message .= '<h3 class="text-center"><a href="localhost/ecommerce/customer/my_account.php?confirm_code=' . $customer_confirm_code . '">Click Here To Confirm Email</a></h3> ';
 
 									$subject = 'Confirm Email';
-									$message = $message;
+									// $message = $message;
 									$headers =  'MIME-Version: 1.0' . "\r\n";
 									$headers .= 'From: eCommerce Admin <info@address.com>' . "\r\n";
 									$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
@@ -70,8 +70,8 @@
 									}
 
 									$is_dis;
-									if (isset($_POST['is_disablity'])) {
-										if ($is_disablity == "on")
+									if (isset($_POST['is_artist'])) {
+										if ($is_artist == "on")
 											$is_dis = "1";
 										$manufacturer_top = "Yes";
 									} else {
@@ -80,7 +80,7 @@
 									}
 									move_uploaded_file($c_image_tmp, "customer/assets/customer_images/$c_image");
 
-									$add_customer = $getFromU->create("customers", array("customer_name" => $c_name, "customer_email" => $c_email, "customer_pass" => $c_pass, "customer_country" => $c_country, "customer_city" => $c_city, "customer_contact" => $c_contact, "customer_address" => $c_address, "customer_image" => $c_image, "customer_ip" => $c_ip, "customer_confirm_code" => $customer_confirm_code, "manufacturer_top" => $manufacturer_top, "is_disablity" => $is_dis));
+									$add_customer = $getFromU->create("customers", array("customer_name" => $c_name, "customer_email" => $c_email, "customer_pass" => $c_pass, "customer_country" => $c_country, "customer_city" => $c_city, "customer_contact" => $c_contact, "customer_address" => $c_address, "customer_image" => $c_image, "customer_ip" => $c_ip, "customer_confirm_code" => $customer_confirm_code, "manufacturer_top" => $manufacturer_top, "is_artist" => $is_dis));
 
 									if ($add_customer) {
 										$check_cart = $getFromU->count_product_by_ip($c_ip);
@@ -232,8 +232,8 @@
 							</div>
 							<div class="form-group mt-3">
 								<div class="custom-control custom-checkbox">
-									<input type="checkbox" name="is_disablity" class="custom-control-input" id="is_disablity">
-									<label class="custom-control-label" for="is_disablity">is disablity</label>
+									<input type="checkbox" name="is_artist" class="custom-control-input" id="is_artist">
+									<label class="custom-control-label" for="is_artist">is artist</label>
 								</div>
 							</div>
 
@@ -294,3 +294,101 @@
 
 
 		</div> <!-- Row End -->
+
+	</div> <!-- SINGLE PRODUCT ROW END -->
+
+</div>
+
+
+
+
+<?php require_once 'includes/footer.php'; ?>
+
+
+<script>
+	$(document).ready(function() {
+
+		$('.confirm').keyup(function() {
+			var password = $('#c_password').val();
+			var confirm_password = $('#confirm_password').val();
+
+			if (password == confirm_password) {
+				$('.tick2').show();
+				$('.cross2').hide();
+				$('.check_pass i').css("color", 'green');
+			} else {
+				$('.tick2').hide();
+				$('.cross2').show();
+				$('.check_pass i').css("color", 'red');
+			}
+
+		});
+	});
+</script>
+
+
+<script>
+	$(document).ready(function() {
+
+		$("#c_password").keyup(function() {
+
+			check_pass();
+
+		});
+
+	});
+
+	function check_pass() {
+		var val = document.getElementById("c_password").value;
+		var meter = document.getElementById("meter");
+		var no = 0;
+		if (val != "") {
+			// If the password length is less than or equal to 6
+			if (val.length <= 6) no = 1;
+
+			// If the password length is greater than 6 and contain any lowercase alphabet or any number or any special character
+			if (val.length > 6 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
+
+			// If the password length is greater than 6 and contain alphabet,number,special character respectively
+			if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,,?,,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,,?,,~,-,(,)]/)))) no = 3;
+
+			// If the password length is greater than 6 and must contain alphabets,numbers and special characters
+			if (val.length > 6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
+
+			if (no == 1) {
+				$("#meter").animate({
+					width: '50px'
+				}, 300);
+				meter.style.backgroundColor = "red";
+				document.getElementById("pass_type").innerHTML = "Very Weak";
+			}
+
+			if (no == 2) {
+				$("#meter").animate({
+					width: '100px'
+				}, 300);
+				meter.style.backgroundColor = "#F5BCA9";
+				document.getElementById("pass_type").innerHTML = "Weak";
+			}
+
+			if (no == 3) {
+				$("#meter").animate({
+					width: '150px'
+				}, 300);
+				meter.style.backgroundColor = "#FF8000";
+				document.getElementById("pass_type").innerHTML = "Good";
+			}
+
+			if (no == 4) {
+				$("#meter").animate({
+					width: '200px'
+				}, 300);
+				meter.style.backgroundColor = "#00FF40";
+				document.getElementById("pass_type").innerHTML = "Strong";
+			}
+		} else {
+			meter.style.backgroundColor = "";
+			document.getElementById("pass_type").innerHTML = "";
+		}
+	}
+</script>

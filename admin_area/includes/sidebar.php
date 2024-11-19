@@ -64,7 +64,7 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
     <div id="sidebar-collapse">
         <div class="admin-block d-flex">
             <div>
-                <img src="./assets/img/users/<?php echo $admin_image; ?>" class="img-fluid img-circle" width="45px" />
+                <img src="admin_images/<?php echo $admin_image; ?>" class="img-fluid img-circle" width="45px" />
             </div>
             <div class="admin-info">
                 <div class="font-strong"><?php echo $admin_name; ?></div><small>Administrator</small>

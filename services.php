@@ -1,4 +1,5 @@
 <?php require_once 'includes/header.php'; ?>
+
 <nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -57,6 +58,7 @@
 					$get_services = $getFromU->viewAllFromTable('services');
 					foreach ($get_services as $get_service) {
 						$service_id = $get_service->service_id;
+						$service_image = $get_service->service_image;
 						$service_title = $get_service->service_title;
 						$service_desc = $get_service->service_desc;
 					?>
@@ -64,6 +66,8 @@
 
 						<div class="card text-justify">
 							<div class="card-body">
+								<img class="card-img-top" height="200px" src="admin_area/services_images/<?php echo $service_image; ?>" alt="<?php echo $service_title; ?>">
+
 								<h4 class="card-title"><?php echo $service_title; ?></h4>
 								<p class="card-text"><?php echo $service_desc; ?></p>
 							</div>
@@ -80,8 +84,6 @@
 
 
 		</div> <!-- Row End -->
-
-
 
 
 

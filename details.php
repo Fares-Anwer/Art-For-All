@@ -288,98 +288,87 @@ if (isset($_POST['add_to_wishlist'])) {
 				?>
 		</div> <!-- Row end -->
 
-		<?php if ($status == 1) : ?>
+		<?php  ?>
 
-			<div class="row suggestion_heading">
-				<div class="col-md-12 ">
-					<div class="text-center">
-						<h2 class="">You may also Like this</h2>
-					</div>
+		<div class="row suggestion_heading">
+			<div class="col-md-12 ">
+				<div class="text-center">
+					<h2 class="">You may also Like this</h2>
 				</div>
 			</div>
+		</div>
 
-			<div class="row">
-				<?php
+		<div class="row">
+			<?php
+			//var_dump($cat_id);
+			$view_products = $getFromU->viewProductByProductID($the_product_id);
+			//var_dump($products);
+			foreach ($view_products as $view_product) {
+				$cat_id = $view_product->cat_id;
 				//var_dump($cat_id);
-				$view_products = $getFromU->viewProductByProductID($the_product_id);
-				//var_dump($products);
-				foreach ($view_products as $view_product) {
-					$cat_id = $view_product->cat_id;
-					//var_dump($cat_id);
-					$products = $getFromU->viewProductByCatID($cat_id);
-					foreach ($products as $product) {
-						$product_id = $product->product_id;
-						$product_title = $product->product_title;
-						$product_price = $product->product_price;
-						$product_img1 = $product->product_img1;
-						$product_label   = $product->product_label;
-						$product_psp_price = $product->product_psp_price;
-						$prod_customer_id = $product->customer_id;
-						$customer = $getFromU->view_customer_by_id($prod_customer_id);
-						@$prcustomer_name = $customer->customer_name;
-						if ($prcustomer_name == NULL) {
-							$prcustomer_name = "Admin";
-						}
+				$products = $getFromU->viewProductByCatID($cat_id);
+				foreach ($products as $product) {
+					$product_id = $product->product_id;
+					$product_title = $product->product_title;
+					$product_price = $product->product_price;
+					$product_img1 = $product->product_img1;
+					$product_label   = $product->product_label;
+					$product_psp_price = $product->product_psp_price;
+					$prod_customer_id = $product->customer_id;
+					$customer = $getFromU->view_customer_by_id($prod_customer_id);
+					@$prcustomer_name = $customer->customer_name;
+					if ($prcustomer_name == NULL) {
+						$prcustomer_name = "Admin";
+					}
 
-						if ($product_label == "Sale" || $product_label == "Gift") {
-							$product_price = "<del>$$product_price</del>";
-							$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";
-						} else {
-							$product_price = "$$product_price";
-							$product_psp_price = "";
-						}
+					if ($product_label == "Sale" || $product_label == "Gift") {
+						$product_price = "<del>$$product_price</del>";
+						$product_psp_price = "<i class='fas fa-long-arrow-alt-right'></i> $$product_psp_price";
+					} else {
+						$product_price = "$$product_price";
+						$product_psp_price = "";
+					}
 
-						if ($product_id == $the_product_id) {
-							continue;
-						}
-				?>
+					if ($product_id == $the_product_id) {
+						continue;
+					}
+			?>
 
-						<div class="col-sm-6 col-md-3 justify-content-center single">
-							<div class="product mb-4">
-								<div class="card">
-									<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
-									<div class="card-body text-center">
-										<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
-										<hr>
-										<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
-										<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
-										<div class="row">
-											<div class="col-md-6  pr-1 pb-2">
-												<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info form-control">Details</a>
-											</div>
-											<div class="col-md-6  pr-lg-3 pr-1">
-												<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success form-control"><i class="fas fa-shopping-cart"></i> Add</a>
-											</div>
+					<div class="col-sm-6 col-md-3 justify-content-center single">
+						<div class="product mb-4">
+							<div class="card">
+								<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
+								<div class="card-body text-center">
+									<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
+									<hr>
+									<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
+									<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>
+									<div class="row">
+										<div class="col-md-6  pr-1 pb-2">
+											<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-outline-info form-control">Details</a>
+										</div>
+										<div class="col-md-6  pr-lg-3 pr-1">
+											<a href="details.php?product_id=<?php echo $product_id; ?>" class="btn btn-success form-control"><i class="fas fa-shopping-cart"></i> Add</a>
 										</div>
 									</div>
 								</div>
 							</div>
-							<?php if (!empty($product_label)) : ?>
-								<a class="label sale" style="color: black">
-									<div class="thelabel"><?php echo $product_label; ?></div>
-									<div class="label-background"></div>
-								</a>
-							<?php endif ?>
-						</div> <!-- SINGLE PRODUCT END -->
+						</div>
+						<?php if (!empty($product_label)) : ?>
+							<a class="label sale" style="color: black">
+								<div class="thelabel"><?php echo $product_label; ?></div>
+								<div class="label-background"></div>
+							</a>
+						<?php endif ?>
+					</div> <!-- SINGLE PRODUCT END -->
 
-				<?php  }
-				} ?>
-			</div> <!-- SINGLE PRODUCT ROW END -->
-
-		<?php else : ?>
-
-			<div class="row suggestion_heading">
-				<div class="col-md-12 ">
-					<div class="text-center">
-						<h2 class="">Bundle Product</h2>
-					</div>
-				</div>
-			</div>
-		<?php endif ?>
+			<?php  }
+			} ?>
+			<?php  ?>
 
 
+		</div>
 	</div>
-</div>
 
 
-<?php require_once 'includes/footer.php'; ?>
+	<?php require_once 'includes/footer.php'; ?>

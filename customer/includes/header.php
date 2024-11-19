@@ -15,7 +15,7 @@ foreach ($records as $record) {
 	}
 }
 // $customers = $getFromU->view_customer_by_email($_SESSION['customer_email']);
-// $customer_disability = $customers->$is_disablity;
+// $customer_disability = $customers->$is_artist;
 ?>
 
 <!DOCTYPE html>
@@ -25,13 +25,22 @@ foreach ($records as $record) {
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
 	<!-- Google Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+	<!-- PLUGINS STYLES-->
+	<link href="assets/css/jquery-jvectormap-2.0.3.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/dataTables.bootstrap4.min.css">
 	<!-- Font Awesome CSS -->
 	<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
-	<!--   <link rel="stylesheet" type="text/css" href="assets/css/normalize.css"> -->
+
+	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
+
+	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>
@@ -47,15 +56,15 @@ foreach ($records as $record) {
 
 
 				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
-					<object type="image/svg+xml" data="includes/logo.svg" style="direction:abslute;" class="logo"></object>
+					<object type="image/svg+xml" data="includes/logo2.svg" style="direction:abslute;" class="logo"></object>
 					<a href="customer/my_account.php" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
 							echo 'Welcome : Guest';
 						} else {
 							$customer = $getFromU->view_customer_by_email($_SESSION['customer_email']);
-							$customer_name = $customer->customer_name;
-							$customer_disability = $customer->is_disablity;
+							@$customer_name = $customer->customer_name;
+							@$customer_disability = $customer->is_artist;
 							echo "Welcome <strong class='text-uppercase'>$customer_name</strong>";
 						}
 						?>

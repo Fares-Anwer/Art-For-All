@@ -5,7 +5,7 @@
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="index.php?dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-        <li class="breadcrumb-item active" aria-current="page">View Products</li>
+        <li class="breadcrumb-item active" aria-current="page">Artworks</li>
     </ol>
 </nav>
 

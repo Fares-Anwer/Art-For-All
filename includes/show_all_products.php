@@ -9,11 +9,10 @@
 <div class="row" id="Products">
 
 	<?php require_once 'includes/get_all_products.php'; ?>
-	<?php require_once 'sidebar.php'; ?>
 
 </div> <!-- ROW END -->
 
-<div class="row mb-5">
+<div class="row mb-4">
 	<div class="col-lg-6 offset-lg-3 d-flex">
 		<ul class="pagination mx-auto">
 

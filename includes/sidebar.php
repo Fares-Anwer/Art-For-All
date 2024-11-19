@@ -85,8 +85,6 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
         <?php   } ?>
 
 
-
-
       </ul>
     </div>
   </div>

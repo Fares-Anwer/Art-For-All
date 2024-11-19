@@ -35,11 +35,45 @@ if (isset($_POST['submit'])) {
 
 
 
-<nav aria-label="breadcrumb" class="my-4">
-	<ol class="breadcrumb">
-		<li class="breadcrumb-item"><a href="index.php?dashboard">Dashboard</a></li>
-		<li class="breadcrumb-item active" aria-current="page">Insert Products</li>
-	</ol>
+<nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<ul class="navbar-nav mr-auto text-light text-uppercase">
+			<li>
+				<a class="nav-link text-light" href="index.php">Home </a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="shop.php">Marketplace</a>
+			</li>
+			<?php if (isset($_SESSION['customer_email'])): ?>
+				<li><a class="nav-link text-light" href="customer/my_account.php?my_orders">My Account</a></li>
+			<?php else: ?>
+				<li><a class="nav-link text-light" href="checkout.php">My Account</a></li>
+			<?php endif ?>
+			<li>
+				<a class="nav-link text-light" href="cart.php">Shopping Cart</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="contact.php">Contact Us</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" class="active" href="about.php">About Us</a>
+			</li>
+			<li>
+				<a class="nav-link text-light" href="services.php">Services</a>
+			</li>
+		</ul>
+
+		<a href="cart.php" class="btn btn-warning ms-3"><i class="fas fa-shopping-cart"></i><span> <?php echo $getFromU->count_product_by_ip($ip_add); ?> items in Cart</span></a>
+
+		<!-- Search Form -->
+		<form class="d-flex ms-3" role="search">
+			<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="user_query" required="1">
+			<button class="btn btn-outline-light" type="submit" name="search">Search</button>
+		</form>
+	</div>
 </nav>
 
 
@@ -125,17 +159,15 @@ if (isset($_POST['submit'])) {
 							<label for="product_desc">Product Tabs</label>
 						</div>
 						<div class="col-md-9">
-							<ul class="nav nav-tabs" id="myTab" role="tablist">
-								<li class="nav-item">
+							<div class="nav nav-tabs" id="myTab" role="tablist">
+								<div class="nav-item">
 									<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Product Description</a>
-								</li>
-								<li class="nav-item">
-								</li>
+								</div>
 
-							</ul>
+							</div>
 							<div class="tab-content" id="myTabContent">
 								<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-									<textarea name="product_desc" class="form-control summernote" rows="15" id="product_desc" placeholder="Enter Product Description" required></textarea>
+									<textarea name="product_desc" class="summernote" id="product_desc" required></textarea>
 									<div class="invalid-feedback">
 										Please provide Product Description.
 									</div>
@@ -211,16 +243,16 @@ if (isset($_POST['submit'])) {
 
 
 
-
 <?php require_once 'includes/footer.php'; ?>
 
-
 <!-- include summernote css/js -->
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
-<script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-bs4.min.js"></script>
 
 <script>
 	$(document).ready(function() {
-		$('.summernote').summernote();
+		$('.summernote').summernote({
+			placeholder: 'Enter Product Description'
+		});
 	});
 </script>
