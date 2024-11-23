@@ -1,6 +1,4 @@
-<?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Modern-E-Commerce-Store-master/core/init.php');
-?>
+<?php require_once 'header.php'; ?>
 
 <?php
 // تحقق إذا كان هناك معرف المنتج في الرابط
@@ -8,7 +6,7 @@ if (isset($_GET['product_id'])) {
     $product_id = $_GET['product_id'];
 
     // إعداد استعلام SQL لتحديث القيمة status إلى 1
-    $sql = "UPDATE products SET status = '1' WHERE product_id = :product_id";
+    $sql = "UPDATE artwork SET status = '1' WHERE product_id = :product_id";
     $stmt = $pdo->prepare($sql);
 
     // ربط قيمة product_id في الاستعلام

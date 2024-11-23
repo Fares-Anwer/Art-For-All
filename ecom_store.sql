@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 14, 2024 at 03:13 AM
+-- Generation Time: Nov 19, 2024 at 11:16 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -29,9 +29,9 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about_us` (
   `about_id` int(10) NOT NULL,
-  `about_heading` text NOT NULL,
-  `about_short_desc` text NOT NULL,
-  `about_desc` text NOT NULL
+  `about_heading` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `about_short_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `about_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -39,7 +39,7 @@ CREATE TABLE `about_us` (
 --
 
 INSERT INTO `about_us` (`about_id`, `about_heading`, `about_short_desc`, `about_desc`) VALUES
-(1, 'About Us', 'It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content here, content here\', making it look like readable English.', '<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. </p><p>Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\n\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>');
+(1, 'About Us', '<h2 style=\"text-align: center; \"><span style=\"font-family: \" arial=\"\" black\";\"=\"\"><b>artistic talents of people with special needs</b></span></h2><h2 style=\"text-align: center; \"><span style=\"font-family: \" arial=\"\" black\";\"=\"\"><b><br></b></span></h2><h6 style=\"text-align: center; \"><font face=\"Impact\"><span style=\"font-family: Arial; font-weight: normal;\"><br></span></font></h6><h6 style=\"text-align: center; \"><font face=\"Impact\"><span style=\"font-family: Arial; font-weight: normal;\">We are a team of ambitious developers who saw the need for an online platform that empowers and supports the artistic talents of people with special needs. Based on our belief in the capabilities of these creative artists, we created this website to be a comprehensive platform to display and sell their artwork.</span></font></h6>', '<h2> </h2><h2 style=\"text-align: center; \"><span style=\"font-family: \"Arial Black\";\">Id</span><span style=\"font-family: \"Arial Black\";\">ea</span></h2><p>The idea for this project began when we noticed the social and economic challenges that people with disabilities face in expressing their artistic creativity and obtaining meaningful job opportunities. Therefore, we decided to use our technical skills to develop a solution that contributes to empowering these artists and enhancing their integration into society.</p><p><br></p><h3><span style=\"font-family: \" comic=\"\" sans=\"\" ms\";\"=\"\">Working Team:</span></h3><p>The working team consists of a group of young developers and designers who believe in the power of art as a means of self-expression and achieving independence. We are committed to providing an inclusive and accessible digital platform for all artists with special needs to display and sell their artwork with pride and confidence.</p><p><br></p><h3><span style=\"font-family: \" comic=\"\" sans=\"\" ms\";\"=\"\">Achievements and Impact:</span></h3><p>Since the launch of the website, many creative artists have been able to display and sell their artwork, which has contributed to improving their living conditions and boosting their self-confidence.  We have also contributed to raising community awareness of the capabilities of these artists and providing them with appropriate opportunities.</p>');
 
 -- --------------------------------------------------------
 
@@ -49,14 +49,14 @@ INSERT INTO `about_us` (`about_id`, `about_heading`, `about_short_desc`, `about_
 
 CREATE TABLE `admins` (
   `admin_id` int(10) NOT NULL,
-  `admin_name` varchar(255) NOT NULL,
-  `admin_email` varchar(255) NOT NULL,
-  `admin_pass` varchar(255) NOT NULL,
-  `admin_image` text NOT NULL,
-  `admin_contact` varchar(255) NOT NULL,
-  `admin_country` text NOT NULL,
-  `admin_job` varchar(255) NOT NULL,
-  `admin_about` text NOT NULL
+  `admin_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_contact` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_country` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_job` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `admin_about` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -64,8 +64,39 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(1, 'Abdo', 'A@gamil.com', '123456', '', '', '', '', ''),
-(11, 'fares', 'fares@gmail.com', 'fares', '', '', '', '', '');
+(12, 'fares', 'fares@gmail.com', 'fares', 'WhatsApp Image 2024-02-10 at 1.15.44 AM.jpeg', '777777777', 'Yemen', 'devloper', 'devloper');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `artwork`
+--
+
+CREATE TABLE `artwork` (
+  `product_id` int(10) NOT NULL,
+  `cat_id` int(10) NOT NULL,
+  `add_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `product_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `product_img1` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `product_price` int(10) NOT NULL,
+  `product_psp_price` int(100) NOT NULL,
+  `product_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `product_keywords` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `product_label` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `status` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_id` int(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `artwork`
+--
+
+INSERT INTO `artwork` (`product_id`, `cat_id`, `add_date`, `product_title`, `product_img1`, `product_price`, `product_psp_price`, `product_desc`, `product_keywords`, `product_label`, `status`, `customer_id`) VALUES
+(60, 13, '2024-11-15 17:45:40', 'Whispers in the Mist', 'WhatsApp Image 2024-11-15 at 8.51.57 PM.jpeg', 154, 2, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 16),
+(61, 12, '2024-11-19 17:04:04', 'Beyond Limits', 'WhatsApp Image 2024-11-15 at 8.52.22 PM.jpeg', 199, 12, '<p>This artwork features a split scene with two figures, both with blue hair, possibly representing the same person at different points in time. On the left, the figure sits introspectively with a sheet of paper labeled \"THEME: Disability,\" using their foot to hold a pencil, symbolizing adaptability and resilience. This figure wears a school uniform with a green skirt, white top, and a yellow hair accessory.</p><p>On the right, an older version of the character stands confidently in dark, stylish clothing and uses a brush and palette to paint a colorful canvas labeled \"2030,\" suggesting a vision of hope and creativity for the future. The contrasting styles and tones in each half of the image highlight themes of growth, self-acceptance, and transformation</p>', 'Self-Transformation', 'New', '1', 16),
+(71, 13, '2024-11-15 23:22:54', 'Wings of Resilience', 'WhatsApp Image 2024-11-15 at 11.47.57 PM.jpeg', 111, 109, '<p>qwertyuiop</p>', 'fuckkkkkkkk', 'New', '0', NULL),
+(72, 13, '2024-11-15 23:26:07', 'Wings of Resilience', 'WhatsApp Image 2024-11-15 at 11.47.57 PM.jpeg', 111, 109, '<p>qwertyuiop</p>', 'fuckkkkkkkk', 'New', '0', NULL),
+(73, 13, '2024-11-15 23:35:09', 'test', 'WhatsApp Image 2024-11-15 at 8.51.57 PM.jpeg', 1111, 111, '<p>111111111</p>', 'fuckkkkkkkk', 'New', '0', 10002);
 
 -- --------------------------------------------------------
 
@@ -75,8 +106,8 @@ INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `ad
 
 CREATE TABLE `boxes_section` (
   `box_id` int(10) NOT NULL,
-  `box_title` varchar(100) NOT NULL,
-  `box_desc` text NOT NULL
+  `box_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `box_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -96,9 +127,9 @@ INSERT INTO `boxes_section` (`box_id`, `box_title`, `box_desc`) VALUES
 
 CREATE TABLE `cart` (
   `p_id` int(10) NOT NULL,
-  `ip_add` varchar(255) NOT NULL,
+  `ip_add` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `qty` int(10) NOT NULL,
-  `product_price` varchar(255) NOT NULL
+  `product_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 -- --------------------------------------------------------
@@ -109,9 +140,9 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `categories` (
   `cat_id` int(10) NOT NULL,
-  `cat_title` varchar(100) NOT NULL,
-  `cat_top` varchar(100) NOT NULL,
-  `cat_image` text NOT NULL
+  `cat_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cat_top` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `cat_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -119,9 +150,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_top`, `cat_image`) VALUES
-(12, 'Paintings', 'Yes', 'hp-toptile3-11042024-large.jpg'),
-(13, 'Drawings', 'Yes', '62pk88kq0jggh9v134cj.jpg'),
-(15, 'Sculptures', 'Yes', 'Avery+Babon_ABa+002+2016_thumb.jpg'),
+(12, 'Paintings', 'Yes', 'image-asset.jpeg'),
+(13, 'Drawings', 'Yes', '44.jpg'),
+(15, 'Sculptures', 'Yes', 'catimage.jpg'),
 (16, 'Applied Arts', 'Yes', 'istockphoto-1892764479-612x612.webp');
 
 -- --------------------------------------------------------
@@ -132,9 +163,9 @@ INSERT INTO `categories` (`cat_id`, `cat_title`, `cat_top`, `cat_image`) VALUES
 
 CREATE TABLE `contact_us` (
   `contact_id` int(10) NOT NULL,
-  `contact_email` varchar(100) NOT NULL,
-  `contact_heading` text NOT NULL,
-  `contact_desc` text NOT NULL
+  `contact_email` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_heading` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `contact_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -153,9 +184,9 @@ INSERT INTO `contact_us` (`contact_id`, `contact_email`, `contact_heading`, `con
 CREATE TABLE `coupons` (
   `coupon_id` int(10) NOT NULL,
   `product_id` int(10) NOT NULL,
-  `coupon_title` varchar(255) NOT NULL,
-  `coupon_price` varchar(255) NOT NULL,
-  `coupon_code` varchar(255) NOT NULL,
+  `coupon_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `coupon_price` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `coupon_code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `coupon_limit` int(10) NOT NULL,
   `coupon_used` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -165,10 +196,7 @@ CREATE TABLE `coupons` (
 --
 
 INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`, `coupon_code`, `coupon_limit`, `coupon_used`) VALUES
-(1, 60, 'New T-Shirt Coupon Code', '20', 'NEWCOUPON1', 5, 0),
-(2, 61, 'Test Coupon', '55', 'NEW55', 6, 2),
-(3, 62, 'Dynamic Test Coupon', '70', 'LARAVEL70', 10, 2),
-(4, 63, 'Test 1', '65', 'NEW65', 20, 2);
+(5, 70, 'Wellcome-Gift', '50', 'WELLCOMEGIFT', 100, 0);
 
 -- --------------------------------------------------------
 
@@ -178,68 +206,30 @@ INSERT INTO `coupons` (`coupon_id`, `product_id`, `coupon_title`, `coupon_price`
 
 CREATE TABLE `customers` (
   `customer_id` int(10) NOT NULL,
-  `customer_name` varchar(255) NOT NULL,
-  `customer_email` varchar(255) NOT NULL,
-  `customer_pass` varchar(255) NOT NULL,
-  `customer_country` varchar(100) NOT NULL,
-  `customer_city` varchar(100) NOT NULL,
-  `customer_contact` varchar(255) NOT NULL,
-  `customer_address` text NOT NULL,
-  `customer_image` text NOT NULL,
-  `customer_ip` varchar(255) NOT NULL,
-  `customer_confirm_code` text NOT NULL,
-  `manufacturer_top` varchar(100) NOT NULL
+  `customer_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_pass` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_country` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_city` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_contact` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_address` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_ip` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `customer_confirm_code` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `manufacturer_top` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `is_artist` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`, `manufacturer_top`) VALUES
-(16, 'Raneem', 'Raneem@gamil.com', '123', 'Saudi Arabia', 'Riyadh', '+96655555555', '000000', '7M.jpg', '::1', '977968538', 'Yes');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `customer_orders`
---
-
-CREATE TABLE `customer_orders` (
-  `order_id` int(10) NOT NULL,
-  `customer_id` int(10) NOT NULL,
-  `due_amount` int(100) NOT NULL,
-  `invoice_no` int(100) NOT NULL,
-  `qty` int(10) NOT NULL,
-  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `order_status` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `customer_orders`
---
-
-INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `order_date`, `order_status`) VALUES
-(1, 5, 68, 679423457, 2, '2018-10-07 18:25:38', 'Complete'),
-(2, 5, 12, 679423457, 1, '2018-10-07 14:24:28', 'pending'),
-(3, 4, 24, 72826274, 2, '2018-10-23 07:00:46', 'pending'),
-(4, 4, 240, 72826274, 2, '2018-10-23 07:00:47', 'pending'),
-(5, 4, 100, 72826274, 1, '2018-10-23 07:00:47', 'pending'),
-(6, 4, 50, 72826274, 1, '2018-10-23 07:00:47', 'pending'),
-(7, 4, 75, 72826274, 1, '2018-10-23 07:00:48', 'pending'),
-(8, 4, 70, 1039424096, 1, '2018-10-23 14:23:36', 'pending'),
-(9, 4, 90, 1178884563, 1, '2018-10-25 17:09:31', 'Complete'),
-(10, 4, 10, 795767235, 1, '2018-10-25 17:16:08', 'Complete'),
-(11, 4, 34, 795767235, 1, '2018-10-25 17:16:08', 'Complete'),
-(12, 14, 100, 1489672072, 1, '2024-11-12 03:44:25', 'pending'),
-(13, 14, 1221, 1489672072, 1, '2024-11-12 03:44:25', 'pending'),
-(14, 14, 123, 1489672072, 1, '2024-11-12 03:44:25', 'pending'),
-(15, 14, 18, 1489672072, 1, '2024-11-12 03:44:25', 'pending'),
-(16, 14, 1221, 1489672072, 1, '2024-11-12 03:44:25', 'pending'),
-(17, 10001, 70, 808015024, 1, '2024-11-13 11:55:48', 'pending'),
-(18, 10001, 70, 1240425279, 1, '2024-11-13 11:56:34', 'pending'),
-(19, 10001, 40, 1240425279, 1, '2024-11-13 11:56:34', 'pending'),
-(20, 10001, 100, 1418286014, 1, '2024-11-13 11:59:22', 'pending'),
-(21, 10001, 199, 1418286014, 1, '2024-11-13 11:59:22', 'pending');
+INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`, `manufacturer_top`, `is_artist`) VALUES
+(16, 'Raneem', 'Raneem@gamil.com', '123', 'Saudi Arabia', 'Riyadh', '+96655555555', '000000', '7M.jpg', '::1', '977968538', 'Yes', '1'),
+(10002, 'ff', 'fs@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'WhatsApp Image 2024-11-15 at 8.52.22 PM.jpeg', '::1', '1183195468', 'No', '0'),
+(10003, 'fares', 'fa@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'WhatsApp Image 2024-11-15 at 8.52.24 PM.jpeg', '::1', '112332327', 'No', '0'),
+(10004, 'fares', 'fare@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', '44.jpg', '::1', '1080107333', 'No', '0'),
+(10005, 'fares', 'faaaa@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'Avery+Babon_ABa+002+2016_thumb.jpg', '::1', '1508727817', 'No', '0');
 
 -- --------------------------------------------------------
 
@@ -249,7 +239,7 @@ INSERT INTO `customer_orders` (`order_id`, `customer_id`, `due_amount`, `invoice
 
 CREATE TABLE `enquiry_type` (
   `enquiry_id` int(10) NOT NULL,
-  `enquiry_title` varchar(100) NOT NULL
+  `enquiry_title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
@@ -265,28 +255,34 @@ INSERT INTO `enquiry_type` (`enquiry_id`, `enquiry_title`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `icons`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `icons` (
-  `icon_id` int(10) NOT NULL,
-  `icon_product` int(10) NOT NULL,
-  `icon_title` varchar(255) NOT NULL,
-  `icon_image` varchar(255) NOT NULL
+CREATE TABLE `orders` (
+  `order_id` int(10) NOT NULL,
+  `customer_id` int(10) NOT NULL,
+  `due_amount` int(100) NOT NULL,
+  `invoice_no` int(100) NOT NULL,
+  `qty` int(10) NOT NULL,
+  `order_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `order_status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
--- --------------------------------------------------------
-
 --
--- Table structure for table `manufacturers`
+-- Dumping data for table `orders`
 --
 
-CREATE TABLE `manufacturers` (
-  `manufacturer_id` int(10) NOT NULL,
-  `manufacturer_title` varchar(100) NOT NULL,
-  `manufacturer_top` varchar(100) NOT NULL,
-  `manufacturer_image` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+INSERT INTO `orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qty`, `order_date`, `order_status`) VALUES
+(22, 16, 154, 226260289, 1, '2024-11-14 10:03:59', 'Complete'),
+(23, 16, 150, 226260289, 1, '2024-11-14 06:38:41', 'pending'),
+(24, 16, 597, 531988902, 3, '2024-11-14 10:49:57', 'Complete'),
+(25, 16, 300, 531988902, 2, '2024-11-14 08:48:38', 'pending'),
+(26, 16, 150, 1308051552, 1, '2024-11-14 10:58:52', 'Complete'),
+(27, 16, 199, 949045744, 1, '2024-11-14 19:36:36', 'pending'),
+(28, 10002, 120, 1454133467, 1, '2024-11-15 19:26:56', 'pending'),
+(29, 10002, 199, 1454133467, 1, '2024-11-15 19:26:56', 'pending'),
+(30, 10003, 199, 983781705, 1, '2024-11-15 20:46:43', 'pending'),
+(31, 10004, 199, 335507091, 1, '2024-11-16 20:28:14', 'pending');
 
 -- --------------------------------------------------------
 
@@ -298,11 +294,20 @@ CREATE TABLE `payments` (
   `payment_id` int(10) NOT NULL,
   `invoice_no` int(10) NOT NULL,
   `amount` int(10) NOT NULL,
-  `payment_mode` varchar(100) NOT NULL,
+  `payment_mode` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ref_no` int(10) NOT NULL,
   `code` int(10) NOT NULL,
-  `payment_date` text NOT NULL
+  `payment_date` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `payments`
+--
+
+INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
+(12, 226260289, 154, 'Easy Paisa', 4, 111, '2024-11-14'),
+(13, 531988902, 597, 'Easy Paisa', 1111111, 111, '2024-11-14'),
+(14, 1308051552, 150, 'Uestern Union', 222, 222, '2024-11-14');
 
 -- --------------------------------------------------------
 
@@ -316,49 +321,19 @@ CREATE TABLE `pending_orders` (
   `invoice_no` int(100) NOT NULL,
   `product_id` int(10) NOT NULL,
   `qty` int(10) NOT NULL,
-  `size` varchar(100) NOT NULL,
-  `order_status` varchar(100) NOT NULL
+  `order_status` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `pending_orders`
 --
 
-INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `size`, `order_status`) VALUES
-(17, 10001, 1240425279, 62, 1, '', 'pending'),
-(18, 10001, 1240425279, 65, 1, '', 'pending'),
-(19, 10001, 1418286014, 64, 1, '', 'pending'),
-(20, 10001, 1418286014, 61, 1, '', 'pending');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `products`
---
-
-CREATE TABLE `products` (
-  `product_id` int(10) NOT NULL,
-  `cat_id` int(10) NOT NULL,
-  `add_date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `product_title` varchar(255) NOT NULL,
-  `product_img1` text NOT NULL,
-  `product_price` int(10) NOT NULL,
-  `product_psp_price` int(100) NOT NULL,
-  `product_desc` text NOT NULL,
-  `product_keywords` varchar(100) NOT NULL,
-  `product_label` text NOT NULL,
-  `status` varchar(255) NOT NULL,
-  `customer_id` int(10) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `products`
---
-
-INSERT INTO `products` (`product_id`, `cat_id`, `add_date`, `product_title`, `product_img1`, `product_price`, `product_psp_price`, `product_desc`, `product_keywords`, `product_label`, `status`, `customer_id`) VALUES
-(59, 12, '2024-11-13 07:03:39', 'Wings of Resilience', 'Painting-9-1024x739-1.jpg', 150, 12, '<p>This surreal artwork combines elements of nature, disability, and sensory perception to evoke a powerful message of empowerment and freedom. At the center, a large sunflower with a face emerges from a wheelchair, symbolizing life, growth, and resilience. The flower is adorned with a brain at its core, representing consciousness and inner strength. Wings extend from the wheelchair, suggesting liberation from physical limitations and the pursuit of personal freedom.</p><p>Surrounding the central figure are symbolic elements: large ears equipped with hearing aids, keys, and neural patterns. The keys might represent solutions, insights, or paths to unlocking potential. The background is filled with a calm, purple hue that enhances the ethereal quality of the composition. The scattered doves above convey peace and hope, while the intricate and layered visuals encourage contemplation on the themes of adaptability, inclusion, and the power of perception.</p>', 'Empowerment through Perception', 'New', '1', 16),
-(60, 13, '2024-11-13 07:03:39', 'Whispers in the Mist', 'fia-yang-emD-tLuy_Rs-unsplash.jpg', 154, 2, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 16),
-(61, 12, '2024-11-13 07:03:39', 'Beyond Limits', 'NB_41_rajpujar06@gmail.com_-1024x683-1.jpg', 199, 12, '<p>This artwork features a split scene with two figures, both with blue hair, possibly representing the same person at different points in time. On the left, the figure sits introspectively with a sheet of paper labeled \"THEME: Disability,\" using their foot to hold a pencil, symbolizing adaptability and resilience. This figure wears a school uniform with a green skirt, white top, and a yellow hair accessory.</p><p>On the right, an older version of the character stands confidently in dark, stylish clothing and uses a brush and palette to paint a colorful canvas labeled \"2030,\" suggesting a vision of hope and creativity for the future. The contrasting styles and tones in each half of the image highlight themes of growth, self-acceptance, and transformation</p>', 'Self-Transformation', 'New', '1', 16);
+INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `order_status`) VALUES
+(23, 16, 531988902, 61, 3, 'pending'),
+(26, 16, 949045744, 61, 1, 'pending'),
+(28, 10002, 1454133467, 61, 1, 'pending'),
+(29, 10003, 983781705, 61, 1, 'pending'),
+(30, 10004, 335507091, 61, 1, 'pending');
 
 -- --------------------------------------------------------
 
@@ -368,12 +343,19 @@ INSERT INTO `products` (`product_id`, `cat_id`, `add_date`, `product_title`, `pr
 
 CREATE TABLE `services` (
   `service_id` int(10) NOT NULL,
-  `service_title` varchar(255) NOT NULL,
-  `service_image` varchar(255) NOT NULL,
-  `service_desc` text NOT NULL,
-  `service_button` varchar(255) NOT NULL,
-  `service_url` varchar(255) NOT NULL
+  `service_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `service_desc` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `service_image` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`service_id`, `service_title`, `service_desc`, `service_image`) VALUES
+(14, 'Easy Upload and Display of Artwork', '<h4 class=\"card-title\" style=\"font-family: \"Open Sans\", sans-serif; color: rgb(51, 51, 51); text-align: justify;\"><span style=\"font-size: 1rem;\">The platform is designed with user-friendly features to simplify the process of uploading artwork, making it accessible for artists with varying abilities. The interface is clean and clutter-free, featuring large buttons and intuitive navigation that guides users step-by-step. Artists can quickly upload images of their work, add titles, descriptions, and categorize pieces for optimal presentation. The goal is to provide an experience where artists feel in control and empowered, enabling them to focus on their creativity without technical barriers. Additionally, the platform may include accessibility features such as screen reader compatibility, adjustable font sizes, and color contrasts to cater to different visual and physical needs, ensuring that everyone can participate fully.</span></h4>', 'user-friendly interface for uploading and displaying artwork (2).png'),
+(15, 'Technical Support and Personal Training', '<h4 class=\"card-title\" style=\"font-family: &quot;Open Sans&quot;, sans-serif; color: rgb(51, 51, 51); text-align: justify;\"><span style=\"font-size: 1rem;\">Technical support is designed to be both responsive and empathetic, assisting artists with any issues they may encounter, whether related to uploading files, setting up profiles, or managing sales. Personalized training sessions and interactive tutorials help new users navigate the platform effectively. Additionally, educational content on topics such as digital marketing, pricing strategies, and portfolio curation helps artists sharpen their skills. This service aims to empower artists, giving them the knowledge to succeed and grow their online presence confidently. Moreover, specialized support is available for accessibility issues, ensuring that the platform remains inclusive and responsive to the diverse needs of artists with disabilities.</span></h4>', 'Technical Support and Personal Training for artists.png'),
+(16, 'Promotion and Marketing of Artwork', '<h4 class=\"card-title\" style=\"font-family: &quot;Open Sans&quot;, sans-serif; color: rgb(51, 51, 51); text-align: justify;\"><span style=\"font-size: 1rem;\">Recognizing the value of exposure, this service promotes artists’ work to a broad online audience. Once an artist uploads their work, the platform facilitates digital marketing, connecting artists with potential buyers, fans, and art enthusiasts. Artists’ work can be showcased through curated collections, featured artist spots, or themed exhibitions, enhancing visibility and appeal. The platform also integrates social media sharing options, allowing artists to promote their work across various channels with a single click. Additionally, promotional tools such as tags, keywords, and SEO enhancements help each piece reach relevant audiences, helping artists build an online presence and gain recognition in the art community.</span></h4>', 'Promotion and Marketing of Artwork.png');
 
 -- --------------------------------------------------------
 
@@ -383,43 +365,20 @@ CREATE TABLE `services` (
 
 CREATE TABLE `slider` (
   `slide_id` int(10) NOT NULL,
-  `slide_name` varchar(255) NOT NULL,
-  `slide_image` text NOT NULL,
-  `slide_title` varchar(255) NOT NULL,
-  `slide_text` varchar(255) NOT NULL,
-  `slide_url` varchar(255) NOT NULL
+  `slide_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `slide_image` text CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `slide_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `slide_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `slider`
 --
 
-INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`, `slide_title`, `slide_text`, `slide_url`) VALUES
-(18, '1', 'Painting-9-1024x739-1.jpg', 'drawings', '     there\'s a person wearing a dark gray sweatshirt with a vibrant illustration on the front. The illustration depicts a figure with a green top and a red bottom against a blue background. On the right, the same person is holding a beige tote bag with an', ''),
-(19, '2', 'fia-yang-emD-tLuy_Rs-unsplash.jpg', 'sculptures', ' The sculpture above them could symbolize the potential for growth, change, or overcoming adversity. It may reflect the power of art to elevate individuals, giving them a voice even when they are constrained by physical circumstances. Alternatively, the f', ''),
-(20, '1', 'hp-toptile1-09242024-large.jpg', 'Paintings', '.', '');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `terms`
---
-
-CREATE TABLE `terms` (
-  `term_id` int(10) NOT NULL,
-  `term_title` varchar(150) NOT NULL,
-  `term_link` varchar(255) NOT NULL,
-  `term_desc` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
---
--- Dumping data for table `terms`
---
-
-INSERT INTO `terms` (`term_id`, `term_title`, `term_link`, `term_desc`) VALUES
-(1, 'Terms & Conditions', 'Link1', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro qui ad veniam, commodi. Numquam, id inventore odio ipsum, dolore natus. Voluptatem, explicabo architecto quis reiciendis libero! Error, hic excepturi, maiores voluptate quod officiis quam, asperiores earum ipsam ipsum totam modi deserunt incidunt aliquam eligendi quia harum recusandae illo rem.</p>\r\n<p>Velit, ratione nostrum consequuntur commodi maxime? Dolorem consequatur nihil eligendi culpa autem necessitatibus, provident quidem minima quod quibusdam maxime a molestiae fugit. Iure exercitationem facilis totam incidunt eveniet enim alias accusamus cum sapiente. Veritatis fuga non, porro aperiam neque. Nisi, ipsa dolore, necessitatibus sit atque deserunt culpa sapiente reiciendis voluptate nemo aliquid tenetur perferendis. Quibusdam, qui quisquam soluta eos quidem officia eligendi, aut quae voluptatibus laborum facilis ab necessitatibus. Deleniti quis ab repudiandae dolores qui reprehenderit odio sint neque rem sit, autem necessitatibus sequi possimus expedita praesentium tempora sed in. Pariatur a, voluptatem ratione magni possimus aliquam atque ab porro ipsum mollitia odio maxime, exercitationem, sed quasi eligendi laboriosam voluptatibus blanditiis unde nemo optio tempore.</p>\r\n<p>Eius exercitationem quos magnam quisquam harum possimus temporibus officia maiores, veniam voluptates eum, ex optio aspernatur sit necessitatibus omnis repellat doloremque aut unde, ab sunt architecto. Quod animi necessitatibus atque id nostrum quos, ipsam error repellendus! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro qui ad veniam, commodi. Numquam, id inventore odio ipsum, dolore natus. Voluptatem, explicabo architecto quis reiciendis libero! Error, hic excepturi, maiores voluptate quod officiis quam, asperiores earum ipsam ipsum totam modi deserunt incidunt aliquam eligendi quia harum recusandae illo rem. Velit, ratione nostrum consequuntur commodi maxime? Dolorem consequatur nihil eligendi culpa autem necessitatibus, provident quidem minima quod quibusdam maxime a molestiae fugit. Iure exercitationem facilis totam incidunt eveniet enim alias accusamus cum sapiente. Veritatis fuga non, porro aperiam neque.</p>\r\n<p>Nisi, ipsa dolore, necessitatibus sit atque deserunt culpa sapiente reiciendis voluptate nemo aliquid tenetur perferendis. Quibusdam, qui quisquam soluta eos quidem officia eligendi, aut quae voluptatibus laborum facilis ab necessitatibus. Deleniti quis ab repudiandae dolores qui reprehenderit odio sint neque rem sit, autem necessitatibus sequi possimus expedita praesentium tempora sed in. Pariatur a, voluptatem ratione magni possimus aliquam atque ab porro ipsum mollitia odio maxime, exercitationem, sed quasi eligendi laboriosam voluptatibus blanditiis unde nemo optio tempore.</p>\r\n<p>Eius exercitationem quos magnam quisquam harum possimus temporibus officia maiores, veniam voluptates eum, ex optio aspernatur sit necessitatibus omnis repellat doloremque aut unde, ab sunt architecto. Quod animi necessitatibus atque id nostrum quos, ipsam error repellendus!</p>'),
-(2, 'Refund Policy', 'Link2', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, corporis ad inventore ullam amet. Hic, nobis enim quaerat perspiciatis temporibus quia commodi, doloremque neque corrupti dolore facilis quo veritatis, laboriosam in voluptatibus illo! Sapiente, sit, minima? Debitis odio nisi at optio incidunt ex, esse nam, dignissimos non modi temporibus beatae, velit libero aliquam totam nemo est tempore quod. Ab saepe, molestiae mollitia non quisquam.</p>\r\n<p>Ut saepe facilis sunt tenetur rerum nihil exercitationem deleniti dignissimos est odit, neque iste unde aliquam minima minus maiores quam alias pariatur id mollitia quas quisquam. Laudantium animi praesentium repellendus officia a repudiandae et quaerat libero. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, corporis ad inventore ullam amet. Hic, nobis enim quaerat perspiciatis temporibus quia commodi, doloremque neque corrupti dolore facilis quo veritatis, laboriosam in voluptatibus illo! Sapiente, sit, minima? Debitis odio nisi at optio incidunt ex, esse nam, dignissimos non modi temporibus beatae, velit libero aliquam totam nemo est tempore quod.</p>\r\n<p>Ab saepe, molestiae mollitia non quisquam. Ut saepe facilis sunt tenetur rerum nihil exercitationem deleniti dignissimos est odit, neque iste unde aliquam minima minus maiores quam alias pariatur id mollitia quas quisquam. Laudantium animi praesentium repellendus officia a repudiandae et quaerat libero. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, corporis ad inventore ullam amet. Hic, nobis enim quaerat perspiciatis temporibus quia commodi, doloremque neque corrupti dolore facilis quo veritatis, laboriosam in voluptatibus illo! Sapiente, sit, minima?</p>\r\n<p>Debitis odio nisi at optio incidunt ex, esse nam, dignissimos non modi temporibus beatae, velit libero aliquam totam nemo est tempore quod. Ab saepe, molestiae mollitia non quisquam. Ut saepe facilis sunt tenetur rerum nihil exercitationem deleniti dignissimos est odit, neque iste unde aliquam minima minus maiores quam alias pariatur id mollitia quas quisquam. Laudantium animi praesentium repellendus officia a repudiandae et quaerat libero. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus, corporis ad inventore ullam amet.</p>\r\n<p>Hic, nobis enim quaerat perspiciatis temporibus quia commodi, doloremque neque corrupti dolore facilis quo veritatis, laboriosam in voluptatibus illo! Sapiente, sit, minima? Debitis odio nisi at optio incidunt ex, esse nam, dignissimos non modi temporibus beatae, velit libero aliquam totam nemo est tempore quod. Ab saepe, molestiae mollitia non quisquam. Ut saepe facilis sunt tenetur rerum nihil exercitationem deleniti dignissimos est odit, neque iste unde aliquam minima minus maiores quam alias pariatur id mollitia quas quisquam. Laudantium animi praesentium repellendus officia a repudiandae et quaerat libero.</p>'),
-(3, 'Pricing & Promotions Policy', 'Link3', '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati! Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>\r\n<p>Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati! Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati!</p>\r\n<p>Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati!</p>\r\n<p>Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati! Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis. Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>\r\n<p>Quae nulla nostrum consequatur exercitationem eaque nam quibusdam laborum officiis quis laboriosam, hic libero dolor fugiat facere porro architecto impedit debitis possimus dicta aperiam obcaecati! Fuga odio vel quia molestias, officia? Iste explicabo adipisci maiores ex quae quidem ullam repellendus repellat quis.</p>');
+INSERT INTO `slider` (`slide_id`, `slide_name`, `slide_image`, `slide_title`, `slide_text`) VALUES
+(22, '.', 'WhatsApp Image 2024-11-15 at 2.21.45 AM.jpeg', 'Welcome to our platform for artists with disabilities.', '  We offer you a unique platform to enable artists with disabilities to showcase their artistic creations and sell them directly. We are here to support your artistic talents.'),
+(23, 'Street Vendor in a Wheelchair', 'WhatsApp Image 2024-11-15 at 2.22.34 AM.jpeg', 'A Wheelchair-bound Book Vendor', 'the spirit of resilience and entrepreneurship as a person in a wheelchair sells books on the street. Despite physical challenges, the vendor makes a living through their efforts, showcasing a powerful example of determination and perseverance.'),
+(24, 'Monitored Sleeping Area', 'WhatsApp Image 2024-11-15 at 2.43.18 AM.jpeg', 'Place Under Watch', 'makeshift sleeping area for homeless individuals, marked with a sign indicating CCTV surveillance. It highlights the harsh reality of homelessness and the efforts to maintain cleanliness and safety in such spaces. The presence of personal items and framed');
 
 -- --------------------------------------------------------
 
@@ -458,6 +417,13 @@ ALTER TABLE `admins`
   ADD PRIMARY KEY (`admin_id`);
 
 --
+-- Indexes for table `artwork`
+--
+ALTER TABLE `artwork`
+  ADD PRIMARY KEY (`product_id`),
+  ADD KEY `customer_id` (`customer_id`);
+
+--
 -- Indexes for table `boxes_section`
 --
 ALTER TABLE `boxes_section`
@@ -488,28 +454,16 @@ ALTER TABLE `customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  ADD PRIMARY KEY (`order_id`);
-
---
 -- Indexes for table `enquiry_type`
 --
 ALTER TABLE `enquiry_type`
   ADD PRIMARY KEY (`enquiry_id`);
 
 --
--- Indexes for table `icons`
+-- Indexes for table `orders`
 --
-ALTER TABLE `icons`
-  ADD PRIMARY KEY (`icon_id`);
-
---
--- Indexes for table `manufacturers`
---
-ALTER TABLE `manufacturers`
-  ADD PRIMARY KEY (`manufacturer_id`);
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
 
 --
 -- Indexes for table `payments`
@@ -524,13 +478,6 @@ ALTER TABLE `pending_orders`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `products`
---
-ALTER TABLE `products`
-  ADD PRIMARY KEY (`product_id`),
-  ADD KEY `customer_id` (`customer_id`);
-
---
 -- Indexes for table `services`
 --
 ALTER TABLE `services`
@@ -541,12 +488,6 @@ ALTER TABLE `services`
 --
 ALTER TABLE `slider`
   ADD PRIMARY KEY (`slide_id`);
-
---
--- Indexes for table `terms`
---
-ALTER TABLE `terms`
-  ADD PRIMARY KEY (`term_id`);
 
 --
 -- Indexes for table `wishlist`
@@ -568,7 +509,13 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `artwork`
+--
+ALTER TABLE `artwork`
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
 
 --
 -- AUTO_INCREMENT for table `boxes_section`
@@ -592,19 +539,13 @@ ALTER TABLE `contact_us`
 -- AUTO_INCREMENT for table `coupons`
 --
 ALTER TABLE `coupons`
-  MODIFY `coupon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `coupon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10002;
-
---
--- AUTO_INCREMENT for table `customer_orders`
---
-ALTER TABLE `customer_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10006;
 
 --
 -- AUTO_INCREMENT for table `enquiry_type`
@@ -613,52 +554,34 @@ ALTER TABLE `enquiry_type`
   MODIFY `enquiry_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `icons`
+-- AUTO_INCREMENT for table `orders`
 --
-ALTER TABLE `icons`
-  MODIFY `icon_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `manufacturers`
---
-ALTER TABLE `manufacturers`
-  MODIFY `manufacturer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+ALTER TABLE `orders`
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `products`
---
-ALTER TABLE `products`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `service_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `service_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `slide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
-
---
--- AUTO_INCREMENT for table `terms`
---
-ALTER TABLE `terms`
-  MODIFY `term_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `slide_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `wishlist`
@@ -671,9 +594,9 @@ ALTER TABLE `wishlist`
 --
 
 --
--- Constraints for table `products`
+-- Constraints for table `artwork`
 --
-ALTER TABLE `products`
+ALTER TABLE `artwork`
   ADD CONSTRAINT `customer_id` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`customer_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 

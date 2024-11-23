@@ -36,10 +36,11 @@ $is_artist = $get_customer->is_artist;
 
 			// $view_customer = $getFromU->view_customer_by_id($customer_id);
 
-
-			$customer_image = $_FILES['c_image']['name'];
-			$c_image_tmp = $_FILES['c_image']['tmp_name'];
-			move_uploaded_file($c_image_tmp, "assets/customer_images/$customer_image");
+			if (isset($_POST['c_image'])) {
+				$customer_image = $_FILES['c_image']['name'];
+				$c_image_tmp = $_FILES['c_image']['tmp_name'];
+				move_uploaded_file($c_image_tmp, "assets/customer_images/$customer_image");
+			}
 
 			$update_customer = $getFromU->update_customer("customers", $customer_id, array("customer_name" => $customer_name, "customer_email" => $customer_email, "customer_pass" => $customer_pass, "customer_country" => $customer_country, "customer_city" => $customer_city, "customer_contact" => $customer_contact, "customer_address" => $customer_address, "customer_image" => $customer_image, "customer_ip" => $customer_ip, "is_artist" => $is_artist, "manufacturer_top" => $manufacturer_top, "customer_confirm_code" => $customer_confirm_code));
 			if ($update_customer == true) {

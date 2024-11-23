@@ -197,6 +197,10 @@ if (isset($_POST['add_to_wishlist'])) {
 												$product_price = $get_product->product_price;
 												$product_psp_price = $get_product->product_psp_price;
 												$product_label = $get_product->product_label;
+												$icustomer_id = $get_product->customer_id;
+
+												$get_image = $getFromU->view_customer_by_id($customer_id);
+												$user_image = $get_image->customer_image;
 
 												$check_product_by_ip_id = $getFromU->check_product_by_ip_id($ip_add, $p_id);
 
@@ -242,7 +246,13 @@ if (isset($_POST['add_to_wishlist'])) {
 												</div>
 
 												<div class='mb-3 center'>
-													<img src="admin_area/icon_images/<?php echo $icon_image; ?>" width="45" height="45">
+													<?php
+													$get_image = $getFromU->view_customer_by_id($_GET['product_id']);
+													$user_image = $get_image->customer_image;
+													if (@$user_image == ""):
+														@$user_image = "admin-avatar.png"; ?>
+													<?php endif; ?>
+													<img src="customer/assets/customer_images/<?php echo $user_image; ?>" width="45" height="45">
 												<?php } ?>
 
 												</div>

@@ -1,5 +1,6 @@
-<?php require_once '../core/init.php'; ?>
-
+<?php
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Modern-E-Commerce-Store-master/core/init.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
