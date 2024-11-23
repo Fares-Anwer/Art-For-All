@@ -1,5 +1,5 @@
 <?php
-require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Modern-E-Commerce-Store-master/core/init.php');
+require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Art-For-All/core/init.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">

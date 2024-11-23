@@ -1,4 +1,4 @@
-<?php require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Modern-E-Commerce-Store-master/core/init.php'); ?>
+<?php require_once(realpath($_SERVER["DOCUMENT_ROOT"]) . '/Art-For-All/core/init.php'); ?>
 
 
 <?php
