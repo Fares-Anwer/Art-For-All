@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 19, 2024 at 11:16 PM
+-- Generation Time: Nov 25, 2024 at 06:19 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -64,7 +64,11 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`admin_id`, `admin_name`, `admin_email`, `admin_pass`, `admin_image`, `admin_contact`, `admin_country`, `admin_job`, `admin_about`) VALUES
-(12, 'fares', 'fares@gmail.com', 'fares', 'WhatsApp Image 2024-02-10 at 1.15.44 AM.jpeg', '777777777', 'Yemen', 'devloper', 'devloper');
+(13, 'alanoud', 'alanoud@gmail.com', '123456', '360_F_626509838_53EvnKybkJ3LAoJQea7pKf3Hhxh35eAi.jpg', '96655555555', 'Saudi Arabia', 'Devloper', 'devloper'),
+(14, 'wafaa', 'wafaa@gmail.com', '123456', '71mCIQIobvL._AC_UF894,1000_QL80_.jpg', '96655555555', 'Saudi Arabia', 'Devloper', 'devloper'),
+(15, 'Rima', 'rima@gmail.com', '123456', '177646.jpg', '96655555555', 'Saudi Arabia', 'Devloper', 'devloper'),
+(16, 'Reem', 'reem@gmail.com', '123456', 'images.jpg', '96655555555', 'Saudi Arabia', 'Devloper', 'devloper'),
+(17, 'Raneem', 'Raneem@gmail.com', '123456', '7M.jpg', '96655555555', 'Saudi Arabia', 'Devloper', 'devloper');
 
 -- --------------------------------------------------------
 
@@ -94,9 +98,10 @@ CREATE TABLE `artwork` (
 INSERT INTO `artwork` (`product_id`, `cat_id`, `add_date`, `product_title`, `product_img1`, `product_price`, `product_psp_price`, `product_desc`, `product_keywords`, `product_label`, `status`, `customer_id`) VALUES
 (60, 13, '2024-11-15 17:45:40', 'Whispers in the Mist', 'WhatsApp Image 2024-11-15 at 8.51.57 PM.jpeg', 154, 2, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 16),
 (61, 12, '2024-11-19 17:04:04', 'Beyond Limits', 'WhatsApp Image 2024-11-15 at 8.52.22 PM.jpeg', 199, 12, '<p>This artwork features a split scene with two figures, both with blue hair, possibly representing the same person at different points in time. On the left, the figure sits introspectively with a sheet of paper labeled \"THEME: Disability,\" using their foot to hold a pencil, symbolizing adaptability and resilience. This figure wears a school uniform with a green skirt, white top, and a yellow hair accessory.</p><p>On the right, an older version of the character stands confidently in dark, stylish clothing and uses a brush and palette to paint a colorful canvas labeled \"2030,\" suggesting a vision of hope and creativity for the future. The contrasting styles and tones in each half of the image highlight themes of growth, self-acceptance, and transformation</p>', 'Self-Transformation', 'New', '1', 16),
-(71, 13, '2024-11-15 23:22:54', 'Wings of Resilience', 'WhatsApp Image 2024-11-15 at 11.47.57 PM.jpeg', 111, 109, '<p>qwertyuiop</p>', 'fuckkkkkkkk', 'New', '0', NULL),
-(72, 13, '2024-11-15 23:26:07', 'Wings of Resilience', 'WhatsApp Image 2024-11-15 at 11.47.57 PM.jpeg', 111, 109, '<p>qwertyuiop</p>', 'fuckkkkkkkk', 'New', '0', NULL),
-(73, 13, '2024-11-15 23:35:09', 'test', 'WhatsApp Image 2024-11-15 at 8.51.57 PM.jpeg', 1111, 111, '<p>111111111</p>', 'fuckkkkkkkk', 'New', '0', 10002);
+(74, 16, '2024-11-25 04:21:12', 'Wings of Resilience', 'WhatsApp Image 2024-11-24 at 8.38.39 PM.jpeg', 100, 98, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 10006),
+(75, 16, '2024-11-25 04:21:18', 'Beyond Limits', 'WhatsApp Image 2024-11-24 at 8.38.38 PM (1).jpeg', 110, 101, '<p>This artwork features a split scene with two figures, both with blue hair, possibly representing the same person at different points in time. On the left, the figure sits introspectively with a sheet of paper labeled \"THEME: Disability,\" using their foot to hold a pencil, symbolizing adaptability and resilience. This figure wears a school uniform with a green skirt, white top, and a yellow hair accessory.&lt;/p&gt;&lt;p&gt;On the right, an older version of the character stands confidently in dark, stylish clothing and uses a brush and palette to paint a colorful canvas labeled \"2030,\" suggesting a vision of hope and creativity for the future. The contrasting styles and tones in each half of the image highlight themes of growth, self-acceptance, and transformation</p>', 'Self-Transformation', 'New', '1', 10007),
+(76, 15, '2024-11-25 04:52:00', 'Wings of Resilience', 'WhatsApp Image 2024-11-24 at 8.38.38 PM.jpeg', 205, 189, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 10008),
+(77, 12, '2024-11-25 04:53:34', 'Whispers in the Mist', 'WhatsApp Image 2024-11-24 at 8.38.37 PM.jpeg', 111, 99, '<p>This image features an abstract composition created with washes of black and gray ink, forming soft, organic shapes that blend and bleed into one another on a textured surface. The effect resembles shadows, mist, or even figures emerging from a hazy background, inviting viewers to interpret forms and shapes as they wish. The fluidity and varying opacity of the ink create a sense of depth and movement, as if capturing a fleeting, almost ghostly moment.</p>', 'Ethereal Abstraction', 'New', '1', 10009);
 
 -- --------------------------------------------------------
 
@@ -226,10 +231,10 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`customer_id`, `customer_name`, `customer_email`, `customer_pass`, `customer_country`, `customer_city`, `customer_contact`, `customer_address`, `customer_image`, `customer_ip`, `customer_confirm_code`, `manufacturer_top`, `is_artist`) VALUES
 (16, 'Raneem', 'Raneem@gamil.com', '123', 'Saudi Arabia', 'Riyadh', '+96655555555', '000000', '7M.jpg', '::1', '977968538', 'Yes', '1'),
-(10002, 'ff', 'fs@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'WhatsApp Image 2024-11-15 at 8.52.22 PM.jpeg', '::1', '1183195468', 'No', '0'),
-(10003, 'fares', 'fa@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'WhatsApp Image 2024-11-15 at 8.52.24 PM.jpeg', '::1', '112332327', 'No', '0'),
-(10004, 'fares', 'fare@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', '44.jpg', '::1', '1080107333', 'No', '0'),
-(10005, 'fares', 'faaaa@gmail.com', 'f', 'Yemen', 'Sana\'a', '0777777777', 'jkdhsfdfodk', 'Avery+Babon_ABa+002+2016_thumb.jpg', '::1', '1508727817', 'No', '0');
+(10006, 'alanoud', 'alanoud@gmail.com', '123456', 'Saudi Arabia', 'almadeena', '96655555555', 'almadeena', '360_F_626509838_53EvnKybkJ3LAoJQea7pKf3Hhxh35eAi.jpg', '::1', '767699624', 'Yes', '1'),
+(10007, 'Wafaa', 'wafaa@gmail.com', '123456', 'Saudi Arabia', 'almadeena', '96655555555', 'almadeena', '71mCIQIobvL._AC_UF894,1000_QL80_.jpg', '::1', '1952939694', 'Yes', '1'),
+(10008, 'Rima', 'rima@gmail.com', '123456', 'Saudi Arabia', 'almadeena', '96655555555', 'almadeena', '177646.jpg', '::1', '987123820', 'Yes', '1'),
+(10009, 'Reem', 'reem@gmail.com', '123456', 'Saudi Arabia', 'almadeena', '96655555555', 'almadeena', 'images.jpg', '::1', '2026392070', 'Yes', '1');
 
 -- --------------------------------------------------------
 
@@ -282,7 +287,11 @@ INSERT INTO `orders` (`order_id`, `customer_id`, `due_amount`, `invoice_no`, `qt
 (28, 10002, 120, 1454133467, 1, '2024-11-15 19:26:56', 'pending'),
 (29, 10002, 199, 1454133467, 1, '2024-11-15 19:26:56', 'pending'),
 (30, 10003, 199, 983781705, 1, '2024-11-15 20:46:43', 'pending'),
-(31, 10004, 199, 335507091, 1, '2024-11-16 20:28:14', 'pending');
+(31, 10004, 199, 335507091, 1, '2024-11-16 20:28:14', 'pending'),
+(32, 10009, 205, 499754472, 1, '2024-11-25 05:06:51', 'Complete'),
+(33, 10007, 111, 1451628959, 1, '2024-11-25 05:08:58', 'Complete'),
+(34, 10008, 110, 968813089, 1, '2024-11-25 05:10:06', 'Complete'),
+(35, 10006, 111, 240532040, 1, '2024-11-25 05:11:10', 'Complete');
 
 -- --------------------------------------------------------
 
@@ -307,7 +316,11 @@ CREATE TABLE `payments` (
 INSERT INTO `payments` (`payment_id`, `invoice_no`, `amount`, `payment_mode`, `ref_no`, `code`, `payment_date`) VALUES
 (12, 226260289, 154, 'Easy Paisa', 4, 111, '2024-11-14'),
 (13, 531988902, 597, 'Easy Paisa', 1111111, 111, '2024-11-14'),
-(14, 1308051552, 150, 'Uestern Union', 222, 222, '2024-11-14');
+(14, 1308051552, 150, 'Uestern Union', 222, 222, '2024-11-14'),
+(15, 499754472, 205, 'Easy Paisa', 1111, 2222, '2024-11-25'),
+(16, 1451628959, 111, 'Easy Paisa', 1111, 2222, '2024-11-25'),
+(17, 968813089, 110, 'Easy Paisa', 1111, 2222, '2024-11-25'),
+(18, 240532040, 111, 'Easy Paisa', 111, 2222, '2024-11-25');
 
 -- --------------------------------------------------------
 
@@ -331,9 +344,10 @@ CREATE TABLE `pending_orders` (
 INSERT INTO `pending_orders` (`order_id`, `customer_id`, `invoice_no`, `product_id`, `qty`, `order_status`) VALUES
 (23, 16, 531988902, 61, 3, 'pending'),
 (26, 16, 949045744, 61, 1, 'pending'),
-(28, 10002, 1454133467, 61, 1, 'pending'),
-(29, 10003, 983781705, 61, 1, 'pending'),
-(30, 10004, 335507091, 61, 1, 'pending');
+(31, 10009, 499754472, 76, 1, 'pending'),
+(32, 10007, 1451628959, 77, 1, 'pending'),
+(33, 10008, 968813089, 75, 1, 'pending'),
+(34, 10006, 240532040, 77, 1, 'pending');
 
 -- --------------------------------------------------------
 
@@ -509,13 +523,13 @@ ALTER TABLE `about_us`
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
-  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `artwork`
 --
 ALTER TABLE `artwork`
-  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=74;
+  MODIFY `product_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
 
 --
 -- AUTO_INCREMENT for table `boxes_section`
@@ -545,7 +559,7 @@ ALTER TABLE `coupons`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10006;
+  MODIFY `customer_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10010;
 
 --
 -- AUTO_INCREMENT for table `enquiry_type`
@@ -557,19 +571,19 @@ ALTER TABLE `enquiry_type`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT for table `payments`
 --
 ALTER TABLE `payments`
-  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `payment_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `pending_orders`
 --
 ALTER TABLE `pending_orders`
-  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `order_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT for table `services`
