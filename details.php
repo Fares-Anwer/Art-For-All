@@ -247,7 +247,9 @@ if (isset($_POST['add_to_wishlist'])) {
 
 												<div class='mb-3 center'>
 													<?php
-													$get_image = $getFromU->view_customer_by_id($_GET['product_id']);
+													$get_image = $getFromU->view_Product_By_Product_ID($_GET['product_id']);
+													$userID = $get_image->customer_id;
+													$get_image = $getFromU->view_customer_by_id($userID);
 													$user_image = $get_image->customer_image;
 													if (@$user_image == ""):
 														@$user_image = "admin-avatar.png"; ?>

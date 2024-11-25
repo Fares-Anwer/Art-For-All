@@ -69,7 +69,7 @@ if (isset($_REQUEST['cat']) && is_array($_REQUEST['cat'])) {
 
           if ($manufacturer_image == "") {
           } else {
-            $manufacturer_image = " <img src='admin_area/other_images/$manufacturer_image' width='20px' height='20px'> &nbsp;";
+            $manufacturer_image = " <img src='customer/assets/customer_images/$manufacturer_image' width='20px' height='20px'> &nbsp;";
           }
         ?>
 
