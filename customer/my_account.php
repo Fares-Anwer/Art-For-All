@@ -181,6 +181,9 @@ if (!isset($_SESSION['customer_email'])) {
 				if (isset($_GET['my_orders'])) {
 					require_once 'includes/my_orders.php';
 				}
+				if (isset($_GET['my_profile'])) {
+					require_once 'includes/user_profile.php';
+				}
 				if (isset($_GET['my_artworks'])) {
 					require_once 'includes/my_artworks.php';
 				}

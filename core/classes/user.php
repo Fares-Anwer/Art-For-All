@@ -154,6 +154,15 @@ class User
     $stmt->execute();
     return $stmt->fetch();
   }
+  public function get_customerID_by_email($customer_email)
+  {
+    $sql = "SELECT customer_id FROM customers WHERE customer_email = :customer_email";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindParam(":customer_email", $customer_email);
+    $stmt->execute();
+    return $stmt->fetchColumn(); // Returns only the customer_id
+  }
+
 
   public function view_wishlists_by_customer_id($customer_id)
   {
