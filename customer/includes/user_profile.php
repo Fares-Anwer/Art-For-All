@@ -18,7 +18,41 @@ $count_products = count($get_products);
 
 $count_sell_products = $getFromU->count_product_by_status("Complete");
 
+if (isset($_POST['overview'])) {
+    $customer_disability = $_POST['disability'];
+    $biography = $_POST['biography'];
 
+    $update_customer = $getFromU->update_customer("customers", $customer_id, array("disability_id" => $customer_disability, "biography" => $biography));
+    if ($update_customer) {
+        echo '<script>alert("overview has been added Sucessfully")</script>';
+        echo '<script>window.open("my_account.php?usr_profile", "self")</script>';
+    } else {
+        echo '<script>alert("overview has not added")</script>';
+    }
+}
+if (isset($_POST['submit_challenges'])) {
+    $customer_challenges = $_POST['challenges'];
+    $customer_solutions = $_POST['solutions'];
+
+    $update_customer = $getFromU->update_customer("customers", $customer_id, array("difficulties" => $customer_challenges, "overcame" => $customer_solutions));
+    if ($update_customer) {
+        echo '<script>alert("difficulties has been added Sucessfully")</script>';
+        echo '<script>window.open("my_account.php?usr_profile", "self")</script>';
+    } else {
+        echo '<script>alert("difficulties has not added")</script>';
+    }
+}
+if (isset($_POST['submit_message'])) {
+    $customer_goal = $_POST['message'];
+
+    $update_customer = $getFromU->update_customer("customers", $customer_id, array("goal" => $customer_goal));
+    if ($update_customer) {
+        echo '<script>alert("Your Message has been added Sucessfully")</script>';
+        echo '<script>window.open("my_account.php?usr_profile", "self")</script>';
+    } else {
+        echo '<script>alert("Your Message has not added")</script>';
+    }
+}
 ?>
 
 
@@ -32,14 +66,14 @@ $count_sell_products = $getFromU->count_product_by_status("Complete");
 
 <nav aria-label="breadcrumb">
     <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="index.php?dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="my_account.php"><i class="fas fa-tachometer-alt"></i> My account</a></li>
         <li class="breadcrumb-item active" aria-current="page">Profile</li>
     </ol>
 </nav>
 
 <div class="page-content fade-in-up">
     <div class="row">
-        <div class="col-lg-3 col-md-4">
+        <div class="col-lg-4 col-md-5">
             <div class="ibox rounded">
                 <div class="ibox-body text-center">
                     <div class="mt-2"><img class="img-fluid rounded" src="assets/customer_images/<?php echo $customer_image; ?>" /></div>
@@ -77,7 +111,7 @@ $count_sell_products = $getFromU->count_product_by_status("Complete");
                 </div>
             </div>
         </div>
-        <div class="col-lg-9 col-md-8">
+        <div class="col-lg-8 col-md-7">
             <div class="ibox rounded">
                 <div class="ibox-body">
                     <ul class="nav nav-tabs tabs-line">
@@ -94,130 +128,170 @@ $count_sell_products = $getFromU->count_product_by_status("Complete");
                     <div class="tab-content">
                         <div class="tab-pane fade show active" id="tab-1">
                             <div class="row">
-                                <div class="col-md-6" style="border-right: 1px solid #eee;">
-                                    <h5 class="text-info m-b-20 m-t-10"><i class="fa fa-bar-chart"></i> Month Statistics</h5>
-                                    <div class="h2 m-0">$12,400<sup>.60</sup></div>
-                                    <div><small>Month income</small></div>
-                                    <div class="m-t-20 m-b-20">
-                                        <div class="h4 m-0">120</div>
-                                        <div class="d-flex justify-content-between"><small>Month income</small>
-                                            <span class="text-success font-12"><i class="fa fa-level-up"></i> +24%</span>
-                                        </div>
-                                        <div class="progress m-t-5">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:50%; height:5px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <div class="m-b-20">
-                                        <div class="h4 m-0">86</div>
-                                        <div class="d-flex justify-content-between"><small>Month income</small>
-                                            <span class="text-warning font-12"><i class="fa fa-level-down"></i> -12%</span>
-                                        </div>
-                                        <div class="progress m-t-5">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width:50%; height:5px;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                    </div>
-                                    <ul class="list-group list-group-full list-group-divider">
-                                        <li class="list-group-item">Projects
-                                            <span class="pull-right color-orange">15</span>
-                                        </li>
-                                        <li class="list-group-item">Tasks
-                                            <span class="pull-right color-orange">148</span>
-                                        </li>
-                                        <li class="list-group-item">Articles
-                                            <span class="pull-right color-orange">72</span>
-                                        </li>
-                                        <li class="list-group-item">Friends
-                                            <span class="pull-right color-orange">44</span>
-                                        </li>
-                                    </ul>
-                                </div>
+                                <div class="col-md-12">
+                                    <?php
+                                    // جلب البيانات من قاعدة البيانات
+                                    $status_of_profile = $getFromU->view_customer_by_id($customer_id);
+                                    $customer_biography = $status_of_profile->biography;
 
+                                    // شرط إذا كانت السيرة الذاتية غير موجودة
+                                    if ($customer_biography == null):
+                                    ?>
+                                        <form method="post" class="needs-validation" novalidate>
+
+                                            <h5 class="text-info m-b-20 m-t-10">
+                                                <i class="fa fa-user"></i> About the Artist
+                                            </h5>
+
+                                            <!-- Type of Disability -->
+                                            <div class="form-group">
+                                                <label for="disability-type">Type of Disability</label>
+                                                <select name="disability" class="form-control" id="disability-type" required>
+                                                    <option value="" disabled selected>Select your disability</option>
+                                                    <?php
+                                                    $disabilitys = $getFromU->viewAllFromTable("disability");
+                                                    foreach ($disabilitys as $disability) {
+                                                        $disability_id = $disability->disability_id;
+                                                        $disability_type = $disability->disability_type;
+                                                    ?>
+                                                        <option value="<?php echo $disability_id; ?>"><?php echo $disability_type; ?></option>
+                                                    <?php } ?>
+                                                </select>
+                                            </div>
+
+                                            <!-- Biography Section -->
+                                            <div class="form-group">
+                                                <label for="artist-biography">Biography</label>
+                                                <textarea name="biography" class="form-control" id="artist-biography" rows="6" placeholder="Write about how your love for art began, your journey, and the challenges you faced." required></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button name="overview" class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i>Add</button>
+                                            </div>
+                                        </form>
+
+                                    <?php else: ?>
+                                        <h5 class="text-info m-b-20 m-t-10">
+                                            <i class="fa fa-user"></i> Artist Information
+                                        </h5>
+
+                                        <p><strong>Type of Disability:</strong>
+                                            <?php
+                                            $status_of_profile = $getFromU->view_customer_by_id($customer_id);
+                                            $customer_biography = $status_of_profile->biography;
+                                            $disability_id = $status_of_profile->disability_id;
+
+                                            $disability_info = $getFromU->view_disability_by_id($disability_id);
+                                            $the_disability_type = $disability_info->disability_type;
+                                            echo $the_disability_type;
+                                            ?>
+                                        </p>
+
+                                        <p><strong>Biography:</strong></p>
+                                        <p><?php echo nl2br(htmlspecialchars($customer_biography)); ?></p>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-
                         </div>
+
+
                         <div class="tab-pane fade" id="tab-2">
-                            <form action="javascript:void(0)">
-                                <h3 class="text-center">Share Your Story</h3>
-                                <p class="text-muted text-center">Your story can inspire others. Share the challenges you faced and how you overcame them.</p>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <?php
+                                    // جلب بيانات التحديات من قاعدة البيانات
+                                    $status_of_profile = $getFromU->view_customer_by_id($customer_id);
+                                    $customer_challenges = $status_of_profile->difficulties;
+                                    $customer_solutions = $status_of_profile->overcame;
 
-                                <div class="form-group">
-                                    <label>Your Full Name</label>
-                                    <input class="form-control" type="text" placeholder="Enter your full name">
-                                </div>
+                                    // شرط إذا لم يتم إدخال التحديات والحلول
+                                    if ($customer_challenges == null && $customer_solutions == null):
+                                    ?>
+                                        <h5 class="text-info m-b-20 m-t-10">
+                                            <i class="fa fa-exclamation-triangle"></i> Challenges
+                                        </h5>
 
-                                <div class="form-group">
-                                    <label>Email Address</label>
-                                    <input class="form-control" type="email" placeholder="Enter your email address">
-                                </div>
+                                        <p class="text-muted">Share the challenges you faced as a person with disabilities and how you overcame them. This can help visitors and build a human connection.</p>
 
-                                <div class="form-group">
-                                    <label>The Challenges You Faced</label>
-                                    <textarea class="form-control" rows="4" placeholder="Describe the challenges you faced"></textarea>
-                                </div>
+                                        <form method="post" class="needs-validation" novalidate>
+                                            <!-- Challenges Faced -->
+                                            <div class="form-group">
+                                                <label for="artist-challenges">Challenges Faced</label>
+                                                <textarea name="challenges" class="form-control" id="artist-challenges" rows="6" placeholder="Describe the challenges you encountered." required></textarea>
+                                            </div>
 
-                                <div class="form-group">
-                                    <label>How You Overcame the Challenges</label>
-                                    <textarea class="form-control" rows="4" placeholder="Explain how you overcame those challenges"></textarea>
-                                </div>
+                                            <!-- How You Overcame Them -->
+                                            <div class="form-group">
+                                                <label for="artist-solutions">How You Overcame Them</label>
+                                                <textarea name="solutions" class="form-control" id="artist-solutions" rows="6" placeholder="Explain how you overcame these challenges." required></textarea>
+                                            </div>
 
-                                <div class="form-group">
-                                    <label>Your Message to Others</label>
-                                    <textarea class="form-control" rows="3" placeholder="Share your message with visitors"></textarea>
-                                </div>
+                                            <div class="form-group">
+                                                <button name="submit_challenges" class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i> Add</button>
+                                            </div>
+                                        </form>
 
-                                <div class="form-group">
-                                    <button class="btn btn-primary" type="button">Submit Your Story</button>
+                                    <?php else: ?>
+                                        <h5 class="text-info m-b-20 m-t-10">
+                                            <i class="fa fa-exclamation-triangle"></i> Your Challenges and Solutions
+                                        </h5>
+
+                                        <p><strong>Challenges Faced:</strong></p>
+                                        <p><?php echo nl2br(htmlspecialchars($customer_challenges)); ?></p>
+
+                                        <p><strong>How You Overcame Them:</strong></p>
+                                        <p><?php echo nl2br(htmlspecialchars($customer_solutions)); ?></p>
+                                    <?php endif; ?>
                                 </div>
-                            </form>
+                            </div>
                         </div>
+
 
                         <div class="tab-pane fade" id="tab-3">
-                            <h5 class="text-info m-b-20 m-t-20"><i class="fa fa-bullhorn"></i> Latest Feeds</h5>
-                            <ul class="media-list media-list-divider m-0">
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-user font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading">New customer <small class="float-right text-muted">12:05</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-info-alt font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading text-warning">Server Warning <small class="float-right text-muted">12:05</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-announcement font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading">7 new feedback <small class="float-right text-muted">Today</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-check font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading text-success">Issue fixed <small class="float-right text-muted">12:05</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-shopping-cart font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading">7 New orders <small class="float-right text-muted">12:05</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                                <li class="media">
-                                    <div class="media-img"><i class="ti-reload font-18 text-muted"></i></div>
-                                    <div class="media-body">
-                                        <div class="media-heading text-danger">Server warning <small class="float-right text-muted">12:05</small></div>
-                                        <div class="font-13">Lorem Ipsum is simply dummy text.</div>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <?php
+                                    // جلب بيانات الرسالة أو الهدف من قاعدة البيانات
+                                    $status_of_profile = $getFromU->view_customer_by_id($customer_id);
+                                    $customer_goal = $status_of_profile->goal;
+
+                                    // شرط إذا لم يتم إدخال الرسالة أو الهدف
+                                    if ($customer_goal == null):
+                                    ?>
+                                        <h5 class="text-info m-b-20 m-t-10">
+                                            <i class="fa fa-bullseye"></i> Artist's Message or Goal
+                                        </h5>
+
+                                        <p class="text-muted">Write a motivational message or express your goal in art. For example, "My dream is to showcase my art to the world."</p>
+
+                                        <form method="post" class="needs-validation" novalidate>
+                                            <!-- Message or Goal -->
+                                            <div class="form-group">
+                                                <label for="artist-message">Your Message or Goal</label>
+                                                <textarea name="message" class="form-control" id="artist-message" rows="6" placeholder="Write your message or goal here." required></textarea>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <button name="submit_message" class="btn btn-primary" type="submit"><i class="fas fa-plus-circle"></i> Add</button>
+                                            </div>
+                                        </form>
+
+                                    <?php
+                                    else:
+                                        // إذا كانت الرسالة أو الهدف موجودة بالفعل
+                                    ?>
+                                        <h5 class="text-info m-b-20 m-t-10">
+                                            <i class="fa fa-bullseye"></i> Your Message or Goal
+                                        </h5>
+
+                                        <p><strong>Your Message:</strong></p>
+                                        <p><?php echo nl2br(htmlspecialchars($customer_goal)); ?></p>
+                                    <?php endif; ?>
+                                </div>
+                            </div>
                         </div>
+
+
                     </div>
                 </div>
             </div>

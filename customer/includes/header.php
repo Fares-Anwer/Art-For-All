@@ -41,6 +41,7 @@ foreach ($records as $record) {
 	<link rel="stylesheet" type="text/css" href="assets/css/sweetalert.css">
 
 	<link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+	<link href="assets/css/main.min.css" rel="stylesheet" />
 	<link rel="stylesheet" type="text/css" href="assets/css/main.css">
 
 	<script src='https://www.google.com/recaptcha/api.js'></script>

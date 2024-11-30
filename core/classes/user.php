@@ -154,6 +154,14 @@ class User
     $stmt->execute();
     return $stmt->fetch();
   }
+  public function view_disability_by_id($disability_id)
+  {
+    $sql = "SELECT * FROM disability WHERE disability_id = :disability_id";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindParam(":disability_id", $disability_id);
+    $stmt->execute();
+    return $stmt->fetch();
+  }
   public function get_customerID_by_email($customer_email)
   {
     $sql = "SELECT customer_id FROM customers WHERE customer_email = :customer_email";

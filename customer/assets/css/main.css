@@ -96,7 +96,7 @@ body{
   }
 }
 
-.active{
+/* .active{
   text-decoration: none;
   background-color: gray;
   color: white !important;
@@ -107,7 +107,7 @@ body{
   text-decoration: none;
   background-color: gray;
   color: white;
-}
+} */
 
 
 .carousel-item img{
