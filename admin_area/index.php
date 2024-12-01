@@ -29,6 +29,8 @@ if (!isset($_SESSION['admin_email'])) {
         require_once 'includes/view_products.php';
       } elseif (isset($_GET['Unapprove_product'])) {
         require_once 'includes/Unapprove_product.php';
+      } elseif (isset($_GET['unapprove-comment'])) {
+        require_once 'includes/unapprove-comment.php';
       } elseif (isset($_GET['edit_product'])) {
         require_once 'includes/edit_product.php';
       } elseif (isset($_GET['add_p_cat'])) {
@@ -67,6 +69,10 @@ if (!isset($_SESSION['admin_email'])) {
         require_once 'includes/view_boxes.php';
       } elseif (isset($_GET['accept_product'])) {
         require_once 'includes/accept_product.php';
+      } elseif (isset($_GET['acceptcomment'])) {
+        require_once 'includes/accept_comment.php';
+      } elseif (isset($_GET['manage_comment'])) {
+        require_once 'includes/manage-comments.php';
       } elseif (isset($_GET['edit_box'])) {
         require_once 'includes/edit_box.php';
       } elseif (isset($_GET['add_terms'])) {

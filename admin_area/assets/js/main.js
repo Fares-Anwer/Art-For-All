@@ -1,5 +1,8 @@
 
 // Delete Product Script
+
+
+
 function DeleteProduct(product_id) {
     swal({
       title: "Are you sure?",
@@ -24,6 +27,33 @@ function DeleteProduct(product_id) {
       }
     }); // Swal End
 } // Delete Product End
+
+
+
+function Deletecomment(id) {
+    swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonClass: "btn-danger",
+      confirmButtonText: "Yes, Delete",
+      cancelButtonClass: "btn-info",
+      cancelButtonText: "No, Back",
+      closeOnConfirm: false,
+      closeOnCancel: false
+    },
+    function(isConfirm) {
+      if (isConfirm) {
+        window.location.href = "./includes/delete_comment.php?id=" +id+ "";
+        return true;
+
+        swal("Accept!", "Your imaginary file has been Accept.", "success");
+      } else {
+        swal("Cancelled", "Your imaginary file is safe :)", "error");
+      }
+    }); // Swal End
+}
 function AcceptProduct(product_id) {
   swal({
     title: "Are you sure?",
@@ -47,6 +77,32 @@ function AcceptProduct(product_id) {
       swal("Cancelled", "Your imaginary file is safe :)", "error");
     }
   })}; // Swal End
+
+
+  function Acceptcomment(id) {
+  swal({
+    title: "Are you sure?",
+    text: "You will not be able to recover this imaginary file!",
+    type: "warning",
+    showCancelButton: true,
+    confirmButtonClass: "btn-info",
+    confirmButtonText: "Yes, Accept",
+    cancelButtonClass: "btn-danger",
+    cancelButtonText: "No, Back",
+    closeOnConfirm: false,
+    closeOnCancel: false
+  },
+  function(isConfirm) {
+    if (isConfirm) {
+      window.location.href = "./includes/accept_comment.php?id=" +id+ "";
+      return true;
+
+      swal("Deleted!", "Your imaginary file has been deleted.", "success");
+    } else {
+      swal("Cancelled", "Your imaginary file is safe :)", "error");
+    }
+  })}; 
+
 
 // Delete Manufacturer Script
 function DeleteManufacturer(manufacturer_id) {

@@ -660,6 +660,19 @@ class User
     return $count;
   }
 
+
+
+  public function countFromTableByCommentID($table_name, $id)
+  {
+    $sql = "SELECT * FROM $table_name WHERE id = :id ";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindParam(":id", $id);
+    $stmt->execute();
+    $stmt->fetch();
+    $count = $stmt->rowCount();
+    return $count;
+  }
+
   public function countFromTableByPCatID($table_name, $cat_id)
   {
     $sql = "SELECT * FROM $table_name WHERE cat_id = :cat_id ";
@@ -830,6 +843,18 @@ class User
     $stmt->execute();
     return $stmt->fetchAll();
   }
+  public function view_comment_by_product_id($postId, $status)
+  {
+    $sql = "SELECT * FROM tblcomments WHERE postId = :postId AND status = :status";
+    $stmt = $this->pdo->prepare($sql);
+
+    $stmt->bindParam(":postId", $postId);
+    $stmt->bindParam(":status", $status);
+
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
 
   public function select_random_products()
   {

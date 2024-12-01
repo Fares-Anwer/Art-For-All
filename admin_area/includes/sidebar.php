@@ -41,6 +41,11 @@ $coupons = (isset($_GET['add_coupon']) || isset($_GET['view_coupons']) || isset(
 $add_coupon = (isset($_GET['add_coupon'])) ? 'active' : '';
 $view_coupons = (isset($_GET['view_coupons'])) ? 'active' : '';
 
+$comments = (isset($_GET['unapprove-comment']) || isset($_GET['manage_comment'])) ? 'active' : '';
+$unapprove_comment = (isset($_GET['unapprove-comment'])) ? 'active' : '';
+$manage_comments = (isset($_GET['manage_comment'])) ? 'active' : '';
+
+
 $services = (isset($_GET['add_service']) || isset($_GET['view_services']) || isset($_GET['edit_service'])) ? 'active' : '';
 $add_service = (isset($_GET['add_service'])) ? 'active' : '';
 $view_services = (isset($_GET['view_services'])) ? 'active' : '';
@@ -164,6 +169,14 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     <span class="nav-label">View Payments</span>
                 </a>
             </li>
+            <li class=" <?php echo $comments; ?>">
+                <a href="javascript:void(0);" class="waves-effect"><i class="fa fa-comment" aria-hidden="true"></i> <span> Comments </span> <span
+                        class="menu-arrow"></span><i class="fa fa-angle-left arrow"></i></a>
+                <ul class="list-unstyled">
+                    <li class="<?php echo $unapprove_comment; ?>"><a href="index.php?unapprove-comment"><i class="fas fa-eye-slash"></i> Waiting for Approval </a></li>
+                    <li class="<?php echo $manage_comments; ?>"><a href="index.php?manage_comment"><i class="fas fa-eye"></i> Approval </a></li>
+                </ul>
+            </li>
             <li class="<?php echo $users; ?>">
                 <a href="javascript:;"><i class="sidebar-item-icon fa fa-users"></i>
                     <span class="nav-label">Users</span><i class="fa fa-angle-left arrow"></i></a>
@@ -187,6 +200,7 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     <li>
                         <a class="<?php echo $view_services; ?>" href="index.php?view_services"><i class="fas fa-eye"></i> View Servservice</a>
                     </li>
+
 
                 </ul>
             </li>
@@ -224,6 +238,7 @@ $view_enquiry_types = (isset($_GET['view_enquiry_types'])) ? 'active' : '';
                     <span class="nav-label">Logout</span>
                 </a>
             </li>
+
         </ul>
     </div>
 </nav>

@@ -53,6 +53,11 @@ if (isset($_POST['submit_message'])) {
         echo '<script>alert("Your Message has not added")</script>';
     }
 }
+
+
+
+
+
 ?>
 
 
