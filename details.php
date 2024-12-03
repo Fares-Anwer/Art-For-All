@@ -221,8 +221,8 @@ if (isset($_POST['add_to_wishlist'])) {
 											$product_label = $get_product->product_label;
 											$icustomer_id = $get_product->customer_id;
 
-											$get_image = $getFromU->view_customer_by_id($customer_id);
-											$user_image = $get_image->customer_image;
+											@$get_image = $getFromU->view_customer_by_id($customer_id);
+											@$user_image = $get_image->customer_image;
 
 											$check_product_by_ip_id = $getFromU->check_product_by_ip_id($ip_add, $p_id);
 
@@ -287,7 +287,7 @@ if (isset($_POST['add_to_wishlist'])) {
 												$pcustomer_name = "Admin";
 											}
 											?>
-											<p class="btn btn-sm btn-info mb-0">Manufacturer : <?php echo $pcustomer_name; ?></p>
+											<a href="user_profile.php?user=<?php echo $pro_customer_id; ?>" class="btn btn-sm btn-info mb-0">Manufacturer : <?php echo $pcustomer_name; ?></a>
 
 											<h6 class="card-text mt-4">Price : <?php echo $product_price; ?></h6>
 											<?php if ($product_label == "Sale" || $product_label == "Gift" || $product_label == "Bundle") : ?>
@@ -314,7 +314,30 @@ if (isset($_POST['add_to_wishlist'])) {
 
 						</div>
 
+						<div class="row my-4">
+							<div class="col-12">
+								<div class="card">
+									<div class="card-body">
 
+										<ul class="nav nav-tabs mb-3" id="myTab" role="tablist">
+											<li class="nav-item">
+												<a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true"><?php echo $product_title; ?> Description</a>
+											</li>
+										</ul>
+										<div class="tab-content" id="myTabContent">
+											<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+												<h5 class="card-title"><?php echo $product_title; ?> Details</h5>
+												<p class="card-text"><?php echo $product_desc; ?></p>
+
+											</div>
+										</div>
+
+
+
+									</div>
+								</div>
+							</div>
+						</div>
 
 					</div> <!-- col-md-9 END --3 -->
 				<?php }
@@ -373,7 +396,7 @@ if (isset($_POST['add_to_wishlist'])) {
 							<div class="card">
 								<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
 								<div class="card-body text-center">
-									<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
+									<a href="user_profile.php?user=<?php echo $prod_customer_id; ?>" class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></a>
 									<hr>
 									<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
 									<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>

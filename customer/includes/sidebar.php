@@ -27,13 +27,13 @@ $is_artist = $get_customer->is_artist;
                                     echo "active";
                                   } ?>">
         <a href="my_account.php?my_artworks"><i class="fas fa-list-ul"></i> My Artworks</a>
+      </li>
+      <li class="list-group-item <?php if (isset($_GET['my_profile'])) {
+                                    echo "active";
+                                  } ?>">
+        <a href="my_account.php?my_profile"><i class="fas fa-list-ol"></i> My Profile</a>
       </li><?php endif; ?>
-    <li class="list-group-item <?php if (isset($_GET['my_profile'])) {
-                                  echo "active";
-                                } ?>">
-      <a href="my_account.php?my_profile"><i class="fas fa-list-ol"></i> My Profile</a>
-    </li>
-    <li class="list-group-item <?php if (isset($_GET['my_profile'])) {
+    <li class="list-group-item <?php if (isset($_GET['wishlist'])) {
                                   echo "active";
                                 } ?>">
       <a href="my_account.php?wishlist"><i class="fas fa-list-ol"></i> Wishlist</a>

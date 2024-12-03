@@ -7,10 +7,11 @@
 
 		<?php if (isset($_SESSION['delete_payment_msg'])): ?>
 			<div class="alert alert-success text-center alert-dismissible fade show" role="alert">
-			  <?php echo $_SESSION['delete_payment_msg']; unset($_SESSION['delete_payment_msg']); ?>
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-			    <span aria-hidden="true">&times;</span>
-			  </button>
+				<?php echo $_SESSION['delete_payment_msg'];
+				unset($_SESSION['delete_payment_msg']); ?>
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
 			</div>
 		<?php endif ?>
 
@@ -27,23 +28,22 @@
 			</thead>
 			<tbody>
 				<?php
-					$customer_session = $_SESSION['customer_email'];
-					$get_customer = $getFromU->view_customer_by_email($customer_session);
+				$customer_session = $_SESSION['customer_email'];
+				$get_customer = $getFromU->view_customer_by_email($customer_session);
 
-  				$customer_id = $get_customer->customer_id;
+				$customer_id = $get_customer->customer_id;
 
-  				$get_wishlists = $getFromU->view_wishlists_by_customer_id($customer_id);
-  				$i = 0;
-  				foreach ($get_wishlists as $get_wishlist) {
-  					$wishlist_id = $get_wishlist->wishlist_id;
-  					$product_id = $get_wishlist->product_id;
+				$get_wishlists = $getFromU->view_wishlists_by_customer_id($customer_id);
+				$i = 0;
+				foreach ($get_wishlists as $get_wishlist) {
+					$wishlist_id = $get_wishlist->wishlist_id;
+					$product_id = $get_wishlist->product_id;
 
-  					$get_product = $getFromU->view_Product_By_Product_ID($product_id);
+					$get_product = $getFromU->view_Product_By_Product_ID($product_id);
 
-  					$product_title = $get_product->product_title;
-  					$product_image = $get_product->product_img1;
-  					$product_url = $get_product->product_url;
-  					$i++;
+					$product_title = $get_product->product_title;
+					$product_image = $get_product->product_img1;
+					$i++;
 				?>
 
 					<tr>

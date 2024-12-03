@@ -5,7 +5,20 @@ if (isset($_POST['login'])) {
 
 	$login = $getFromU->login($customer_email, $customer_pass);
 	if ($login === false) {
-		$error = "Email or Password is Wrong";
+		if (strlen($customer_pass) < 8) {
+			$error = "Password must be at least 8 characters long.";
+		} elseif (!preg_match('/\d/', $customer_pass)) {
+			$error = "Password must contain at least one number.";
+		} elseif (!preg_match('/[a-z]/', $customer_pass) || !preg_match('/[A-Z]/', $customer_pass)) {
+			$error = "Password must contain both uppercase and lowercase letters.";
+		}
+
+		if (isset($error)) {
+			echo '<div class="alert alert-danger text-center">' . $error . '</div>';
+		} else {
+			// أكمل التسجيل
+			echo '<div class="alert alert-success text-center">Registration Successful!</div>';
+		}
 	} else {
 		$_SESSION['login_success_msg'] = "You have Successfully Login";
 	}

@@ -320,7 +320,7 @@ if (isset($_POST['apply_coupon'])) {
 							<div class="card">
 								<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
 								<div class="card-body text-center">
-									<p class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></p>
+									<a href="user_profile.php?user=<?php echo $customer_id; ?>" class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></a>
 									<hr>
 									<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
 									<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>

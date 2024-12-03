@@ -57,8 +57,8 @@ foreach ($records as $record) {
 
 
 				<div class="col-md-6 offer"> <!-- col-md-6 offer Starts -->
-					<object type="image/svg+xml" data="includes/logo2.svg" style="direction:abslute;" class="logo"></object>
-					<a href="customer/my_account.php" class="btn btn-info btn-sm">
+					<object type="image/svg+xml" data="includes/logo.svg" style="direction:abslute;" class="logo"></object>
+					<a href="my_account.php?my_profile" class="btn btn-info btn-sm">
 						<?php
 						if (!isset($_SESSION['customer_email'])) {
 							echo 'Welcome : Guest';

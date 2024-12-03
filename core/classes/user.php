@@ -620,6 +620,15 @@ class User
     return $stmt->fetchAll();
   }
 
+  public function view_all_Product_By_customer_id($customer_id)
+  {
+    $sql = "SELECT * FROM artwork WHERE customer_id = :customer_id ";
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->bindParam(":customer_id", $customer_id);
+    $stmt->execute();
+    return $stmt->fetchAll();
+  }
+
 
   public function viewProductByProductURL($product_id)
   {
