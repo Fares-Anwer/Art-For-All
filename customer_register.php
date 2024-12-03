@@ -40,60 +40,6 @@
 		</form>
 	</div>
 </nav>
-<script>
-	function check_pass() {
-		var val = $("#c_password").val();
-		var meter = $("#meter");
-		var pass_type = $("#pass_type");
-
-		var strength = 0;
-		if (val.length >= 8) {
-			strength++; // زيادة الطول
-		}
-		if (val.match(/[a-z]/)) {
-			strength++; // وجود حرف صغير
-		}
-		if (val.match(/[A-Z]/)) {
-			strength++; // وجود حرف كبير
-		}
-		if (val.match(/[0-9]/)) {
-			strength++; // وجود رقم
-		}
-		if (val.match(/[@$!%*?&]/)) {
-			strength++; // وجود رموز خاصة
-		}
-
-		// تحديث المظهر بناءً على قوة كلمة المرور
-		switch (strength) {
-			case 0:
-			case 1:
-				meter.css("background-color", "red");
-				meter.width("20%");
-				pass_type.text("Very Weak").css("color", "red");
-				break;
-			case 2:
-				meter.css("background-color", "orange");
-				meter.width("40%");
-				pass_type.text("Weak").css("color", "orange");
-				break;
-			case 3:
-				meter.css("background-color", "yellow");
-				meter.width("60%");
-				pass_type.text("Moderate").css("color", "yellow");
-				break;
-			case 4:
-				meter.css("background-color", "blue");
-				meter.width("80%");
-				pass_type.text("Strong").css("color", "blue");
-				break;
-			case 5:
-				meter.css("background-color", "green");
-				meter.width("100%");
-				pass_type.text("Very Strong").css("color", "green");
-				break;
-		}
-	}
-</script>
 
 <div id="content">
 	<div class="container">
@@ -127,7 +73,6 @@
 							$c_image = $_FILES['c_image']['name'];
 							$is_artist = $getFromU->checkInput($_POST['is_artist']);
 
-
 							$c_image_tmp = $_FILES['c_image']['tmp_name'];
 
 							$c_ip = $getFromU->getRealUserIp();
@@ -137,30 +82,6 @@
 							$remoteip = $_SERVER['REMOTE_ADDR'];
 							$url = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response&remoteip=$remoteip");
 							$result = json_decode($url, true);
-
-							$c_pass = $_POST['c_pass'];
-							@$confirm_pass = $_POST['confirm_pass']; // تأكيد كلمة المرور
-							// تحقق من صحة كلمة المرور
-							if (strlen($c_pass) < 8) {
-								$error = "Password must be at least 8 characters long.";
-							} elseif (!preg_match('/\d/', $c_pass)) {
-								$error = "Password must contain at least one number.";
-							} elseif (!preg_match('/[a-z]/', $c_pass) || !preg_match('/[A-Z]/', $c_pass)) {
-								$error = "Password must contain both uppercase and lowercase letters.";
-							} elseif ($c_pass !== $confirm_pass) {
-								$error = "Passwords do not match.";
-							}
-
-							if (isset($error)) {
-								echo '<div class="alert alert-danger text-center">' . $error . '</div>';
-							} else {
-								// أكمل التسجيل
-								echo '<div class="alert alert-success text-center">Registration Successful!</div>';
-							}
-
-
-
-
 
 							if ($result['success'] == 1) {
 
@@ -468,7 +389,7 @@
 			if (val.length > 6 && (val.match(/[a-z]/) || val.match(/\d+/) || val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/))) no = 2;
 
 			// If the password length is greater than 6 and contain alphabet,number,special character respectively
-			if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,,?,,,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,,?,,,-,(,)]/)))) no = 3;
+			if (val.length > 6 && ((val.match(/[a-z]/) && val.match(/\d+/)) || (val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,,?,,~,-,(,)]/)) || (val.match(/[a-z]/) && val.match(/.[!,@,#,$,%,^,&,,?,,~,-,(,)]/)))) no = 3;
 
 			// If the password length is greater than 6 and must contain alphabets,numbers and special characters
 			if (val.length > 6 && val.match(/[a-z]/) && val.match(/\d+/) && val.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)) no = 4;
