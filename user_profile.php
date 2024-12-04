@@ -136,24 +136,6 @@ if (isset($_POST['submit_message'])) {
                                     </div>
                                 </div>
                             </div>
-                            <div class="ibox rounded">
-                                <div class="ibox-body">
-                                    <div class="row text-center m-b-20">
-                                        <div class="col-4">
-                                            <div class="font-24 profile-stat-count"><?php echo $count_products; ?></div>
-                                            <div class="text-muted">Products</div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="font-24 profile-stat-count"><?php echo $count_sell_products; ?></div>
-                                            <div class="text-muted">Sales</div>
-                                        </div>
-                                        <div class="col-4">
-                                            <div class="font-24 profile-stat-count"><?php echo $count_products - $count_sell_products; ?></div>
-                                            <div class="text-muted">Remainig</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                         <div class="col-lg-8 col-md-7">
                             <div class="ibox rounded">

@@ -1,5 +1,9 @@
 <?php require_once 'includes/header.php'; ?>
-
+<?php
+$lengthError = '';
+$numberError = '';
+$caseError = '';
+?>
 <nav class="navbar navbar-expand-lg  navbar-light bg-dark sticky-top" id="navbar">
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 		<span class="navbar-toggler-icon"></span>
@@ -164,16 +168,21 @@
 						?>
 
 
-						<form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+						<form id="nameForm" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
 							<div class="form-row">
 								<div class="col-12 mb-3">
 									<label for="c_name">Customer Name</label>
-									<input type="text" name="c_name" class="form-control" id="c_name" value="<?php echo $c_name ?? ""; ?>" placeholder="Enter Your Name" required>
+									<input type="text" name="c_name" class="form-control" id="c_name" value="<?php echo $c_name ?? ""; ?>" placeholder="Enter Your Name" required oninput="validateName()">
 									<div class="invalid-feedback">
 										Please provide a valid Name.
 									</div>
 								</div>
 							</div>
+
+							<div id="nameError" class="text-danger" style="display:none; font-size: 0.875rem;">
+								<span id="nameErrorMessage"></span>
+							</div>
+
 							<div class="form-row">
 								<div class="col-12 mb-3">
 									<label for="c_email">Customer Email</label>
@@ -183,12 +192,20 @@
 									</div>
 								</div>
 							</div>
-
+							<div id="passwordLengthError" class="text-danger" style="display:none; font-size: 0.875rem;">
+								<span id="lengthErrorMessage"></span>
+							</div>
+							<div id="passwordNumberError" class="text-danger" style="display:none; font-size: 0.875rem;">
+								<span id="numberErrorMessage"></span>
+							</div>
+							<div id="passwordCaseError" class="text-danger" style="display:none; font-size: 0.875rem;">
+								<span id="caseErrorMessage"></span>
+							</div>
 							<div class="form-row">
 								<div class="col-12 mb-3">
 									<label for="c_password">Customer Password</label>
 									<div class="input-group">
-										<input type="password" name="c_pass" class="form-control" id="c_password" value="<?php echo $c_pass ?? ""; ?>" placeholder="Enter Your Password" required>
+										<input type="password" name="c_pass" class="form-control" id="c_password" value="<?php echo $c_pass ?? ""; ?>" placeholder="Enter Your Password" required oninput="validatePassword()">
 										<div class="input-group-prepend">
 											<div class="input-group-text">
 												<div id="meter_wrapper">
@@ -203,6 +220,7 @@
 									</div>
 								</div>
 							</div>
+
 
 							<div class="form-row">
 								<div class="col-12 mb-3">
@@ -243,12 +261,17 @@
 							<div class="form-row">
 								<div class="col-12 mb-3">
 									<label for="c_mobile">Customer Contact No.</label>
-									<input type="tel" name="c_mobile" class="form-control" id="c_mobile" value="<?php echo $c_contact ?? ""; ?>" placeholder="Enter Your Mobile No" required>
+									<input type="tel" name="c_mobile" class="form-control" id="c_mobile" value="<?php echo $c_contact ?? ""; ?>" placeholder="Enter Your Mobile No" required oninput="validatePhoneNumber()">
 									<div class="invalid-feedback">
-										Please provide a Mobile No
+										Please provide a Mobile No.
 									</div>
 								</div>
 							</div>
+
+							<div id="phoneError" class="text-danger" style="display:none; font-size: 0.875rem;">
+								<span id="phoneErrorMessage"></span>
+							</div>
+
 							<input type="hidden" name="manufacturer_top" value="No">
 							<div class="form-row">
 								<div class="col-12 mb-3">
@@ -339,7 +362,111 @@
 </div>
 
 
+<script>
+	function validatePassword() {
+		var password = document.getElementById('c_password').value;
+		var lengthErrorMsg = document.getElementById('lengthErrorMessage');
+		var numberErrorMsg = document.getElementById('numberErrorMessage');
+		var caseErrorMsg = document.getElementById('caseErrorMessage');
+		var loginButton = document.getElementById('loginButton');
 
+		var hasMinLength = password.length >= 8;
+		var hasNumber = /\d/.test(password);
+		var hasUpperCase = /[A-Z]/.test(password);
+		var hasLowerCase = /[a-z]/.test(password);
+
+		if (!hasMinLength) {
+			lengthErrorMsg.innerHTML = "Password must be at least 8 characters long.";
+			document.getElementById('passwordLengthError').style.display = 'block';
+		} else {
+			document.getElementById('passwordLengthError').style.display = 'none';
+		}
+
+		if (!hasNumber) {
+			numberErrorMsg.innerHTML = "Password must contain at least one number.";
+			document.getElementById('passwordNumberError').style.display = 'block';
+		} else {
+			document.getElementById('passwordNumberError').style.display = 'none';
+		}
+
+		if (!(hasUpperCase && hasLowerCase)) {
+			caseErrorMsg.innerHTML = "Password must contain both uppercase and lowercase letters.";
+			document.getElementById('passwordCaseError').style.display = 'block';
+		} else {
+			document.getElementById('passwordCaseError').style.display = 'none';
+		}
+
+		if (hasMinLength && hasNumber && hasUpperCase && hasLowerCase) {
+			loginButton.disabled = false;
+		} else {
+			loginButton.disabled = true;
+		}
+	}
+
+	(function() {
+		'use strict';
+		window.addEventListener('load', function() {
+			var forms = document.getElementsByClassName('needs-validation');
+			var validation = Array.prototype.filter.call(forms, function(form) {
+				form.addEventListener('submit', function(event) {
+					if (form.checkValidity() === false) {
+						event.preventDefault();
+						event.stopPropagation();
+					}
+					form.classList.add('was-validated');
+				}, false);
+			});
+		}, false);
+	})();
+
+	function validateName() {
+		var name = document.getElementById('c_name').value;
+		var nameErrorMsg = document.getElementById('nameErrorMessage');
+		var nameErrorDiv = document.getElementById('nameError');
+		var loginButton = document.getElementById('loginButton');
+
+		// تحقق من أن الاسم يحتوي فقط على الحروف
+		var isValidName = /^[A-Za-z\s]+$/.test(name); // يسمح بالحروف فقط والمسافات
+
+		if (!isValidName) {
+			nameErrorMsg.innerHTML = "Name must only contain letters and spaces.";
+			nameErrorDiv.style.display = 'block';
+		} else {
+			nameErrorDiv.style.display = 'none';
+		}
+
+		// إذا كان الاسم صالحًا، قم بتمكين الزر
+		if (isValidName) {
+			loginButton.disabled = false;
+		} else {
+			loginButton.disabled = true;
+		}
+	}
+
+	function validatePhoneNumber() {
+		var phone = document.getElementById('c_mobile').value;
+		var phoneErrorMsg = document.getElementById('phoneErrorMessage');
+		var phoneErrorDiv = document.getElementById('phoneError');
+		var loginButton = document.getElementById('loginButton');
+
+		// تحقق من أن الهاتف يتكون من 10 أرقام على الأقل
+		var isValidPhone = /^[0-9]{10,}$/.test(phone); // يجب أن يتكون من أرقام فقط و10 أرقام أو أكثر
+
+		if (!isValidPhone) {
+			phoneErrorMsg.innerHTML = "Phone number must be at least 10 digits.";
+			phoneErrorDiv.style.display = 'block';
+		} else {
+			phoneErrorDiv.style.display = 'none';
+		}
+
+		// إذا كان الرقم صالحًا، قم بتمكين الزر
+		if (isValidPhone) {
+			loginButton.disabled = false;
+		} else {
+			loginButton.disabled = true;
+		}
+	}
+</script>
 
 <?php require_once 'includes/footer.php'; ?>
 
@@ -430,4 +557,18 @@
 			document.getElementById("pass_type").innerHTML = "";
 		}
 	}
+</script>
+<script>
+	document.getElementById('nameForm').addEventListener('register', function(event) {
+		const nameInput = document.getElementById('c_name').value;
+		const errorElement = document.getElementById('error');
+		const nameRegex = /^[a-zA-Z\u0621-\u064A\s]+$/;
+
+		if (!nameRegex.test(nameInput)) {
+			errorElement.style.display = 'block';
+			event.preventDefault();
+		} else {
+			errorElement.style.display = 'none';
+		}
+	});
 </script>

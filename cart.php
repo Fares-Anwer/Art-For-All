@@ -211,9 +211,9 @@ if (isset($_POST['apply_coupon'])) {
 									<div class="col-lg-3 pr-1 pb-2">
 										<a href="index.php" class="btn btn-outline-primary form-control"><i class="fas fa-chevron-left"></i> Continue Shopping</a>
 									</div>
-									<div class="col-lg-2 pr-1 pb-2">
-										<a href="index.php" class="btn btn-outline-danger form-control"><i class="fas fa-shopping-cart"></i> Empty</a>
-									</div>
+									<!-- <div class="col-lg-2 pr-1 pb-2"> -->
+									<!-- <a href="index.php" class="btn btn-outline-danger form-control"><i class="fas fa-shopping-cart"></i> Empty</a>
+									</div> -->
 									<div class="col-lg-3 pr-lg-3 pr-1 pb-2">
 										<button class="btn btn-outline-info float-sm-right form-control" type="submit" name="update" value="Update Cart">
 											<i class="fas fa-sync-alt"></i> Update Cart
@@ -320,7 +320,7 @@ if (isset($_POST['apply_coupon'])) {
 							<div class="card">
 								<a href="details.php?product_id=<?php echo $product_id; ?>"><img class="card-img-top img-fluid p-3" src="admin_area/product_images/<?php echo $product_img1; ?>" alt="Card image cap"></a>
 								<div class="card-body text-center">
-									<a href="user_profile.php?user=<?php echo $customer_id; ?>" class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></a>
+									<a href="user_profile.php?user=<?php echo $prod_customer_id; ?>" class="btn btn-sm btn-info mb-0">Mnf By : <?php echo $prcustomer_name; ?></a>
 									<hr>
 									<h6 class="card-title"><a href="details.php?product_id=<?php echo $product_id; ?>"><?php echo $product_title; ?></a></h6>
 									<p class="card-text"><?php echo $product_price; ?> <?php echo $product_psp_price; ?></p>

@@ -1,4 +1,9 @@
 <?php
+$lengthError = '';
+$numberError = '';
+$caseError = '';
+?>
+<?php
 if (isset($_POST['login'])) {
 	$customer_email = $_POST['c_email'];
 	$customer_pass = $_POST['c_pass'];
@@ -40,6 +45,15 @@ if (isset($_POST['login'])) {
 						</button>
 					</div>
 				<?php endif ?>
+				<div id="passwordLengthError" class="text-danger" style="display:none; font-size: 0.875rem;">
+					<span id="lengthErrorMessage"></span>
+				</div>
+				<div id="passwordNumberError" class="text-danger" style="display:none; font-size: 0.875rem;">
+					<span id="numberErrorMessage"></span>
+				</div>
+				<div id="passwordCaseError" class="text-danger" style="display:none; font-size: 0.875rem;">
+					<span id="caseErrorMessage"></span>
+				</div>
 
 				<form method="post" class="needs-validation" novalidate>
 					<div class="form-row">
@@ -54,8 +68,8 @@ if (isset($_POST['login'])) {
 					<div class="form-row">
 						<div class="col-12 mb-4">
 							<label for="password" class="font-weight-bold text-dark">Password</label>
-							<input type="password" name="c_pass" class="form-control p-3" id="password" placeholder="Enter Your Password" required>
-							<div class="invalid-feedback">
+							<input type="password" name="c_pass" class="form-control p-3" id="password" placeholder="Enter Your Password" required oninput="validatePassword()">
+							<div class=" invalid-feedback">
 								Please provide a Password.
 							</div>
 						</div>
@@ -78,13 +92,50 @@ if (isset($_POST['login'])) {
 				</div>
 
 				<script>
-					// Example starter JavaScript for disabling form submissions if there are invalid fields
+					function validatePassword() {
+						var password = document.getElementById('password').value;
+						var lengthErrorMsg = document.getElementById('lengthErrorMessage');
+						var numberErrorMsg = document.getElementById('numberErrorMessage');
+						var caseErrorMsg = document.getElementById('caseErrorMessage');
+						var loginButton = document.getElementById('loginButton');
+
+						var hasMinLength = password.length >= 8;
+						var hasNumber = /\d/.test(password);
+						var hasUpperCase = /[A-Z]/.test(password);
+						var hasLowerCase = /[a-z]/.test(password);
+
+						if (!hasMinLength) {
+							lengthErrorMsg.innerHTML = "Password must be at least 8 characters long.";
+							document.getElementById('passwordLengthError').style.display = 'block';
+						} else {
+							document.getElementById('passwordLengthError').style.display = 'none';
+						}
+
+						if (!hasNumber) {
+							numberErrorMsg.innerHTML = "Password must contain at least one number.";
+							document.getElementById('passwordNumberError').style.display = 'block';
+						} else {
+							document.getElementById('passwordNumberError').style.display = 'none';
+						}
+
+						if (!(hasUpperCase && hasLowerCase)) {
+							caseErrorMsg.innerHTML = "Password must contain both uppercase and lowercase letters.";
+							document.getElementById('passwordCaseError').style.display = 'block';
+						} else {
+							document.getElementById('passwordCaseError').style.display = 'none';
+						}
+
+						if (hasMinLength && hasNumber && hasUpperCase && hasLowerCase) {
+							loginButton.disabled = false;
+						} else {
+							loginButton.disabled = true;
+						}
+					}
+
 					(function() {
 						'use strict';
 						window.addEventListener('load', function() {
-							// Fetch all the forms we want to apply custom Bootstrap validation styles to
 							var forms = document.getElementsByClassName('needs-validation');
-							// Loop over them and prevent submission
 							var validation = Array.prototype.filter.call(forms, function(form) {
 								form.addEventListener('submit', function(event) {
 									if (form.checkValidity() === false) {
